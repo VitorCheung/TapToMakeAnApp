@@ -10,10 +10,11 @@ import GameplayKit
 
 class GameSceneOffice: SKScene {
     
-    var deadLine = 0
+    var deadLine = 10
     var timerDeadLine = Timer()
     var deadLineStart = 10
-    var isDeadLineEnded = true
+    var isDeadLineEnded = false
+    
     
     var money = 0
     var points = 0
@@ -24,7 +25,7 @@ class GameSceneOffice: SKScene {
     
     let moneyLabel = SKLabelNode()
     let deadLineLabel = SKLabelNode()
-    let terminalNode = TerminalOffice()
+    var terminalNode = TerminalOffice()
     
     override func didMove(to view: SKView) {
         
@@ -115,27 +116,44 @@ class GameSceneOffice: SKScene {
         terminalNode.position = CGPoint(x: 48, y: 117)
         self.addChild(terminalNode)
         
+        starCounter()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if isDeadLineEnded {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        let touch:UITouch = touches.first!
+        let positionInScene = touch.location(in: self)
+        let touchedNode = self.atPoint(positionInScene)
+        
+        switch touchedNode.name{
+        case "sellLabel":
             deadLine = deadLineStart
-            starCounter()
             isDeadLineEnded = false
-        }
-        else{
-            points+=1
-            terminalNode.addCodeLine(codeLine: Code(width: Int.random(in: 80..<300)))
-            terminalNode.changeTextOfCodeLabel()
-            terminalNode.points = points
+            terminalNode.setTerminalClicker()
+            money = money+terminalNode.points*5
+            points = 0
+        default:
+            if !(isDeadLineEnded){
+                points+=1
+                terminalNode.addCodeLine(codeLine: Code(width: Int.random(in: 80..<300)))
+                terminalNode.changeTextOfCodeLabel()
+                terminalNode.points = points
+                terminalNode.codeLines += 1
+            }
         }
         
     }
     
     override func update(_ currentTime: TimeInterval) {
+        
         terminalNode.pointsLabel.text = "POINTS: \(points)"
+        moneyLabel.text = "$\(money)"
         if points%5==0 {
             //jump worker
+        }
+        
+        if isDeadLineEnded{
+            terminalNode.setTerminalResult()
         }
     }
     
