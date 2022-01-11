@@ -41,8 +41,8 @@ public class Screem: SKSpriteNode{
         self.addChild(buttonServer)
         
         //MARK: border
-        let border = SKSpriteNode(color: .clear, size: CGSize(width: 335, height: 369))
-        border.drawBorder(color: ColorPalette.mainGreen, width: 5)
+        let border = SKSpriteNode(color: .clear, size: CGSize(width: 335, height: 371))
+        border.drawBorder(color: ColorPalette.mainGreen, width: 8)
         border.zPosition = 3
         border.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         border.position = CGPoint(x: self.size.width/2, y: self.size.height/2+30)

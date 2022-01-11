@@ -20,7 +20,7 @@ class GameSceneTeam: SKScene {
     //Nodes
     let moneyLabel = SKLabelNode()
     let deadLineLabel = SKLabelNode()
-    var terminalNode = TerminalOffice()
+    var terminalNode = TerminalTeam()
     
     override func didMove(to view: SKView) {
         
@@ -29,7 +29,7 @@ class GameSceneTeam: SKScene {
         // Set scene to phone size
         self.size = CGSize(width: 428 , height: 840)
     
-        self.backgroundColor = .white
+        self.backgroundColor = ColorPalette.backgroundGray
         
         //Difine de size of the scene
         self.anchorPoint = CGPoint(x: 0, y: 0)
@@ -91,6 +91,12 @@ class GameSceneTeam: SKScene {
         
         //MARK: Bg
         let backgroundNode = Background()
+        let whiteBackgroundNode = SKSpriteNode(color: .white, size: CGSize(width: 428, height: 300))
+        
+        whiteBackgroundNode.zPosition = -2
+        whiteBackgroundNode.anchorPoint = CGPoint(x: 0.5, y: 0)
+        whiteBackgroundNode.position = CGPoint( x: self.size.width/2, y: 600)
+        self.addChild(whiteBackgroundNode)
         
         backgroundNode.anchorPoint = CGPoint(x: 0.5, y: 0)
         backgroundNode.position = CGPoint( x: self.size.width/2, y: 500)
@@ -116,9 +122,9 @@ class GameSceneTeam: SKScene {
         self.addChild(screemNode)
         
         //MARK: Terminal
-        terminalNode.zPosition = 4
         terminalNode.anchorPoint = CGPoint(x: 0, y: 0)
         terminalNode.position = CGPoint(x: 48, y: 117)
+
         self.addChild(terminalNode)
         
 
@@ -152,6 +158,14 @@ class GameSceneTeam: SKScene {
         
     }
     
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches {
+            let location = touch.location(in: self)
+            let previousLocation = touch.previousLocation(in: self)
+            let deltaY = location.y - previousLocation.y
+            terminalNode.position.y += deltaY
+        }
+    }
 
 }
 

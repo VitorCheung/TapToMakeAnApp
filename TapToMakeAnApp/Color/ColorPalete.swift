@@ -11,4 +11,7 @@ enum ColorPalette {
     static var mainGreen: UIColor {
         UIColor(named: "greenPc") ?? .green
     }
+    static var backgroundGray: UIColor {
+        UIColor(named: "grayPc") ?? .gray
+    }
 }

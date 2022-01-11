@@ -18,7 +18,7 @@ public class TerminalOffice: SKSpriteNode{
     let phrasesCode = ["DECLARING VARIABELS","CREATING FUNCTIONS","MAKING THE LOOP","TESTING THE APP"]
     
     public init(){
-        super.init(texture: nil, color: UIColor.clear, size: CGSize(width: 332 , height: 364))
+        super.init(texture: nil, color: ColorPalette.backgroundGray, size: CGSize(width: 332 , height: 364))
         name="terminal"
         setTerminalClicker()
         
