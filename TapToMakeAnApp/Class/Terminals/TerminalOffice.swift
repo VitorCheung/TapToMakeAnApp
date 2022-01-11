@@ -14,7 +14,6 @@ public class TerminalOffice: SKSpriteNode{
     var codeLines = 0
     
     var points = 0
-    var clicks = 0
     
     let phrasesCode = ["DECLARING VARIABELS","CREATING FUNCTIONS","MAKING THE LOOP","TESTING THE APP"]
     
@@ -70,7 +69,7 @@ public class TerminalOffice: SKSpriteNode{
         overAllLabel.fontName = "Pixel"
         overAllLabel.numberOfLines = 0
         overAllLabel.fontSize = 20
-        overAllLabel.text = "You clicked :\(clicks)\nYou use 3 programers\n with you had made\n1000points\nyour multiplaier would \nbe 2 times bigger"
+        overAllLabel.text = "You clicked :\(points)\nYou use 3 programers\n with you had made\n1000points\nyour multiplaier would \nbe 2 times bigger"
         overAllLabel.horizontalAlignmentMode = .left
         overAllLabel.position = CGPoint(x:10, y: self.size.height-250)
         self.addChild(overAllLabel)

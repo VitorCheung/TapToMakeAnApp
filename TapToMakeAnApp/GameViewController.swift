@@ -10,23 +10,18 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        Player.shared.money=0
+        Player.shared.points=0
+        
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
             let scene = GameSceneOffice()
-                // Set the scale mode to scale to fit the window
-                scene.scaleMode = .aspectFit
-                // Set scene to phone size
-                scene.size = CGSize(width: 428 , height: 840)
-            
-                scene.backgroundColor = .white
                 // Present the scene
                 view.presentScene(scene)
-
-            
             
             view.ignoresSiblingOrder = true
 

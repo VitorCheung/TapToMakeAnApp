@@ -1,14 +1,13 @@
 //
-//  GameScene.swift
+//  GameSceneTeam.swift
 //  TapToMakeAnApp
 //
-//  Created by Vitor Cheung on 07/01/22.
+//  Created by Vitor Cheung on 11/01/22.
 //
-
 import SpriteKit
 import GameplayKit
 
-class GameSceneOffice: SKScene {
+class GameSceneTeam: SKScene {
     
     //data
     var player = Player.shared
@@ -24,13 +23,16 @@ class GameSceneOffice: SKScene {
     var terminalNode = TerminalOffice()
     
     override func didMove(to view: SKView) {
+        
         // Set the scale mode to scale to fit the window
         self.scaleMode = .aspectFit
-
         // Set scene to phone size
         self.size = CGSize(width: 428 , height: 840)
-        
+    
         self.backgroundColor = .white
+        
+        //Difine de size of the scene
+        self.anchorPoint = CGPoint(x: 0, y: 0)
         
         //Difine de size of the scene
         self.anchorPoint = CGPoint(x: 0, y: 0)
@@ -118,6 +120,8 @@ class GameSceneOffice: SKScene {
         terminalNode.anchorPoint = CGPoint(x: 0, y: 0)
         terminalNode.position = CGPoint(x: 48, y: 117)
         self.addChild(terminalNode)
+        
+
     }
     
     //MARK: TouchesEnded
@@ -127,62 +131,27 @@ class GameSceneOffice: SKScene {
         let positionInScene = touch.location(in: self)
         let touchedNode = self.atPoint(positionInScene)
         
-        guard let money = player.money else { return  }
-        guard let points = player.points else { return  }
-        
         switch touchedNode.name{
-        case "sellLabel":
-            
-            player.deadLine = player.deadLineStart
-            player.isDeadLineEnded = false
-            terminalNode.setTerminalClicker()
-            player.money = money+terminalNode.points*5
-            player.points = 0
-            terminalNode.points = 0
-            player.starCounter()
-            
         case "office":
-            print("office")
+            self.view?.presentScene( GameSceneOffice())
         case "team":
-            self.view?.presentScene( GameSceneTeam() )
+            print("team")
         case "docs":
             print("docs")
         case "server":
             print("server")
         default:
-            if player.firstCliked{
-                player.starCounter()
-                player.firstCliked = false
-            }
-            
-            if !(player.isDeadLineEnded){
-                
-                player.points = points + 1
-                terminalNode.addCodeLine(codeLine: Code(width: Int.random(in: 80..<300)))
-                terminalNode.changeTextOfCodeLabel()
-                terminalNode.points = points + 1
-                terminalNode.codeLines += 1
-            }
+            return
         }
         
     }
     
     //MARK: Update
     override func update(_ currentTime: TimeInterval) {
-        
-        guard let points = player.points else { return  }
-        
-        terminalNode.pointsLabel.text = "POINTS: \(points)"
         deadLineLabel.text = "Dead line: \(player.deadLine) days"
-        moneyLabel.text = "$\(player.money ?? 0)"
-        if player.points ?? 0%5==0 {
-            //jump worker
-        }
         
-        if player.isDeadLineEnded{
-            terminalNode.setTerminalResult()
-            terminalNode.points = points
-        }
     }
     
+
 }
+

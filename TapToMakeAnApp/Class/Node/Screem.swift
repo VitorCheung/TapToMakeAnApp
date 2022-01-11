@@ -25,19 +25,19 @@ public class Screem: SKSpriteNode{
         let buttonServer = ButtonTabBar(img: "serverIcon", name: "server")
         
         buttonOffice.anchorPoint = CGPoint(x: 0, y: 0)
-        buttonOffice.position = CGPoint(x: self.size.width*1/5-30, y: 30)
+        buttonOffice.position = CGPoint(x: self.size.width*1/5-30, y: 40)
         self.addChild(buttonOffice)
         
         buttonTeam.anchorPoint = CGPoint(x: 0, y: 0)
-        buttonTeam.position = CGPoint(x: self.size.width*2/5-30, y: 30)
+        buttonTeam.position = CGPoint(x: self.size.width*2/5-30, y: 40)
         self.addChild(buttonTeam)
         
         buttonDoc.anchorPoint = CGPoint(x: 0, y: 0)
-        buttonDoc.position = CGPoint(x: self.size.width*3/5-30, y: 30)
+        buttonDoc.position = CGPoint(x: self.size.width*3/5-30, y: 40)
         self.addChild(buttonDoc)
         
         buttonServer.anchorPoint = CGPoint(x: 0, y: 0)
-        buttonServer.position = CGPoint(x: self.size.width*4/5-30, y: 30)
+        buttonServer.position = CGPoint(x: self.size.width*4/5-30, y: 40)
         self.addChild(buttonServer)
         
         //MARK: border

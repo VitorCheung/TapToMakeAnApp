@@ -10,7 +10,7 @@ import SpriteKit
 public class ButtonTabBar: SKSpriteNode{
     
     public init(img: String, name: String){
-        super.init(texture: nil, color: UIColor.clear, size: CGSize(width: 54, height: 54))
+        super.init(texture: nil, color: .clear, size: CGSize(width: 54, height: 54))
         
         self.anchorPoint =  CGPoint(x: 0.5, y:0.5)
         self.name = name
@@ -18,7 +18,8 @@ public class ButtonTabBar: SKSpriteNode{
         
         let iconNode = SKSpriteNode(imageNamed: img)
         iconNode.anchorPoint =  CGPoint(x: 0.5, y:0)
-        iconNode.position = CGPoint(x:self.size.width/2, y: self.size.height-16)
+        iconNode.position = CGPoint(x:self.size.width/2, y: self.size.height-32)
+        iconNode.name = name
         self.addChild(iconNode)
         
         
@@ -27,8 +28,9 @@ public class ButtonTabBar: SKSpriteNode{
         label.fontName = "Pixel"
         label.fontSize = 15
         label.text = name
+        label.name = name
         label.horizontalAlignmentMode = .center
-        label.position = CGPoint(x:self.size.width/2, y: self.size.height-30)
+        label.position = CGPoint(x:self.size.width/2, y: self.size.height-46)
         self.addChild(label)
         
     }
