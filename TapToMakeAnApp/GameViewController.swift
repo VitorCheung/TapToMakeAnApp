@@ -13,19 +13,23 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "GameScene") {
+            let scene = GameSceneOffice()
                 // Set the scale mode to scale to fit the window
-                scene.scaleMode = .aspectFill
-                
+                scene.scaleMode = .aspectFit
+                // Set scene to phone size
+                scene.size = CGSize(width: 428 , height: 840)
+            
+                scene.backgroundColor = .white
                 // Present the scene
                 view.presentScene(scene)
-            }
+
+            
             
             view.ignoresSiblingOrder = true
-            
+
             view.showsFPS = true
             view.showsNodeCount = true
         }
