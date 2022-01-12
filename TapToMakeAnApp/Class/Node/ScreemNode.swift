@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-public class Screem: SKSpriteNode{
+public class ScreemNode: SKSpriteNode{
     public init(){
         super.init(texture: nil, color: UIColor.clear, size: CGSize(width: 428, height: 537))
         name="screem"
@@ -19,10 +19,10 @@ public class Screem: SKSpriteNode{
         self.addChild(screem)
         
         //MARK: button
-        let buttonOffice = ButtonTabBar(img: "officeIcon", name: "office")
-        let buttonTeam = ButtonTabBar(img: "teamIcon", name: "team")
-        let buttonDoc = ButtonTabBar(img: "docIcon", name: "docs")
-        let buttonServer = ButtonTabBar(img: "serverIcon", name: "server")
+        let buttonOffice = ButtonTabBarNode(img: "officeIcon", name: "office")
+        let buttonTeam = ButtonTabBarNode(img: "teamIcon", name: "team")
+        let buttonDoc = ButtonTabBarNode(img: "docIcon", name: "docs")
+        let buttonServer = ButtonTabBarNode(img: "serverIcon", name: "server")
         
         buttonOffice.anchorPoint = CGPoint(x: 0, y: 0)
         buttonOffice.position = CGPoint(x: self.size.width*1/5-30, y: 40)

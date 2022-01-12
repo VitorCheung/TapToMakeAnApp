@@ -16,6 +16,7 @@ class GameViewController: UIViewController {
     
         Player.shared.money=0
         Player.shared.points=0
+        Player.shared.workers.append(WorkersEnum.Ju)
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'

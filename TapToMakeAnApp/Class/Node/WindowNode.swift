@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-public class Window: SKSpriteNode{
+public class WindowNode: SKSpriteNode{
     public init(){
         let texture = SKTexture(imageNamed: "window.png")
         super.init(texture: texture, color: UIColor.clear, size: texture.size())

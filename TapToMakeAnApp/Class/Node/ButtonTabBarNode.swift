@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-public class ButtonTabBar: SKSpriteNode{
+public class ButtonTabBarNode: SKSpriteNode{
     
     public init(img: String, name: String){
         super.init(texture: nil, color: .clear, size: CGSize(width: 54, height: 54))

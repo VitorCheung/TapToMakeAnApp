@@ -12,18 +12,12 @@ class GameSceneTeam: SKScene {
     //data
     var player = Player.shared
     
-    // declarar class Worker
-    var worker1 = SKSpriteNode(imageNamed: "Muza")
-    var worker2 = SKSpriteNode(imageNamed: "Ju")
-    var worker3 = SKSpriteNode(imageNamed: "Marcus")
-    
     //Nodes
     let moneyLabel = SKLabelNode()
     let deadLineLabel = SKLabelNode()
     var terminalNode = TerminalTeam()
     
     override func didMove(to view: SKView) {
-        
         // Set the scale mode to scale to fit the window
         self.scaleMode = .aspectFit
         // Set scene to phone size
@@ -56,6 +50,13 @@ class GameSceneTeam: SKScene {
         self.addChild(deadLineLabel)
         
         //MARK: WORKER
+        let buttonMinus1 = SKSpriteNode(imageNamed: "removeIcon")
+        let buttonMinus2 = SKSpriteNode(imageNamed: "removeIcon")
+        let buttonMinus3 = SKSpriteNode(imageNamed: "removeIcon")
+        
+        let worker1 = WorkeNode(imgName: player.team[0]?.name)
+        let worker2 = WorkeNode(imgName: player.team[1]?.name)
+        let worker3 = WorkeNode(imgName: player.team[2]?.name)
         
         worker1.anchorPoint = CGPoint(x: 1, y: 0)
         worker1.position = CGPoint( x: self.size.width*3/20, y: 550)
@@ -72,10 +73,31 @@ class GameSceneTeam: SKScene {
         worker3.scale(to: CGSize(width: 48, height: 141))
         self.addChild(worker3)
         
+        if worker1.imgName != nil {
+            buttonMinus1.anchorPoint = CGPoint(x: 1, y: 0)
+            buttonMinus1.position = CGPoint( x: self.size.width*3/20+30, y: 691)
+            buttonMinus1.scale(to: CGSize(width: 30, height: 30))
+            self.addChild(buttonMinus1)
+        }
+
+        if worker2.imgName != nil {
+        buttonMinus2.anchorPoint = CGPoint(x: 1, y: 0)
+        buttonMinus2.position = CGPoint( x: self.self.size.width/2+30, y: 691)
+        buttonMinus2.scale(to: CGSize(width: 30, height: 30))
+        self.addChild(buttonMinus2)
+        }
+            
+        if worker3.imgName != nil {
+        buttonMinus3.anchorPoint = CGPoint(x: 1, y: 0)
+        buttonMinus3.position = CGPoint( x: self.size.width*17/20+30, y: 691)
+        buttonMinus3.scale(to: CGSize(width: 30, height: 30))
+        self.addChild(buttonMinus3)
+        }
+            
         //MARK: Desks
-        let desk1 = Desk()
-        let desk2 = Desk()
-        let desk3 = Desk()
+        let desk1 = DeskNode()
+        let desk2 = DeskNode()
+        let desk3 = DeskNode()
         
         desk1.anchorPoint = CGPoint(x: 0.5, y: 0)
         desk1.position = CGPoint( x: self.size.width*3/20+20, y: 550)
@@ -90,7 +112,7 @@ class GameSceneTeam: SKScene {
         self.addChild(desk3)
         
         //MARK: Bg
-        let backgroundNode = Background()
+        let backgroundNode = BackgroundNode()
         let whiteBackgroundNode = SKSpriteNode(color: .white, size: CGSize(width: 428, height: 300))
         
         whiteBackgroundNode.zPosition = -2
@@ -103,8 +125,8 @@ class GameSceneTeam: SKScene {
         self.addChild(backgroundNode)
         
         //MARK: windows
-        let window1 = Window()
-        let window2 = Window()
+        let window1 = WindowNode()
+        let window2 = WindowNode()
         
         window1.anchorPoint = CGPoint(x: 0.75, y: 0)
         window1.position = CGPoint(x: self.size.width*1/3, y: 650)
@@ -115,7 +137,7 @@ class GameSceneTeam: SKScene {
         self.addChild(window2)
         
         //MARK: Screem
-        let screemNode = Screem()
+        let screemNode = ScreemNode()
         
         screemNode.anchorPoint = CGPoint(x: 0, y: 0)
         screemNode.position = CGPoint( x: 0 , y: 0)
@@ -163,7 +185,11 @@ class GameSceneTeam: SKScene {
             let location = touch.location(in: self)
             let previousLocation = touch.previousLocation(in: self)
             let deltaY = location.y - previousLocation.y
-            terminalNode.position.y += deltaY
+            let linesWorker = player.workers.count%3>0 ? Double(player.workers.count)/3+1 : Double(player.workers.count)/3
+            if terminalNode.position.y + deltaY > 100 && terminalNode.position.y + deltaY < 100*linesWorker.rounded() {
+                terminalNode.position.y += deltaY
+            }
+            
         }
     }
 

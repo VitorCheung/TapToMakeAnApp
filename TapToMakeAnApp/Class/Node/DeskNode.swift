@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-public class Desk: SKSpriteNode{
+public class DeskNode: SKSpriteNode{
     public init(){
         let texture = SKTexture(imageNamed: "desk.png")
         super.init(texture: texture, color: UIColor.clear, size: texture.size())

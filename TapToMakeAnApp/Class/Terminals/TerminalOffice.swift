@@ -15,8 +15,6 @@ public class TerminalOffice: SKSpriteNode{
     
     var points = 0
     
-    let phrasesCode = ["DECLARING VARIABELS","CREATING FUNCTIONS","MAKING THE LOOP","TESTING THE APP"]
-    
     public init(){
         super.init(texture: nil, color: ColorPalette.backgroundGray, size: CGSize(width: 332 , height: 364))
         name="terminal"
@@ -90,7 +88,7 @@ public class TerminalOffice: SKSpriteNode{
         self.addChild(sellLabel)
     }
         
-    func addCodeLine(codeLine:Code){
+    func addCodeLine(codeLine:CodeNode){
         if 211-15*codeLines>0{
             codeLine.anchorPoint = CGPoint(x: 0, y: 0)
             codeLine.position = CGPoint(x: 0, y: 211 - 15*codeLines)
@@ -105,7 +103,7 @@ public class TerminalOffice: SKSpriteNode{
     
     func changeTextOfCodeLabel(){
         if points%15==0{
-            codeLabel.text = phrasesCode[Int.random(in: 0..<phrasesCode.count)]
+            codeLabel.text = PhrasesCode.allCases.randomElement()?.rawValue
         }
     }
 }

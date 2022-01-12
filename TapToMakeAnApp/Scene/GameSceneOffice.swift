@@ -13,11 +13,6 @@ class GameSceneOffice: SKScene {
     //data
     var player = Player.shared
     
-    // declarar class Worker
-    var worker1 = SKSpriteNode(imageNamed: "Muza")
-    var worker2 = SKSpriteNode(imageNamed: "Ju")
-    var worker3 = SKSpriteNode(imageNamed: "Marcus")
-    
     //Nodes
     let moneyLabel = SKLabelNode()
     let deadLineLabel = SKLabelNode()
@@ -54,6 +49,9 @@ class GameSceneOffice: SKScene {
         self.addChild(deadLineLabel)
         
         //MARK: WORKER
+        let worker1 = WorkeNode(imgName: player.team[0]?.name)
+        let worker2 = WorkeNode(imgName: player.team[1]?.name)
+        let worker3 = WorkeNode(imgName: player.team[2]?.name)
         
         worker1.anchorPoint = CGPoint(x: 1, y: 0)
         worker1.position = CGPoint( x: self.size.width*3/20, y: 550)
@@ -71,9 +69,9 @@ class GameSceneOffice: SKScene {
         self.addChild(worker3)
         
         //MARK: Desks
-        let desk1 = Desk()
-        let desk2 = Desk()
-        let desk3 = Desk()
+        let desk1 = DeskNode()
+        let desk2 = DeskNode()
+        let desk3 = DeskNode()
         
         desk1.anchorPoint = CGPoint(x: 0.5, y: 0)
         desk1.position = CGPoint( x: self.size.width*3/20+20, y: 550)
@@ -88,15 +86,15 @@ class GameSceneOffice: SKScene {
         self.addChild(desk3)
         
         //MARK: Bg
-        let backgroundNode = Background()
+        let backgroundNode = BackgroundNode()
         
         backgroundNode.anchorPoint = CGPoint(x: 0.5, y: 0)
         backgroundNode.position = CGPoint( x: self.size.width/2, y: 500)
         self.addChild(backgroundNode)
         
         //MARK: windows
-        let window1 = Window()
-        let window2 = Window()
+        let window1 = WindowNode()
+        let window2 = WindowNode()
         
         window1.anchorPoint = CGPoint(x: 0.75, y: 0)
         window1.position = CGPoint(x: self.size.width*1/3, y: 650)
@@ -107,7 +105,7 @@ class GameSceneOffice: SKScene {
         self.addChild(window2)
         
         //MARK: Screem
-        let screemNode = Screem()
+        let screemNode = ScreemNode()
         
         screemNode.anchorPoint = CGPoint(x: 0, y: 0)
         screemNode.position = CGPoint( x: 0 , y: 0)
@@ -158,7 +156,7 @@ class GameSceneOffice: SKScene {
             if !(player.isDeadLineEnded){
                 
                 player.points = points + 1
-                terminalNode.addCodeLine(codeLine: Code(width: Int.random(in: 80..<300)))
+                terminalNode.addCodeLine(codeLine: CodeNode(width: Int.random(in: 80..<300)))
                 terminalNode.changeTextOfCodeLabel()
                 terminalNode.points = points + 1
                 terminalNode.codeLines += 1

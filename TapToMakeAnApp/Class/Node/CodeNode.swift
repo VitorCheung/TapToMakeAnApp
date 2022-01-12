@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-public class Code: SKSpriteNode{
+public class CodeNode: SKSpriteNode{
     public init(width:Int){
         super.init(texture: nil, color: UIColor.clear, size: CGSize(width: width, height: 10))
         self.color = ColorPalette.mainGreen

@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-public class Background: SKSpriteNode{
+public class BackgroundNode: SKSpriteNode{
     public init(){
         let texture = SKTexture(imageNamed: "background")
         super.init(texture: texture, color: UIColor.clear, size: texture.size())
