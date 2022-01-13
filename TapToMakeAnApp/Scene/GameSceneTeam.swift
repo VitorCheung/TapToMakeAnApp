@@ -4,6 +4,7 @@
 //
 //  Created by Vitor Cheung on 11/01/22.
 //
+
 import SpriteKit
 import GameplayKit
 
@@ -41,14 +42,13 @@ class GameSceneTeam: SKScene {
         let touch:UITouch = touches.first!
         let positionInScene = touch.location(in: self)
         let touchedNode = self.atPoint(positionInScene)
-        print(touchedNode.name)
         switch touchedNode.name{
         case "office":
-            self.view?.presentScene( GameSceneOffice())
+            self.view?.presentScene( GameSceneOffice() )
         case "team":
             print("team")
         case "docs":
-            print("docs")
+            self.view?.presentScene( GameSceneDocs() )
         case "server":
             print("server")
         case "worker":
@@ -98,8 +98,8 @@ class GameSceneTeam: SKScene {
     }
     
     func removeWorkerOfTeam(position:Int){
-        
-        player.workers.append(player.team[position])
+        guard let worker = player.team[position] else { return  }
+        player.workers.append(worker)
         player.team[position] = nil
         
         self.removeAllChildren()

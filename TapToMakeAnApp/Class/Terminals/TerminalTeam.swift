@@ -54,16 +54,23 @@ public class TerminalTeam: SKSpriteNode{
         worker.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         worker.position = CGPoint(x: x, y: y)
         
-        if let workerData = player.workers[indexWorker] {
-            let imgWorker = WorkerNode(worker: workerData)
-            imgWorker.zPosition = 0
-            imgWorker.positonLibary = indexWorker
-            imgWorker.scale(to: CGSize(width: 40, height: 85))
-            imgWorker.position = CGPoint(x:0,y:0)
-            imgWorker.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        let backgroundWorker = WorkerNode(worker: nil)
+        backgroundWorker.zPosition = 1
+        backgroundWorker.positonLibary = indexWorker
+        backgroundWorker.scale(to: CGSize(width: 100, height: 140))
+        backgroundWorker.position = CGPoint(x:0,y:0)
+        backgroundWorker.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        backgroundWorker.addChild(backgroundWorker)
+
+        let imgWorker = WorkerNode(worker: player.workers[indexWorker])
+        imgWorker.zPosition = 0
+        imgWorker.positonLibary = indexWorker
+        imgWorker.scale(to: CGSize(width: 40, height: 85))
+        imgWorker.position = CGPoint(x:0,y:0)
+        imgWorker.anchorPoint = CGPoint(x: 0.5, y: 0.5)
             
-            worker.addChild(imgWorker)
-        }
+        worker.addChild(imgWorker)
+        
 
         
         self.addChild(worker)

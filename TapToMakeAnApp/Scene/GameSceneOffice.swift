@@ -57,7 +57,7 @@ class GameSceneOffice: SKScene {
         case "team":
             self.view?.presentScene( GameSceneTeam() )
         case "docs":
-            print("docs")
+            self.view?.presentScene( GameSceneDocs() )
         case "server":
             print("server")
         default:

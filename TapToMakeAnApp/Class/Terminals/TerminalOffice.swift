@@ -92,7 +92,7 @@ public class TerminalOffice: SKSpriteNode{
         sellLabel.fontColor = .black
         sellLabel.fontName = "Pixel"
         sellLabel.fontSize = 25
-        sellLabel.text = "SELL :\(points)\n"
+        sellLabel.text = "SELL :\(points*5)\n"
         sellLabel.horizontalAlignmentMode = .center
         sellLabel.position = CGPoint(x:self.size.width/2, y: 50)
         self.addChild(sellLabel)
@@ -112,7 +112,8 @@ public class TerminalOffice: SKSpriteNode{
     }
     
     func changeTextOfCodeLabel(){
-        if player.points ?? 0%15==0{
+        guard let points = player.points else { return  }
+        if  points%15==0{
             codeLabel.text = PhrasesCode.allCases.randomElement()?.rawValue
         }
     }

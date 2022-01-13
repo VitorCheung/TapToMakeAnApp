@@ -7,15 +7,8 @@
 
 import Foundation
 
-public class Worker{
+public struct Worker{
     let name: String
     var power: Int
     var rarety: Int
-    
-    init(name: String, power:Int, rarety:Int){
-        self.name = name
-        self.power = power
-        self.rarety = rarety
-    }
-    
 }
