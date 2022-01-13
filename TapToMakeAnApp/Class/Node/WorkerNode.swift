@@ -17,6 +17,7 @@ public class WorkerNode: SKSpriteNode{
         
         guard let img = worker?.name else {
             super.init(texture: nil, color: UIColor.clear, size: CGSize(width: 124, height: 124))
+            name="worker"
             return
         }
         

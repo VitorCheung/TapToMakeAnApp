@@ -57,10 +57,11 @@ public class TerminalTeam: SKSpriteNode{
         let backgroundWorker = WorkerNode(worker: nil)
         backgroundWorker.zPosition = 1
         backgroundWorker.positonLibary = indexWorker
+        backgroundWorker.worker = player.workers[indexWorker]
         backgroundWorker.scale(to: CGSize(width: 100, height: 140))
         backgroundWorker.position = CGPoint(x:0,y:0)
         backgroundWorker.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        backgroundWorker.addChild(backgroundWorker)
+        worker.addChild(backgroundWorker)
 
         let imgWorker = WorkerNode(worker: player.workers[indexWorker])
         imgWorker.zPosition = 0
