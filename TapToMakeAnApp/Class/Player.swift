@@ -13,8 +13,8 @@ public class Player{
     
     var money : Int?
     var points : Int?
-    var workers : [String]?
-    var team : [String]?
+    var workers : [Worker?] = []
+    var team : [Worker?] = [nil,nil,nil]
     var firstCliked = true
     
     //timer

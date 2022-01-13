@@ -10,8 +10,7 @@ import SpriteKit
 extension SKSpriteNode {
     func drawBorder(color: UIColor, width: CGFloat) {
         let shapeNode = SKShapeNode(rect: frame)
-        shapeNode.position = CGPoint(x: frame.midX, y: frame.midY)
-        shapeNode.fillColor = .clear
+        shapeNode.position = CGPoint(x: 0, y: 0)
         shapeNode.strokeColor = color
         shapeNode.lineWidth = width
         addChild(shapeNode)
