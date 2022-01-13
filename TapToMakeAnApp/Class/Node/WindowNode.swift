@@ -13,7 +13,7 @@ public class WindowNode: SKSpriteNode{
         super.init(texture: texture, color: UIColor.clear, size: texture.size())
         name="window"
         self.scale(to: CGSize(width: 124, height: 124))
-        self.zPosition = -1 
+        self.zPosition = 3
     }
     
     required init?(coder aDecoder: NSCoder) {

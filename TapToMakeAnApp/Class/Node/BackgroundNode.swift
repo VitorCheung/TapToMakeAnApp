@@ -12,7 +12,7 @@ public class BackgroundNode: SKSpriteNode{
         let texture = SKTexture(imageNamed: "background")
         super.init(texture: texture, color: UIColor.clear, size: texture.size())
         name="background"
-        self.zPosition = -1
+        self.zPosition = 3
         self.scale(to: CGSize(width: 428, height: 125))
     }
     

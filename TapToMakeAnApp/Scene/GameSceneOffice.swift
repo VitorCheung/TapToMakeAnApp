@@ -29,7 +29,77 @@ class GameSceneOffice: SKScene {
         
         //Difine de size of the scene
         self.anchorPoint = CGPoint(x: 0, y: 0)
+        
+        setup()
 
+    }
+    
+    //MARK: TouchesEnded
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        let touch:UITouch = touches.first!
+        let positionInScene = touch.location(in: self)
+        let touchedNode = self.atPoint(positionInScene)
+        
+        guard let money = player.money else { return  }
+        guard let points = player.points else { return  }
+        switch touchedNode.name{
+        case "sellLabel":
+            
+            player.deadLine = player.deadLineStart
+            player.isDeadLineEnded = false
+            terminalNode.setupForCliker()
+            player.money = money+points*5
+            player.points = 0
+            player.starCounter()            
+        case "office":
+            print("office")
+        case "team":
+            self.view?.presentScene( GameSceneTeam() )
+        case "docs":
+            print("docs")
+        case "server":
+            print("server")
+        default:
+            if player.firstCliked{
+                player.starCounter()
+                player.firstCliked = false
+            }
+            
+            if !(player.isDeadLineEnded){
+                
+                player.points = points + 1
+                terminalNode.addCodeLine(codeLine: CodeNode(width: Int.random(in: 80..<300)))
+                terminalNode.changeTextOfCodeLabel()
+                terminalNode.codeLines += 1
+            }
+        }
+        
+    }
+    
+    //MARK: Update
+    override func update(_ currentTime: TimeInterval) {
+        
+        guard let points = player.points else { return  }
+        
+        terminalNode.pointsLabel.text = "POINTS: \(points)"
+        deadLineLabel.text = "Dead line: \(player.deadLine) days"
+        moneyLabel.text = "$\(player.money ?? 0)"
+//        if points%5==0 {
+//            //jump worker
+//        }
+        
+        if player.isDeadLineEnded{
+            player.points = points
+            terminalNode.setupForResults()
+            return
+        }
+        
+
+        
+    }
+    
+    func setup(){
         //MARK: Labels
         
         moneyLabel.fontColor = .black
@@ -49,9 +119,9 @@ class GameSceneOffice: SKScene {
         self.addChild(deadLineLabel)
         
         //MARK: WORKER
-        let worker1 = WorkeNode(imgName: player.team[0]?.name)
-        let worker2 = WorkeNode(imgName: player.team[1]?.name)
-        let worker3 = WorkeNode(imgName: player.team[2]?.name)
+        let worker1 = WorkerNode(worker: player.team[0])
+        let worker2 = WorkerNode(worker: player.team[1])
+        let worker3 = WorkerNode(worker: player.team[2])
         
         worker1.anchorPoint = CGPoint(x: 1, y: 0)
         worker1.position = CGPoint( x: self.size.width*3/20, y: 550)
@@ -104,83 +174,18 @@ class GameSceneOffice: SKScene {
         window2.position = CGPoint(x: self.size.width*2/3, y: 650)
         self.addChild(window2)
         
+        //MARK: Terminal
+        terminalNode.setupForCliker()
+        terminalNode.zPosition = 1
+        terminalNode.anchorPoint = CGPoint(x: 0, y: 0)
+        terminalNode.position = CGPoint(x: 48, y: 117)
+        addChild(terminalNode)
+        
         //MARK: Screem
         let screemNode = ScreemNode()
-        
         screemNode.anchorPoint = CGPoint(x: 0, y: 0)
         screemNode.position = CGPoint( x: 0 , y: 0)
         self.addChild(screemNode)
-        
-        //MARK: Terminal
-        terminalNode.zPosition = 4
-        terminalNode.anchorPoint = CGPoint(x: 0, y: 0)
-        terminalNode.position = CGPoint(x: 48, y: 117)
-        self.addChild(terminalNode)
+
     }
-    
-    //MARK: TouchesEnded
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        let touch:UITouch = touches.first!
-        let positionInScene = touch.location(in: self)
-        let touchedNode = self.atPoint(positionInScene)
-        
-        guard let money = player.money else { return  }
-        guard let points = player.points else { return  }
-        
-        switch touchedNode.name{
-        case "sellLabel":
-            
-            player.deadLine = player.deadLineStart
-            player.isDeadLineEnded = false
-            terminalNode.setTerminalClicker()
-            player.money = money+terminalNode.points*5
-            player.points = 0
-            terminalNode.points = 0
-            player.starCounter()
-            
-        case "office":
-            print("office")
-        case "team":
-            self.view?.presentScene( GameSceneTeam() )
-        case "docs":
-            print("docs")
-        case "server":
-            print("server")
-        default:
-            if player.firstCliked{
-                player.starCounter()
-                player.firstCliked = false
-            }
-            
-            if !(player.isDeadLineEnded){
-                
-                player.points = points + 1
-                terminalNode.addCodeLine(codeLine: CodeNode(width: Int.random(in: 80..<300)))
-                terminalNode.changeTextOfCodeLabel()
-                terminalNode.points = points + 1
-                terminalNode.codeLines += 1
-            }
-        }
-        
-    }
-    
-    //MARK: Update
-    override func update(_ currentTime: TimeInterval) {
-        
-        guard let points = player.points else { return  }
-        
-        terminalNode.pointsLabel.text = "POINTS: \(points)"
-        deadLineLabel.text = "Dead line: \(player.deadLine) days"
-        moneyLabel.text = "$\(player.money ?? 0)"
-        if player.points ?? 0%5==0 {
-            //jump worker
-        }
-        
-        if player.isDeadLineEnded{
-            terminalNode.setTerminalResult()
-            terminalNode.points = points
-        }
-    }
-    
 }

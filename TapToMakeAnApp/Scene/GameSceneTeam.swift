@@ -31,9 +31,87 @@ class GameSceneTeam: SKScene {
         //Difine de size of the scene
         self.anchorPoint = CGPoint(x: 0, y: 0)
 
+        setup()
+
+    }
+    
+    //MARK: TouchesEnded
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        let touch:UITouch = touches.first!
+        let positionInScene = touch.location(in: self)
+        let touchedNode = self.atPoint(positionInScene)
+        print(touchedNode.name)
+        switch touchedNode.name{
+        case "office":
+            self.view?.presentScene( GameSceneOffice())
+        case "team":
+            print("team")
+        case "docs":
+            print("docs")
+        case "server":
+            print("server")
+        case "worker":
+            let workerNode = touchedNode as? WorkerNode
+            addWorkerToTeam(worker: workerNode?.worker, positionInLibary: workerNode?.positonLibary)
+        case "remove1":
+            removeWorkerOfTeam(position: 0)
+        case "remove2":
+            removeWorkerOfTeam(position: 1)
+        case "remove3":
+            removeWorkerOfTeam(position: 2)
+        default:
+            return
+        }
+        
+    }
+    
+    //MARK: Update
+    override func update(_ currentTime: TimeInterval) {
+        deadLineLabel.text = "Dead line: \(player.deadLine) days"
+        
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches {
+            let location = touch.location(in: self)
+            let previousLocation = touch.previousLocation(in: self)
+            let deltaY = location.y - previousLocation.y
+            let linesWorker = player.workers.count%3>0 ? Double(player.workers.count)/3+1 : Double(player.workers.count)/3
+            if terminalNode.position.y + deltaY > 100 && terminalNode.position.y  + deltaY < 100*linesWorker.rounded() {
+                terminalNode.position.y += deltaY
+            }
+        }
+    }
+    
+    func addWorkerToTeam(worker:Worker?, positionInLibary: Int?){
+        guard let index = positionInLibary else { return  }
+        for position in 0..<player.team.count {
+            if player.team[position] == nil{
+                player.team[position] = worker
+                player.workers.remove(at: index)
+                break
+            }
+        }
+        self.removeAllChildren()
+        setup()
+    }
+    
+    func removeWorkerOfTeam(position:Int){
+        
+        player.workers.append(player.team[position])
+        player.team[position] = nil
+        
+        self.removeAllChildren()
+        setup()
+    }
+    
+    func setup(){
+
         //MARK: Labels
         
         moneyLabel.fontColor = .black
+        moneyLabel.zPosition = 10
         moneyLabel.fontName = "Pixel"
         moneyLabel.fontSize = 25
         moneyLabel.text = "$\(player.money ?? 0)"
@@ -42,6 +120,7 @@ class GameSceneTeam: SKScene {
         self.addChild(moneyLabel)
         
         deadLineLabel.fontColor = .red
+        deadLineLabel.zPosition = 10
         deadLineLabel.fontName = "Pixel"
         deadLineLabel.fontSize = 25
         deadLineLabel.text = "Dead line: 10 days"
@@ -54,9 +133,9 @@ class GameSceneTeam: SKScene {
         let buttonMinus2 = SKSpriteNode(imageNamed: "removeIcon")
         let buttonMinus3 = SKSpriteNode(imageNamed: "removeIcon")
         
-        let worker1 = WorkeNode(imgName: player.team[0]?.name)
-        let worker2 = WorkeNode(imgName: player.team[1]?.name)
-        let worker3 = WorkeNode(imgName: player.team[2]?.name)
+        let worker1 = WorkerNode(worker: player.team[0])
+        let worker2 = WorkerNode(worker: player.team[1])
+        let worker3 = WorkerNode(worker: player.team[2])
         
         worker1.anchorPoint = CGPoint(x: 1, y: 0)
         worker1.position = CGPoint( x: self.size.width*3/20, y: 550)
@@ -73,25 +152,31 @@ class GameSceneTeam: SKScene {
         worker3.scale(to: CGSize(width: 48, height: 141))
         self.addChild(worker3)
         
-        if worker1.imgName != nil {
+        if worker1.worker != nil {
+            buttonMinus1.zPosition = 10
+            buttonMinus1.name = "remove1"
             buttonMinus1.anchorPoint = CGPoint(x: 1, y: 0)
             buttonMinus1.position = CGPoint( x: self.size.width*3/20+30, y: 691)
             buttonMinus1.scale(to: CGSize(width: 30, height: 30))
             self.addChild(buttonMinus1)
         }
 
-        if worker2.imgName != nil {
-        buttonMinus2.anchorPoint = CGPoint(x: 1, y: 0)
-        buttonMinus2.position = CGPoint( x: self.self.size.width/2+30, y: 691)
-        buttonMinus2.scale(to: CGSize(width: 30, height: 30))
-        self.addChild(buttonMinus2)
+        if worker2.worker != nil {
+            buttonMinus2.zPosition = 10
+            buttonMinus2.name = "remove2"
+            buttonMinus2.anchorPoint = CGPoint(x: 1, y: 0)
+            buttonMinus2.position = CGPoint( x: self.self.size.width/2+30, y: 691)
+            buttonMinus2.scale(to: CGSize(width: 30, height: 30))
+            self.addChild(buttonMinus2)
         }
             
-        if worker3.imgName != nil {
-        buttonMinus3.anchorPoint = CGPoint(x: 1, y: 0)
-        buttonMinus3.position = CGPoint( x: self.size.width*17/20+30, y: 691)
-        buttonMinus3.scale(to: CGSize(width: 30, height: 30))
-        self.addChild(buttonMinus3)
+        if worker3.worker != nil {
+            buttonMinus3.zPosition = 10
+            buttonMinus3.name = "remove3"
+            buttonMinus3.anchorPoint = CGPoint(x: 1, y: 0)
+            buttonMinus3.position = CGPoint( x: self.size.width*17/20+30, y: 691)
+            buttonMinus3.scale(to: CGSize(width: 30, height: 30))
+            self.addChild(buttonMinus3)
         }
             
         //MARK: Desks
@@ -115,7 +200,7 @@ class GameSceneTeam: SKScene {
         let backgroundNode = BackgroundNode()
         let whiteBackgroundNode = SKSpriteNode(color: .white, size: CGSize(width: 428, height: 300))
         
-        whiteBackgroundNode.zPosition = -2
+        whiteBackgroundNode.zPosition = 3
         whiteBackgroundNode.anchorPoint = CGPoint(x: 0.5, y: 0)
         whiteBackgroundNode.position = CGPoint( x: self.size.width/2, y: 600)
         self.addChild(whiteBackgroundNode)
@@ -137,60 +222,20 @@ class GameSceneTeam: SKScene {
         self.addChild(window2)
         
         //MARK: Screem
-        let screemNode = ScreemNode()
         
+        let screemNode = ScreemNode()
         screemNode.anchorPoint = CGPoint(x: 0, y: 0)
         screemNode.position = CGPoint( x: 0 , y: 0)
+        screemNode.name = "screem"
         self.addChild(screemNode)
         
-        //MARK: Terminal
+        terminalNode.setup()
+        terminalNode.zPosition = 1
         terminalNode.anchorPoint = CGPoint(x: 0, y: 0)
         terminalNode.position = CGPoint(x: 48, y: 117)
-
-        self.addChild(terminalNode)
+        addChild(terminalNode)
         
-
-    }
-    
-    //MARK: TouchesEnded
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        let touch:UITouch = touches.first!
-        let positionInScene = touch.location(in: self)
-        let touchedNode = self.atPoint(positionInScene)
-        
-        switch touchedNode.name{
-        case "office":
-            self.view?.presentScene( GameSceneOffice())
-        case "team":
-            print("team")
-        case "docs":
-            print("docs")
-        case "server":
-            print("server")
-        default:
-            return
-        }
-        
-    }
-    
-    //MARK: Update
-    override func update(_ currentTime: TimeInterval) {
-        deadLineLabel.text = "Dead line: \(player.deadLine) days"
-        
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches {
-            let location = touch.location(in: self)
-            let previousLocation = touch.previousLocation(in: self)
-            let deltaY = location.y - previousLocation.y
-            let linesWorker = player.workers.count%3>0 ? Double(player.workers.count)/3+1 : Double(player.workers.count)/3
-            if terminalNode.position.y + deltaY > 100 && terminalNode.position.y + deltaY < 100*linesWorker.rounded() {
-                terminalNode.position.y += deltaY
-            }
-            
-        }
     }
 
 }

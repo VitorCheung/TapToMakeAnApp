@@ -7,23 +7,23 @@
 
 import SpriteKit
 
-public class WorkeNode: SKSpriteNode{
-    var imgName : String?
-    public init(imgName:String?){
+public class WorkerNode: SKSpriteNode{
+    public var worker : Worker?
+    public var positonLibary : Int?
+    public init(worker:Worker?){
         
-        self.imgName = imgName
+        positonLibary = nil
+        self.worker = worker
         
-        guard let img = self.imgName else {
+        guard let img = worker?.name else {
             super.init(texture: nil, color: UIColor.clear, size: CGSize(width: 124, height: 124))
-            name="noWorker"
-            self.zPosition = -1
             return
         }
         
         let texture = SKTexture(imageNamed: img)
         super.init(texture: texture, color: UIColor.clear, size: CGSize(width: 124, height: 124))
-        name=img
-        self.zPosition = -1
+        name="worker"
+        self.zPosition = 4
     }
         
     required init?(coder aDecoder: NSCoder) {
