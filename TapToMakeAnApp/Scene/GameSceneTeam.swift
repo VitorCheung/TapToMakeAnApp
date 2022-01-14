@@ -18,6 +18,8 @@ class GameSceneTeam: SKScene {
     let deadLineLabel = SKLabelNode()
     var terminalNode = TerminalTeam()
     
+    var isToucheMoved = false
+    
     override func didMove(to view: SKView) {
         // Set the scale mode to scale to fit the window
         self.scaleMode = .aspectFit
@@ -39,29 +41,34 @@ class GameSceneTeam: SKScene {
     //MARK: TouchesEnded
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        let touch:UITouch = touches.first!
-        let positionInScene = touch.location(in: self)
-        let touchedNode = self.atPoint(positionInScene)
-        switch touchedNode.name{
-        case "office":
-            self.view?.presentScene( GameSceneOffice() )
-        case "team":
-            print("team")
-        case "docs":
-            self.view?.presentScene( GameSceneDocs() )
-        case "server":
-            print("server")
-        case "worker":
-            let workerNode = touchedNode as? WorkerNode
-            addWorkerToTeam(worker: workerNode?.worker, positionInLibary: workerNode?.positonLibary)
-        case "remove1":
-            removeWorkerOfTeam(position: 0)
-        case "remove2":
-            removeWorkerOfTeam(position: 1)
-        case "remove3":
-            removeWorkerOfTeam(position: 2)
-        default:
-            return
+        if !(isToucheMoved){
+            let touch:UITouch = touches.first!
+            let positionInScene = touch.location(in: self)
+            let touchedNode = self.atPoint(positionInScene)
+            switch touchedNode.name{
+            case "office":
+                self.view?.presentScene( GameSceneOffice() )
+            case "team":
+                print("team")
+            case "docs":
+                self.view?.presentScene( GameSceneDocs() )
+            case "server":
+                self.view?.presentScene( GameSceneServe() )
+            case "worker":
+                let workerNode = touchedNode as? WorkerNode
+                addWorkerToTeam(worker: workerNode?.worker, positionInLibary: workerNode?.positonLibary)
+            case "remove1":
+                removeWorkerOfTeam(position: 0)
+            case "remove2":
+                removeWorkerOfTeam(position: 1)
+            case "remove3":
+                removeWorkerOfTeam(position: 2)
+            default:
+                return
+            }
+        }
+        else{
+            isToucheMoved = false
         }
         
     }
@@ -73,6 +80,7 @@ class GameSceneTeam: SKScene {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        isToucheMoved = true
         for touch in touches {
             let location = touch.location(in: self)
             let previousLocation = touch.previousLocation(in: self)

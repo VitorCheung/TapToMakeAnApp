@@ -1,5 +1,5 @@
 //
-//  GameSceneDocs.swift
+//  GameSceneServer.swift
 //  TapToMakeAnApp
 //
 //  Created by Vitor Cheung on 13/01/22.
@@ -8,7 +8,7 @@
 import SpriteKit
 import GameplayKit
 
-class GameSceneDocs: SKScene {
+class GameSceneServe: SKScene {
     
     //data
     var player = Player.shared
@@ -16,12 +16,7 @@ class GameSceneDocs: SKScene {
     //Nodes
     let moneyLabel = SKLabelNode()
     let deadLineLabel = SKLabelNode()
-    
-    //Docs
-    let imgDocs = SKSpriteNode(imageNamed: "docs")
-    var isRotatingToRight = false
-    var isFirstAnimationDone = false
-    var activeAnimationBuy = false
+    var terminalNode = TerminalServer()
     
     override func didMove(to view: SKView) {
         // Set the scale mode to scale to fit the window
@@ -29,7 +24,7 @@ class GameSceneDocs: SKScene {
         // Set scene to phone size
         self.size = CGSize(width: 428 , height: 840)
     
-        self.backgroundColor = .white
+        self.backgroundColor = ColorPalette.backgroundGray
         
         //Difine de size of the scene
         self.anchorPoint = CGPoint(x: 0, y: 0)
@@ -53,21 +48,9 @@ class GameSceneDocs: SKScene {
         case "team":
             self.view?.presentScene( GameSceneTeam() )
         case "docs":
-            print("docs")
+            self.view?.presentScene( GameSceneDocs() )
         case "server":
-            self.view?.presentScene( GameSceneServe() )
-        case "contrat":
-            if !(activeAnimationBuy){
-                guard var money = player.money else { return }
-                guard let worker = WorkersEnum.library.randomElement()  else { return }
-                if money >= 100{
-                    money -= 100
-                    player.workers.append(worker)
-                    player.money = money
-                    activeAnimationBuy = true
-                }
-                    
-            }
+            print("server")
         default:
             return
         }
@@ -78,66 +61,23 @@ class GameSceneDocs: SKScene {
     override func update(_ currentTime: TimeInterval) {
         deadLineLabel.text = "Dead line: \(player.deadLine) days"
         moneyLabel.text = "$\(player.money ?? 0)"
-        if activeAnimationBuy{
-            animationBuy(worker: player.workers.last)
-        }
-        else{
-            animationShake()
+        
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches {
+            let location = touch.location(in: self)
+            let previousLocation = touch.previousLocation(in: self)
+            let deltaY = location.y - previousLocation.y
+            let linesWorker = player.apps.count%3>0 ? Double(player.apps.count)/3+1 : Double(player.apps.count)/3
+            if terminalNode.position.y + deltaY > 100 && terminalNode.position.y  + deltaY < 100*linesWorker.rounded() {
+                terminalNode.position.y += deltaY
+            }
         }
         
     }
     
-    func animationShake(){
-
-        if isRotatingToRight {
-            imgDocs.zRotation += 0.01
-            if imgDocs.zRotation > 0.2 {isRotatingToRight = false}
-        }
-        else {
-            imgDocs.zRotation -= 0.01
-            if imgDocs.zRotation < -0.2 {isRotatingToRight = true}
-        }
-
-    }
-    
-    func animationBuy(worker:Worker?){
-        
-        guard let winWorker = worker else { return }
-        
-        if !(isFirstAnimationDone){
-            
-            if(imgDocs.xScale > 0){
-                imgDocs.zRotation += 0.1
-                imgDocs.xScale -= 0.01
-                imgDocs.yScale -= 0.01
-                return
-            }
-            
-            isFirstAnimationDone = true
-        }
-        else {
-            
-            if (imgDocs.xScale < 1 ){
-                imgDocs.texture = SKTexture(imageNamed: winWorker.name)
-                imgDocs.size = CGSize(width: 50, height: 141)
-                imgDocs.zRotation = 0
-                imgDocs.xScale += 0.1
-                imgDocs.yScale += 0.1
-                if winWorker.rarety==5{
-                    self.backgroundColor = ColorPalette.goldWin
-                }
-                else{
-                    self.backgroundColor = .white
-                }
-                return
-            }
-            
-
-            isFirstAnimationDone = false
-            activeAnimationBuy = false
-            
-        }
-
+    func sellApp(){
     }
     
     func setup(){
@@ -162,12 +102,38 @@ class GameSceneDocs: SKScene {
         deadLineLabel.position = CGPoint(x:10, y: self.size.height-55)
         self.addChild(deadLineLabel)
         
-        //MARK: ImgDocs
+        let boarderPainel = SKSpriteNode(color: .clear, size: CGSize(width: 350, height: 120))
+        boarderPainel.zPosition = 10
+        boarderPainel.drawBorder(color: .black, width: 8)
+        boarderPainel.position = CGPoint(x:self.size.width/2, y: self.size.height-130)
+        boarderPainel.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        self.addChild(boarderPainel)
         
-        imgDocs.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        imgDocs.position = CGPoint(x: 210, y: 660)
-        imgDocs.size = CGSize(width: 185, height: 185)
-        self.addChild(imgDocs)
+        let painelLabel = SKLabelNode()
+        painelLabel.fontColor = .red
+        painelLabel.zPosition = 1
+        painelLabel.fontName = "Pixel"
+        painelLabel.fontSize = 25
+        painelLabel.numberOfLines = 0
+        painelLabel.text = "Apps: \(player.apps.count)/9\nEarning: 20$/Day"
+        painelLabel.horizontalAlignmentMode = .center
+        painelLabel.position = CGPoint(x:0, y: -30)
+        boarderPainel.addChild(painelLabel)
+        
+        let serverNode = ServerNode()
+        
+        //MARK: Bg
+        let backgroundNode = BackgroundNode()
+        let whiteBackgroundNode = SKSpriteNode(color: .white, size: CGSize(width: 428, height: 300))
+        
+        whiteBackgroundNode.zPosition = 3
+        whiteBackgroundNode.anchorPoint = CGPoint(x: 0.5, y: 0)
+        whiteBackgroundNode.position = CGPoint( x: self.size.width/2, y: 600)
+        self.addChild(whiteBackgroundNode)
+        
+        backgroundNode.anchorPoint = CGPoint(x: 0.5, y: 0)
+        backgroundNode.position = CGPoint( x: self.size.width/2, y: 500)
+        self.addChild(backgroundNode)
         
         //MARK: Screem
         
@@ -177,7 +143,6 @@ class GameSceneDocs: SKScene {
         screemNode.name = "screem"
         self.addChild(screemNode)
         
-        let terminalNode = TerminalDocs()
         terminalNode.setup()
         terminalNode.zPosition = 1
         terminalNode.anchorPoint = CGPoint(x: 0, y: 0)

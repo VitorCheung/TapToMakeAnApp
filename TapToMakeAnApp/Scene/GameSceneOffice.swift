@@ -59,7 +59,7 @@ class GameSceneOffice: SKScene {
         case "docs":
             self.view?.presentScene( GameSceneDocs() )
         case "server":
-            print("server")
+            self.view?.presentScene( GameSceneServe() )
         default:
             if player.firstCliked{
                 player.starCounter()

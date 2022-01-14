@@ -16,6 +16,7 @@ public class Player{
     var workers : [Worker] = []
     var team : [Worker?] = [nil,nil,nil]
     var firstCliked = true
+    var apps : [App?] = []
     
     //timer
     var deadLine = 10
