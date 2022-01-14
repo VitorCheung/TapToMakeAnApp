@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Worker{
+public struct Worker: Codable{
     let name: String
     var power: Int
     var rarety: Int

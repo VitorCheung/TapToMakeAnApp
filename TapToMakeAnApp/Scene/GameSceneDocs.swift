@@ -49,25 +49,27 @@ class GameSceneDocs: SKScene {
         let touchedNode = self.atPoint(positionInScene)
         switch touchedNode.name{
         case "office":
+            player.setPlayerUserDefaults()
             self.view?.presentScene( GameSceneOffice() )
         case "team":
+            player.setPlayerUserDefaults()
             self.view?.presentScene( GameSceneTeam() )
         case "docs":
             print("docs")
         case "server":
+            player.setPlayerUserDefaults()
             self.view?.presentScene( GameSceneServe() )
         case "contrat":
             if !(activeAnimationBuy){
-                guard var money = player.money else { return }
                 guard let worker = WorkersEnum.library.randomElement()  else { return }
-                if money >= 100{
-                    money -= 100
+                if player.money >= 100{
+                    player.money -= 100
                     player.workers.append(worker)
-                    player.money = money
                     activeAnimationBuy = true
                 }
                     
             }
+            player.setPlayerUserDefaults()
         default:
             return
         }
@@ -76,8 +78,8 @@ class GameSceneDocs: SKScene {
     
     //MARK: Update
     override func update(_ currentTime: TimeInterval) {
-        deadLineLabel.text = "Dead line: \(player.deadLine) days"
-        moneyLabel.text = "$\(player.money ?? 0)"
+        deadLineLabel.text = "Dead line: \(timerDeadLine.shared.deadLine) days"
+        moneyLabel.text = "$\(player.money)"
         if activeAnimationBuy{
             animationBuy(worker: player.workers.last)
         }
@@ -148,7 +150,7 @@ class GameSceneDocs: SKScene {
         moneyLabel.zPosition = 10
         moneyLabel.fontName = "Pixel"
         moneyLabel.fontSize = 25
-        moneyLabel.text = "$\(player.money ?? 0)"
+        moneyLabel.text = "$\(player.money)"
         moneyLabel.horizontalAlignmentMode = .left
         moneyLabel.position = CGPoint(x:10, y: self.size.height-25)
         self.addChild(moneyLabel)

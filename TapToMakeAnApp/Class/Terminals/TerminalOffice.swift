@@ -13,7 +13,7 @@ public class TerminalOffice: SKSpriteNode{
     let codeLinesNode = SKSpriteNode()
     var codeLines = 0
     
-    let player = Player.shared
+    var player = Player.shared
     
     public init(){
         super.init(texture: nil, color: ColorPalette.backgroundGray, size: CGSize(width: 332 , height: 364))
@@ -34,7 +34,7 @@ public class TerminalOffice: SKSpriteNode{
         pointsLabel.fontName = "Pixel"
         pointsLabel.zPosition = 1
         pointsLabel.fontSize = 25
-        pointsLabel.text = "POINTS: \(player.points ?? 0)"
+        pointsLabel.text = "POINTS: \(player.points)"
         pointsLabel.horizontalAlignmentMode = .left
         pointsLabel.position = CGPoint(x:10, y: self.size.height-30)
         self.addChild(pointsLabel)
@@ -55,16 +55,14 @@ public class TerminalOffice: SKSpriteNode{
         self.addChild(codeLinesNode)
     }
     
-    func setupForResults(){
-        guard let points = player.points else { return  }
-            
+    func setupForResults(text:String, name:String){
         removeAllChildren()
         
         pointsLabel.fontColor = ColorPalette.mainGreen
         pointsLabel.zPosition = 1
         pointsLabel.fontName = "Pixel"
         pointsLabel.fontSize = 25
-            pointsLabel.text = "POINTS: \(points)"
+        pointsLabel.text = "POINTS: \(player.points)"
         pointsLabel.horizontalAlignmentMode = .center
         pointsLabel.position = CGPoint(x:self.size.width/2, y: self.size.height-60)
         self.addChild(pointsLabel)
@@ -74,25 +72,30 @@ public class TerminalOffice: SKSpriteNode{
         overAllLabel.zPosition = 1
         overAllLabel.fontName = "Pixel"
         overAllLabel.numberOfLines = 0
-        overAllLabel.fontSize = 20
-        overAllLabel.text = "You clicked :\(points)\nYou use 3 programers\n with you had made\n1000points\nyour multiplaier would \nbe 2 times bigger"
+        overAllLabel.fontSize = 22
+        if name == "sellLabel" {
+            overAllLabel.text = "You clicked :\(player.points)\nYou use 3 programers\nYour server is full\nto store more apps\nsell some apps\nstore in your server"
+        }
+        else{
+            overAllLabel.text = "You clicked :\(player.points)\nYou use 3 programers\nwith you had made\n1000points\nyour multiplaier would \nbe 2 times bigger"
+        }
         overAllLabel.horizontalAlignmentMode = .left
         overAllLabel.position = CGPoint(x:10, y: self.size.height-250)
         self.addChild(overAllLabel)
         
         let backgroundSellLabel = SKSpriteNode(color: ColorPalette.mainGreen, size: CGSize(width: 300, height: 50))
         backgroundSellLabel.zPosition = 2
-        backgroundSellLabel.name = "sellLabel"
+        backgroundSellLabel.name = name
         backgroundSellLabel.position = CGPoint(x:self.size.width/2, y: 60)
         self.addChild(backgroundSellLabel)
         
         let sellLabel = SKLabelNode()
-        sellLabel.name = "sellLabel"
+        sellLabel.name = name
         sellLabel.zPosition = 2
         sellLabel.fontColor = .black
         sellLabel.fontName = "Pixel"
         sellLabel.fontSize = 25
-        sellLabel.text = "SELL :\(points*5)\n"
+        sellLabel.text = text
         sellLabel.horizontalAlignmentMode = .center
         sellLabel.position = CGPoint(x:self.size.width/2, y: 50)
         self.addChild(sellLabel)
@@ -112,8 +115,7 @@ public class TerminalOffice: SKSpriteNode{
     }
     
     func changeTextOfCodeLabel(){
-        guard let points = player.points else { return  }
-        if  points%15==0{
+        if  player.points%15==0{
             codeLabel.text = PhrasesCode.allCases.randomElement()?.rawValue
         }
     }

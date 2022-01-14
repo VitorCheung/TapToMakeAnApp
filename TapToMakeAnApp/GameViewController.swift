@@ -9,13 +9,12 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        Player.shared.money=100000
-        Player.shared.points=0
+        
+        Player.shared = Player.getPlayerUserDefaults()
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'

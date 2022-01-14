@@ -9,7 +9,7 @@ import SpriteKit
 
 public class TerminalServer: SKSpriteNode{
     
-    let player = Player.shared
+    var player = Player.shared
     
     public init(){
         super.init(texture: nil, color: ColorPalette.backgroundGray, size: CGSize(width: 332 , height: 364))
@@ -26,55 +26,54 @@ public class TerminalServer: SKSpriteNode{
     
     public func setup(){
         removeAllChildren()
-        var numberWorkers = player.workers.count
-        let linesWorker = player.workers.count%3>0 ? Double(player.workers.count)/3+1 : Double(player.workers.count)/3
         
-        for line in 0..<Int(linesWorker.rounded()){
+        for line in 0..<player.apps.count{
+            addApp(x: self.size.width/2, y: self.size.height-CGFloat(162*line)-80, indexApp: line)
             
-            if numberWorkers-3>0 {
-                for colum in 0...2 {
-                    addWorker(x: CGFloat(66+100*colum), y: -80+self.size.height-CGFloat(140*line), indexWorker: numberWorkers-1)
-                    numberWorkers -= 1
-                }
-                
-            }
-            else{
-                for colum in 0..<numberWorkers{
-                    addWorker(x: CGFloat(66+100*colum), y: -80+self.size.height-CGFloat(140*line), indexWorker: numberWorkers-1)
-                    numberWorkers -= 1
-                }
-            }
         }
     }
     
-    func addWorker(x:CGFloat, y:CGFloat,indexWorker: Int){
-        let worker = SKSpriteNode(color: .clear, size: CGSize(width: 100, height: 140))
-        worker.zPosition = 1
-        worker.drawBorder(color: ColorPalette.mainGreen, width: 5)
-        worker.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        worker.position = CGPoint(x: x, y: y)
+    func addApp(x:CGFloat, y:CGFloat, indexApp: Int){
+        guard let app = player.apps[indexApp] else { return }
         
-        let backgroundWorker = WorkerNode(worker: nil)
-        backgroundWorker.zPosition = 1
-        backgroundWorker.positonLibary = indexWorker
-        backgroundWorker.worker = player.workers[indexWorker]
-        backgroundWorker.scale(to: CGSize(width: 100, height: 140))
-        backgroundWorker.position = CGPoint(x:0,y:0)
-        backgroundWorker.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        worker.addChild(backgroundWorker)
+        let borderApp = SKSpriteNode(color: .clear, size: CGSize(width: 290, height: 152))
+        borderApp.zPosition = 1
+        borderApp.drawBorder(color: ColorPalette.mainGreen, width: 5)
+        borderApp.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        borderApp.position = CGPoint(x: x, y: y)
+        
+        let sellButton = SellAppNode(app: app, positionLibrary: indexApp)
+        sellButton.zPosition = 1
+        sellButton.position = CGPoint(x:0, y: -30)
+        borderApp.addChild(sellButton)
+        
+        let sellBackground = SKSpriteNode(color: ColorPalette.mainGreen, size: CGSize(width: 200, height: 42))
+        sellBackground.zPosition = 0
+        sellBackground.position = CGPoint(x:0, y: -30)
+        borderApp.addChild(sellBackground)
 
-        let imgWorker = WorkerNode(worker: player.workers[indexWorker])
-        imgWorker.zPosition = 0
-        imgWorker.positonLibary = indexWorker
-        imgWorker.scale(to: CGSize(width: 40, height: 85))
-        imgWorker.position = CGPoint(x:0,y:0)
-        imgWorker.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-            
-        worker.addChild(imgWorker)
+        let labelApp = SKLabelNode()
+        labelApp.fontColor = .black
+        labelApp.zPosition = 0
+        labelApp.fontName = "Pixel"
+        labelApp.fontSize = 18
+        labelApp.text = "SELL: \(app.money)$"
+        labelApp.horizontalAlignmentMode = .center
+        labelApp.position = CGPoint(x:0, y: -35)
+        borderApp.addChild(labelApp)
         
-
+        let labelInfo = SKLabelNode()
+        labelInfo.fontColor = ColorPalette.mainGreen
+        labelInfo.zPosition = 0
+        labelInfo.fontName = "Pixel"
+        labelInfo.fontSize = 20
+        labelInfo.numberOfLines = 0
+        labelInfo.text = "POINTS: \(app.points)\nEANING: \(app.earning)$"
+        labelInfo.horizontalAlignmentMode = .center
+        labelInfo.position = CGPoint(x:0, y: 5)
+        borderApp.addChild(labelInfo)
         
-        self.addChild(worker)
+        self.addChild(borderApp)
         
         
     }

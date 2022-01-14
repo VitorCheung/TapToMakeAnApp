@@ -7,10 +7,13 @@
 
 import Foundation
 
-public struct App{
+public struct App: Codable{
     let name: String
     let points: Int
     var money: Int {
         return points*5
+    }
+    var earning: Int{
+        return 5
     }
 }

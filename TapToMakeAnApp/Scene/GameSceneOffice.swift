@@ -13,6 +13,9 @@ class GameSceneOffice: SKScene {
     //data
     var player = Player.shared
     
+    //Timer
+    var timer = timerDeadLine.shared
+
     //Nodes
     let moneyLabel = SKLabelNode()
     let deadLineLabel = SKLabelNode()
@@ -41,37 +44,46 @@ class GameSceneOffice: SKScene {
         let positionInScene = touch.location(in: self)
         let touchedNode = self.atPoint(positionInScene)
         
-        guard let money = player.money else { return  }
-        guard let points = player.points else { return  }
         switch touchedNode.name{
+        case "storeLabel":
+            
+            timer.deadLine = player.deadLine
+            timer.isDeadLineEnded = false
+            terminalNode.setupForCliker()
+            player.apps.append(App(name: "app", points: player.points))
+            player.points = 0
+            player.setPlayerUserDefaults()
+            
         case "sellLabel":
             
-            player.deadLine = player.deadLineStart
-            player.isDeadLineEnded = false
+            timer.deadLine = player.deadLine
+            timer.isDeadLineEnded = false
             terminalNode.setupForCliker()
-            player.money = money+points*5
+            player.money = player.money+player.points*5
             player.points = 0
-            player.starCounter()            
+            player.setPlayerUserDefaults()
+            
         case "office":
             print("office")
         case "team":
+            player.setPlayerUserDefaults()
             self.view?.presentScene( GameSceneTeam() )
         case "docs":
+            player.setPlayerUserDefaults()
             self.view?.presentScene( GameSceneDocs() )
         case "server":
+            player.setPlayerUserDefaults()
             self.view?.presentScene( GameSceneServe() )
         default:
-            if player.firstCliked{
-                player.starCounter()
-                player.firstCliked = false
+            if timer.firstCliked{
+                timer.firstCliked = false
             }
             
-            if !(player.isDeadLineEnded){
-                
-                player.points = points + 1
+            if !(timer.isDeadLineEnded){
+                player.points += player.clickPower()
                 terminalNode.addCodeLine(codeLine: CodeNode(width: Int.random(in: 80..<300)))
                 terminalNode.changeTextOfCodeLabel()
-                terminalNode.codeLines += 1
+                terminalNode.codeLines += 1                
             }
         }
         
@@ -80,18 +92,21 @@ class GameSceneOffice: SKScene {
     //MARK: Update
     override func update(_ currentTime: TimeInterval) {
         
-        guard let points = player.points else { return  }
-        
-        terminalNode.pointsLabel.text = "POINTS: \(points)"
-        deadLineLabel.text = "Dead line: \(player.deadLine) days"
-        moneyLabel.text = "$\(player.money ?? 0)"
+        terminalNode.pointsLabel.text = "POINTS: \(player.points)"
+        deadLineLabel.text = "Dead line: \(timer.deadLine) days"
+        moneyLabel.text = "$\(player.money)"
 //        if points%5==0 {
 //            //jump worker
 //        }
         
-        if player.isDeadLineEnded{
-            player.points = points
-            terminalNode.setupForResults()
+        if timer.isDeadLineEnded{
+            player.setPlayerUserDefaults()
+            if player.apps.count < 9 && player.points != 0{
+                terminalNode.setupForResults(text: "STORE APP", name: "storeLabel")
+            }
+            else{
+                terminalNode.setupForResults(text: "SELL: \(player.points*5)", name: "sellLabel")
+            }
             return
         }
         
@@ -102,10 +117,12 @@ class GameSceneOffice: SKScene {
     func setup(){
         //MARK: Labels
         
+        timer.starCounter()
+        
         moneyLabel.fontColor = .black
         moneyLabel.fontName = "Pixel"
         moneyLabel.fontSize = 25
-        moneyLabel.text = "$\(player.money ?? 0)"
+        moneyLabel.text = "$\(player.money)"
         moneyLabel.horizontalAlignmentMode = .left
         moneyLabel.position = CGPoint(x:10, y: self.size.height-25)
         self.addChild(moneyLabel)
@@ -176,7 +193,6 @@ class GameSceneOffice: SKScene {
         
         //MARK: Terminal
         terminalNode.setupForCliker()
-        terminalNode.zPosition = 1
         terminalNode.anchorPoint = CGPoint(x: 0, y: 0)
         terminalNode.position = CGPoint(x: 48, y: 117)
         addChild(terminalNode)

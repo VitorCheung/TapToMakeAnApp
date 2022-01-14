@@ -16,12 +16,14 @@
 		062F861D278D0675008785FF /* TerminalOffice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062F861C278D0675008785FF /* TerminalOffice.swift */; };
 		062F8620278D13D4008785FF /* CodeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062F861F278D13D4008785FF /* CodeNode.swift */; };
 		062F8624278DFF98008785FF /* GameSceneTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062F8623278DFF98008785FF /* GameSceneTeam.swift */; };
-		062F8627278E0634008785FF /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062F8626278E0634008785FF /* Player.swift */; };
+		062F8627278E0634008785FF /* timerDeadLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062F8626278E0634008785FF /* timerDeadLine.swift */; };
 		062F862C278E236D008785FF /* TerminalTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062F862B278E236D008785FF /* TerminalTeam.swift */; };
 		065B7C192790EDD5007E258B /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065B7C182790EDD5007E258B /* App.swift */; };
 		065B7C1B2790F05B007E258B /* GameSceneServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065B7C1A2790F05B007E258B /* GameSceneServer.swift */; };
 		065B7C1D2790F090007E258B /* TerminalServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065B7C1C2790F090007E258B /* TerminalServer.swift */; };
 		065B7C1F27910908007E258B /* ServerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065B7C1E27910908007E258B /* ServerNode.swift */; };
+		065B7C212791E337007E258B /* SellAppNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065B7C202791E337007E258B /* SellAppNode.swift */; };
+		065B7C232792108A007E258B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065B7C222792108A007E258B /* Player.swift */; };
 		066622FF2790B56F0072A6E4 /* GameSceneDocs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066622FE2790B56F0072A6E4 /* GameSceneDocs.swift */; };
 		066623012790B76C0072A6E4 /* TerminalDocs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066623002790B76C0072A6E4 /* TerminalDocs.swift */; };
 		06809D6627892C2D00D3A03F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06809D6527892C2D00D3A03F /* AppDelegate.swift */; };
@@ -48,12 +50,14 @@
 		062F861C278D0675008785FF /* TerminalOffice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalOffice.swift; sourceTree = "<group>"; };
 		062F861F278D13D4008785FF /* CodeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeNode.swift; sourceTree = "<group>"; };
 		062F8623278DFF98008785FF /* GameSceneTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneTeam.swift; sourceTree = "<group>"; };
-		062F8626278E0634008785FF /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		062F8626278E0634008785FF /* timerDeadLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timerDeadLine.swift; sourceTree = "<group>"; };
 		062F862B278E236D008785FF /* TerminalTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTeam.swift; sourceTree = "<group>"; };
 		065B7C182790EDD5007E258B /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		065B7C1A2790F05B007E258B /* GameSceneServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneServer.swift; sourceTree = "<group>"; };
 		065B7C1C2790F090007E258B /* TerminalServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalServer.swift; sourceTree = "<group>"; };
 		065B7C1E27910908007E258B /* ServerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerNode.swift; sourceTree = "<group>"; };
+		065B7C202791E337007E258B /* SellAppNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellAppNode.swift; sourceTree = "<group>"; };
+		065B7C222792108A007E258B /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		066622FE2790B56F0072A6E4 /* GameSceneDocs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneDocs.swift; sourceTree = "<group>"; };
 		066623002790B76C0072A6E4 /* TerminalDocs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalDocs.swift; sourceTree = "<group>"; };
 		06809D6227892C2D00D3A03F /* TapToMakeAnApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TapToMakeAnApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,8 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				062F861C278D0675008785FF /* TerminalOffice.swift */,
-				062F862B278E236D008785FF /* TerminalTeam.swift */,
 				066623002790B76C0072A6E4 /* TerminalDocs.swift */,
+				062F862B278E236D008785FF /* TerminalTeam.swift */,
 				065B7C1C2790F090007E258B /* TerminalServer.swift */,
 			);
 			path = Terminals;
@@ -134,8 +138,19 @@
 				062F861F278D13D4008785FF /* CodeNode.swift */,
 				06012DAF278E721B00964E0E /* WorkerNode.swift */,
 				065B7C1E27910908007E258B /* ServerNode.swift */,
+				065B7C202791E337007E258B /* SellAppNode.swift */,
 			);
 			path = Node;
+			sourceTree = "<group>";
+		};
+		065B7C2427921C84007E258B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				065B7C222792108A007E258B /* Player.swift */,
+				06012DA9278E658B00964E0E /* Worker.swift */,
+				065B7C182790EDD5007E258B /* App.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		06809D5927892C2D00D3A03F = {
@@ -174,12 +189,11 @@
 		06809D7F278CAF2F00D3A03F /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				062F8626278E0634008785FF /* timerDeadLine.swift */,
+				065B7C2427921C84007E258B /* Data */,
 				062F8616278CE8D5008785FF /* Enum */,
 				062F8628278E063D008785FF /* Node */,
 				062F861E278D067B008785FF /* Terminals */,
-				062F8626278E0634008785FF /* Player.swift */,
-				06012DA9278E658B00964E0E /* Worker.swift */,
-				065B7C182790EDD5007E258B /* App.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -265,7 +279,8 @@
 				062F8618278CE972008785FF /* ColorPalete.swift in Sources */,
 				062F8615278CE702008785FF /* SpriteNode+Border.swift in Sources */,
 				062F862C278E236D008785FF /* TerminalTeam.swift in Sources */,
-				062F8627278E0634008785FF /* Player.swift in Sources */,
+				065B7C212791E337007E258B /* SellAppNode.swift in Sources */,
+				062F8627278E0634008785FF /* timerDeadLine.swift in Sources */,
 				062F8620278D13D4008785FF /* CodeNode.swift in Sources */,
 				06809D93278CD29100D3A03F /* ButtonTabBarNode.swift in Sources */,
 				066623012790B76C0072A6E4 /* TerminalDocs.swift in Sources */,
@@ -273,6 +288,7 @@
 				065B7C1F27910908007E258B /* ServerNode.swift in Sources */,
 				065B7C192790EDD5007E258B /* App.swift in Sources */,
 				06809D90278CCFF600D3A03F /* WindowNode.swift in Sources */,
+				065B7C232792108A007E258B /* Player.swift in Sources */,
 				06809D8E278CC2F700D3A03F /* ScreemNode.swift in Sources */,
 				06809D6E27892C2D00D3A03F /* GameViewController.swift in Sources */,
 				062F8624278DFF98008785FF /* GameSceneTeam.swift in Sources */,

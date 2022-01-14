@@ -9,7 +9,7 @@ import SpriteKit
 
 public class TerminalTeam: SKSpriteNode{
     
-    let player = Player.shared
+    var player = Player.shared
     
     public init(){
         super.init(texture: nil, color: ColorPalette.backgroundGray, size: CGSize(width: 332 , height: 364))

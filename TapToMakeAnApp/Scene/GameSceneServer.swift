@@ -44,13 +44,20 @@ class GameSceneServe: SKScene {
         let touchedNode = self.atPoint(positionInScene)
         switch touchedNode.name{
         case "office":
+            player.setPlayerUserDefaults()
             self.view?.presentScene( GameSceneOffice() )
         case "team":
+            player.setPlayerUserDefaults()
             self.view?.presentScene( GameSceneTeam() )
         case "docs":
+            player.setPlayerUserDefaults()
             self.view?.presentScene( GameSceneDocs() )
         case "server":
             print("server")
+        case "App":
+            let app = touchedNode as? SellAppNode
+            sellApp(positionApp: app?.positionLibrary )
+            player.setPlayerUserDefaults()
         default:
             return
         }
@@ -59,8 +66,8 @@ class GameSceneServe: SKScene {
     
     //MARK: Update
     override func update(_ currentTime: TimeInterval) {
-        deadLineLabel.text = "Dead line: \(player.deadLine) days"
-        moneyLabel.text = "$\(player.money ?? 0)"
+        deadLineLabel.text = "Dead line: \(timerDeadLine.shared.deadLine) days"
+        moneyLabel.text = "$\(player.money)"
         
     }
     
@@ -69,18 +76,25 @@ class GameSceneServe: SKScene {
             let location = touch.location(in: self)
             let previousLocation = touch.previousLocation(in: self)
             let deltaY = location.y - previousLocation.y
-            let linesWorker = player.apps.count%3>0 ? Double(player.apps.count)/3+1 : Double(player.apps.count)/3
-            if terminalNode.position.y + deltaY > 100 && terminalNode.position.y  + deltaY < 100*linesWorker.rounded() {
+            let countApp = CGFloat(player.apps.count)
+            if terminalNode.position.y + deltaY > 100 && terminalNode.position.y + deltaY < 152*countApp {
                 terminalNode.position.y += deltaY
             }
         }
         
     }
     
-    func sellApp(){
+    func sellApp(positionApp: Int?){
+        guard let position = positionApp else { return }
+        player.money += player.apps[position]?.money ?? 0
+        player.apps.remove(at: position)
+        setup()
+        
     }
     
     func setup(){
+        removeAllChildren()
+
 
         //MARK: Labels
         
@@ -88,7 +102,7 @@ class GameSceneServe: SKScene {
         moneyLabel.zPosition = 10
         moneyLabel.fontName = "Pixel"
         moneyLabel.fontSize = 25
-        moneyLabel.text = "$\(player.money ?? 0)"
+        moneyLabel.text = "$\(player.money)"
         moneyLabel.horizontalAlignmentMode = .left
         moneyLabel.position = CGPoint(x:10, y: self.size.height-25)
         self.addChild(moneyLabel)
@@ -103,7 +117,7 @@ class GameSceneServe: SKScene {
         self.addChild(deadLineLabel)
         
         let boarderPainel = SKSpriteNode(color: .clear, size: CGSize(width: 350, height: 120))
-        boarderPainel.zPosition = 10
+        boarderPainel.zPosition = 5
         boarderPainel.drawBorder(color: .black, width: 8)
         boarderPainel.position = CGPoint(x:self.size.width/2, y: self.size.height-130)
         boarderPainel.anchorPoint = CGPoint(x: 0.5, y: 0.5)
@@ -115,22 +129,26 @@ class GameSceneServe: SKScene {
         painelLabel.fontName = "Pixel"
         painelLabel.fontSize = 25
         painelLabel.numberOfLines = 0
-        painelLabel.text = "Apps: \(player.apps.count)/9\nEarning: 20$/Day"
+        painelLabel.text = "Apps: \(player.apps.count)/9\nEarning: \(player.totalEarning())$/Day"
         painelLabel.horizontalAlignmentMode = .center
         painelLabel.position = CGPoint(x:0, y: -30)
         boarderPainel.addChild(painelLabel)
         
         let serverNode = ServerNode()
+        serverNode.zPosition = 6
+        serverNode.position = CGPoint(x: self.size.width-50, y: 610)
+        self.addChild(serverNode)
         
         //MARK: Bg
         let backgroundNode = BackgroundNode()
         let whiteBackgroundNode = SKSpriteNode(color: .white, size: CGSize(width: 428, height: 300))
         
-        whiteBackgroundNode.zPosition = 3
+        whiteBackgroundNode.zPosition = 4
         whiteBackgroundNode.anchorPoint = CGPoint(x: 0.5, y: 0)
         whiteBackgroundNode.position = CGPoint( x: self.size.width/2, y: 600)
         self.addChild(whiteBackgroundNode)
         
+        backgroundNode.zPosition = 5
         backgroundNode.anchorPoint = CGPoint(x: 0.5, y: 0)
         backgroundNode.position = CGPoint( x: self.size.width/2, y: 500)
         self.addChild(backgroundNode)

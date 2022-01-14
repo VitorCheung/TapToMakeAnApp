@@ -47,22 +47,29 @@ class GameSceneTeam: SKScene {
             let touchedNode = self.atPoint(positionInScene)
             switch touchedNode.name{
             case "office":
+                player.setPlayerUserDefaults()
                 self.view?.presentScene( GameSceneOffice() )
             case "team":
                 print("team")
             case "docs":
+                player.setPlayerUserDefaults()
                 self.view?.presentScene( GameSceneDocs() )
             case "server":
+                player.setPlayerUserDefaults()
                 self.view?.presentScene( GameSceneServe() )
             case "worker":
                 let workerNode = touchedNode as? WorkerNode
                 addWorkerToTeam(worker: workerNode?.worker, positionInLibary: workerNode?.positonLibary)
+                player.setPlayerUserDefaults()
             case "remove1":
                 removeWorkerOfTeam(position: 0)
+                player.setPlayerUserDefaults()
             case "remove2":
                 removeWorkerOfTeam(position: 1)
+                player.setPlayerUserDefaults()
             case "remove3":
                 removeWorkerOfTeam(position: 2)
+                player.setPlayerUserDefaults()
             default:
                 return
             }
@@ -75,7 +82,8 @@ class GameSceneTeam: SKScene {
     
     //MARK: Update
     override func update(_ currentTime: TimeInterval) {
-        deadLineLabel.text = "Dead line: \(player.deadLine) days"
+        deadLineLabel.text = "Dead line: \(timerDeadLine.shared.deadLine) days"
+        moneyLabel.text = "$\(player.money)"
         
     }
     
@@ -122,7 +130,7 @@ class GameSceneTeam: SKScene {
         moneyLabel.zPosition = 10
         moneyLabel.fontName = "Pixel"
         moneyLabel.fontSize = 25
-        moneyLabel.text = "$\(player.money ?? 0)"
+        moneyLabel.text = "$\(player.money)"
         moneyLabel.horizontalAlignmentMode = .left
         moneyLabel.position = CGPoint(x:10, y: self.size.height-25)
         self.addChild(moneyLabel)

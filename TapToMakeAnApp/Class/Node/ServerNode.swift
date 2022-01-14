@@ -13,7 +13,7 @@ public class ServerNode: SKSpriteNode{
         super.init(texture: texture, color: UIColor.clear, size: texture.size())
         name="server"
         self.zPosition = 5
-        self.scale(to: CGSize(width: 102, height: 102))
+        self.scale(to: CGSize(width: 120, height: 120))
     }
     
     required init?(coder aDecoder: NSCoder) {
