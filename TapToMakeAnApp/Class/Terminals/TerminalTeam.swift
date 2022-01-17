@@ -16,7 +16,7 @@ public class TerminalTeam: SKSpriteNode{
         name="terminal"
         self.zPosition = -1
         self.anchorPoint = CGPoint(x: 0, y: 0)
-        setup()
+        setupSelection()
         
     }
     
@@ -24,7 +24,22 @@ public class TerminalTeam: SKSpriteNode{
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func setup(){
+    func setupInfo(){
+        
+        let hireLabel = SKLabelNode()
+        hireLabel.fontColor = ColorPalette.mainGreen
+        hireLabel.fontName = "Pixel"
+        hireLabel.zPosition = 1
+        hireLabel.fontSize = 30
+        hireLabel.text = "HIRE"
+        hireLabel.horizontalAlignmentMode = .left
+        hireLabel.position = CGPoint(x:15, y: self.size.height-30)
+        self.addChild(hireLabel)
+        
+        
+    }
+    
+    public func setupSelection(){
         removeAllChildren()
         var numberWorkers = player.workers.count
         let linesWorker = player.workers.count%3>0 ? Double(player.workers.count)/3+1 : Double(player.workers.count)/3
@@ -66,7 +81,7 @@ public class TerminalTeam: SKSpriteNode{
         let imgWorker = WorkerNode(worker: player.workers[indexWorker])
         imgWorker.zPosition = 0
         imgWorker.positonLibary = indexWorker
-        imgWorker.scale(to: CGSize(width: 40, height: 85))
+        imgWorker.scale(to: CGSize(width: 35, height: 85))
         imgWorker.position = CGPoint(x:0,y:0)
         imgWorker.anchorPoint = CGPoint(x: 0.5, y: 0.5)
             
@@ -78,4 +93,13 @@ public class TerminalTeam: SKSpriteNode{
         
         
     }
+    
+    func addStar(x:Int,y:Int,numberStar:Int,size:CGSize){
+        let star = SKSpriteNode(imageNamed: "starIcon")
+        star.zPosition = 0
+        star.scale(to: size)
+        star.position = CGPoint(x: x, y: y)
+        
+    }
+    
 }
