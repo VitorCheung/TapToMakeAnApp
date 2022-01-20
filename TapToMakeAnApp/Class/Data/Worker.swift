@@ -10,5 +10,7 @@ import Foundation
 public struct Worker: Codable{
     let name: String
     var power: Int
+    var level: Int
     var rarety: Int
+    var workerType: [WorkerType?] = [nil,nil]
 }

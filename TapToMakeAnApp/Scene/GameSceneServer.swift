@@ -13,6 +13,7 @@ class GameSceneServe: SKScene {
     //data
     var player = Player.shared
     
+    var isToucheMoved = false
     //Nodes
     let moneyLabel = SKLabelNode()
     let deadLineLabel = SKLabelNode()
@@ -38,28 +39,34 @@ class GameSceneServe: SKScene {
     
     //MARK: TouchesEnded
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        let touch:UITouch = touches.first!
-        let positionInScene = touch.location(in: self)
-        let touchedNode = self.atPoint(positionInScene)
-        switch touchedNode.name{
-        case "office":
-            player.setPlayerUserDefaults()
-            self.view?.presentScene( GameSceneOffice() )
-        case "team":
-            player.setPlayerUserDefaults()
-            self.view?.presentScene( GameSceneTeam() )
-        case "docs":
-            player.setPlayerUserDefaults()
-            self.view?.presentScene( GameSceneDocs() )
-        case "server":
-            print("server")
-        case "App":
-            let app = touchedNode as? SellAppNode
-            sellApp(positionApp: app?.positionLibrary )
-            player.setPlayerUserDefaults()
-        default:
-            return
+        if !(isToucheMoved){
+            for touch in touches {
+                let positionInScene = touch.location(in: self)
+                let touchedNode = self.atPoint(positionInScene)
+                switch touchedNode.name{
+                case "office":
+                    player.setPlayerUserDefaults()
+                    self.view?.presentScene( GameSceneOffice() )
+                case "team":
+                    player.setPlayerUserDefaults()
+                    self.view?.presentScene( GameSceneTeam() )
+                case "docs":
+                    player.setPlayerUserDefaults()
+                    self.view?.presentScene( GameSceneDocs() )
+                case "App":
+                    let app = touchedNode as? SellAppNode
+                    sellApp(positionApp: app?.positionLibrary,CGpositon: positionInScene )
+                    for _ in 0..<10 {
+                        rainMoney(CGpositon: positionInScene)
+                    }
+                    player.setPlayerUserDefaults()
+                default:
+                    return
+                }
+            }
+        }
+        else{
+            isToucheMoved = false
         }
         
     }
@@ -72,6 +79,7 @@ class GameSceneServe: SKScene {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        isToucheMoved = true
         for touch in touches {
             let location = touch.location(in: self)
             let previousLocation = touch.previousLocation(in: self)
@@ -81,14 +89,6 @@ class GameSceneServe: SKScene {
                 terminalNode.position.y += deltaY
             }
         }
-        
-    }
-    
-    func sellApp(positionApp: Int?){
-        guard let position = positionApp else { return }
-        player.money += player.apps[position]?.money ?? 0
-        player.apps.remove(at: position)
-        setup()
         
     }
     
@@ -169,6 +169,14 @@ class GameSceneServe: SKScene {
         
         
     }
+    
+    func sellApp(positionApp: Int?,CGpositon: CGPoint){
+        guard let position = positionApp else { return }
+        player.money += player.apps[position]?.money ?? 0
+        player.apps.remove(at: position)
+        setup()
+    }
+    
 
 }
 

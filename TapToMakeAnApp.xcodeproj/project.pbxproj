@@ -38,6 +38,10 @@
 		06809D8E278CC2F700D3A03F /* ScreemNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06809D8D278CC2F700D3A03F /* ScreemNode.swift */; };
 		06809D90278CCFF600D3A03F /* WindowNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06809D8F278CCFF600D3A03F /* WindowNode.swift */; };
 		06809D93278CD29100D3A03F /* ButtonTabBarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06809D92278CD29100D3A03F /* ButtonTabBarNode.swift */; };
+		0686D84B2796120C007C3533 /* InfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0686D84A2796120C007C3533 /* InfoButton.swift */; };
+		0686D84D27972F85007C3533 /* WorkerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0686D84C27972F85007C3533 /* WorkerType.swift */; };
+		0686D84F279751B7007C3533 /* WorkerTypeEnem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0686D84E279751B7007C3533 /* WorkerTypeEnem.swift */; };
+		0686D8512798CD72007C3533 /* SKScene+RainMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0686D8502798CD72007C3533 /* SKScene+RainMoney.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +78,10 @@
 		06809D8D278CC2F700D3A03F /* ScreemNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreemNode.swift; sourceTree = "<group>"; };
 		06809D8F278CCFF600D3A03F /* WindowNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowNode.swift; sourceTree = "<group>"; };
 		06809D92278CD29100D3A03F /* ButtonTabBarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTabBarNode.swift; sourceTree = "<group>"; };
+		0686D84A2796120C007C3533 /* InfoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoButton.swift; sourceTree = "<group>"; };
+		0686D84C27972F85007C3533 /* WorkerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerType.swift; sourceTree = "<group>"; };
+		0686D84E279751B7007C3533 /* WorkerTypeEnem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerTypeEnem.swift; sourceTree = "<group>"; };
+		0686D8502798CD72007C3533 /* SKScene+RainMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKScene+RainMoney.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				062F8614278CE702008785FF /* SpriteNode+Border.swift */,
+				0686D8502798CD72007C3533 /* SKScene+RainMoney.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -101,6 +110,7 @@
 				062F8617278CE972008785FF /* ColorPalete.swift */,
 				06012DAB278E6CD200964E0E /* PhrasesCode.swift */,
 				06012DAD278E6EA900964E0E /* WorkersEnum.swift */,
+				0686D84E279751B7007C3533 /* WorkerTypeEnem.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -139,6 +149,7 @@
 				06012DAF278E721B00964E0E /* WorkerNode.swift */,
 				065B7C1E27910908007E258B /* ServerNode.swift */,
 				065B7C202791E337007E258B /* SellAppNode.swift */,
+				0686D84A2796120C007C3533 /* InfoButton.swift */,
 			);
 			path = Node;
 			sourceTree = "<group>";
@@ -149,6 +160,7 @@
 				065B7C222792108A007E258B /* Player.swift */,
 				06012DA9278E658B00964E0E /* Worker.swift */,
 				065B7C182790EDD5007E258B /* App.swift */,
+				0686D84C27972F85007C3533 /* WorkerType.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -281,11 +293,15 @@
 				062F862C278E236D008785FF /* TerminalTeam.swift in Sources */,
 				065B7C212791E337007E258B /* SellAppNode.swift in Sources */,
 				062F8627278E0634008785FF /* timerDeadLine.swift in Sources */,
+				0686D84D27972F85007C3533 /* WorkerType.swift in Sources */,
+				0686D84B2796120C007C3533 /* InfoButton.swift in Sources */,
 				062F8620278D13D4008785FF /* CodeNode.swift in Sources */,
 				06809D93278CD29100D3A03F /* ButtonTabBarNode.swift in Sources */,
+				0686D8512798CD72007C3533 /* SKScene+RainMoney.swift in Sources */,
 				066623012790B76C0072A6E4 /* TerminalDocs.swift in Sources */,
 				066622FF2790B56F0072A6E4 /* GameSceneDocs.swift in Sources */,
 				065B7C1F27910908007E258B /* ServerNode.swift in Sources */,
+				0686D84F279751B7007C3533 /* WorkerTypeEnem.swift in Sources */,
 				065B7C192790EDD5007E258B /* App.swift in Sources */,
 				06809D90278CCFF600D3A03F /* WindowNode.swift in Sources */,
 				065B7C232792108A007E258B /* Player.swift in Sources */,

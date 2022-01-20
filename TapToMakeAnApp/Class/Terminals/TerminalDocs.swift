@@ -9,7 +9,7 @@ import SpriteKit
 
 public class TerminalDocs: SKSpriteNode{
     
-    let player = Player.getPlayerUserDefaults()
+    let player = Player.shared
     
     public init(){
         super.init(texture: nil, color: ColorPalette.backgroundGray, size: CGSize(width: 332 , height: 364))
@@ -25,6 +25,8 @@ public class TerminalDocs: SKSpriteNode{
     }
     
     public func setup(){
+        
+        self.removeAllChildren()
         
         let hireLabel = SKLabelNode()
         hireLabel.fontColor = ColorPalette.mainGreen
@@ -48,6 +50,13 @@ public class TerminalDocs: SKSpriteNode{
         backgroundcontratLabelNode.name = "contrat"
         self.addChild(backgroundcontratLabelNode)
         
+        var num = 0
+        for worker in player.team {
+            if worker != nil {
+                num += 1
+            }
+        }
+        
         let contratLabel = SKLabelNode()
         contratLabel.fontColor = ColorPalette.mainGreen
         contratLabel.name = "contrat"
@@ -55,7 +64,7 @@ public class TerminalDocs: SKSpriteNode{
         contratLabel.zPosition = 1
         contratLabel.numberOfLines = 0
         contratLabel.fontSize = 20
-        contratLabel.text = "1 contrat X\n$100.000"
+        contratLabel.text = "1 contrat X\n$\(587*pow(Double(player.docsBuy),Double(2))+100)"
         contratLabel.horizontalAlignmentMode = .center
         contratLabel.position = CGPoint(x:self.size.width/2, y: self.size.height/2)
         self.addChild(contratLabel)

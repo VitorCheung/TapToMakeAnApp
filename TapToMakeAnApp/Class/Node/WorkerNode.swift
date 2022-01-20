@@ -10,19 +10,23 @@ import SpriteKit
 public class WorkerNode: SKSpriteNode{
     public var worker : Worker?
     public var positonLibary : Int?
-    public init(worker:Worker?){
+    public init(worker:Worker?, scaleImgWorker: CGFloat = 0.4){
         
         positonLibary = nil
         self.worker = worker
-        
+        super.init(texture: nil, color: .clear, size: CGSize(width: 124, height: 124))
+        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         guard let img = worker?.name else {
-            super.init(texture: nil, color: UIColor.clear, size: CGSize(width: 124, height: 124))
             name="worker"
             return
         }
         
-        let texture = SKTexture(imageNamed: img)
-        super.init(texture: texture, color: UIColor.clear, size: CGSize(width: 124, height: 124))
+        let workerImg = SKSpriteNode(imageNamed: img)
+        workerImg.position = CGPoint(x: 0, y: 0)
+        workerImg.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        workerImg.setScale(scaleImgWorker)
+        self.addChild(workerImg)
+        
         name="worker"
         self.zPosition = 4
     }

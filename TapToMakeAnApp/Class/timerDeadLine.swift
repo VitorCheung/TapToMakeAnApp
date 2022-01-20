@@ -22,6 +22,7 @@ class timerDeadLine{
     func starCounter(){
         if firstCliked{
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(decrementCounter), userInfo: nil, repeats: true)
+            firstCliked = false
         }
     }
     

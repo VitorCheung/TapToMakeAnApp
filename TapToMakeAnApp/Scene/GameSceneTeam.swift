@@ -70,6 +70,11 @@ class GameSceneTeam: SKScene {
             case "remove3":
                 removeWorkerOfTeam(position: 2)
                 player.setPlayerUserDefaults()
+            case "info":
+                let infoButton = touchedNode as? InfoButton
+                terminalNode.setupInfo(worker: infoButton?.worker)
+            case "back":
+                terminalNode.setupSelection()
             default:
                 return
             }
@@ -93,10 +98,18 @@ class GameSceneTeam: SKScene {
             let location = touch.location(in: self)
             let previousLocation = touch.previousLocation(in: self)
             let deltaY = location.y - previousLocation.y
-            let linesWorker = player.workers.count%3>0 ? Double(player.workers.count)/3+1 : Double(player.workers.count)/3
-            if terminalNode.position.y + deltaY > 100 && terminalNode.position.y  + deltaY < 100*linesWorker.rounded() {
-                terminalNode.position.y += deltaY
+            if terminalNode.isSelectonOpen {
+                let linesWorker = player.workers.count%3>0 ? Double(player.workers.count)/3+1 : Double(player.workers.count)/3
+                if terminalNode.position.y + deltaY > 100 && terminalNode.position.y  + deltaY < 140*linesWorker.rounded() {
+                    terminalNode.position.y += deltaY
+                }
             }
+            else{
+                if terminalNode.position.y + deltaY > 100 && terminalNode.position.y  + deltaY < 200 {
+                    terminalNode.position.y += deltaY
+                }
+            }
+
         }
     }
     
@@ -153,19 +166,17 @@ class GameSceneTeam: SKScene {
         let worker2 = WorkerNode(worker: player.team[1])
         let worker3 = WorkerNode(worker: player.team[2])
         
-        worker1.anchorPoint = CGPoint(x: 1, y: 0)
-        worker1.position = CGPoint( x: self.size.width*3/20, y: 550)
-        worker1.scale(to: CGSize(width: 48, height: 141))
+
+        worker1.zPosition = 6
+        worker1.position = CGPoint( x: self.size.width*3/20-20, y: 630)
         self.addChild(worker1)
         
-        worker2.anchorPoint = CGPoint(x: 1, y: 0)
-        worker2.position = CGPoint( x: self.size.width/2-10, y: 550)
-        worker2.scale(to: CGSize(width: 48, height: 141))
+        worker2.position = CGPoint( x: self.size.width/2-20, y: 630)
+        worker2.zPosition = 6
         self.addChild(worker2)
         
-        worker3.anchorPoint = CGPoint(x: 1, y: 0)
-        worker3.position = CGPoint( x: self.size.width*17/20-10 , y: 550)
-        worker3.scale(to: CGSize(width: 48, height: 141))
+        worker3.position = CGPoint( x: self.size.width*17/20-20 , y: 630)
+        worker3.zPosition = 6
         self.addChild(worker3)
         
         if worker1.worker != nil {
@@ -202,27 +213,31 @@ class GameSceneTeam: SKScene {
         
         desk1.anchorPoint = CGPoint(x: 0.5, y: 0)
         desk1.position = CGPoint( x: self.size.width*3/20+20, y: 550)
+        desk1.zPosition = 7
         self.addChild(desk1)
         
         desk2.anchorPoint = CGPoint(x: 0.5, y: 0)
         desk2.position = CGPoint( x: self.size.width/2+20, y: 550)
+        desk2.zPosition = 7
         self.addChild(desk2)
         
         desk3.anchorPoint = CGPoint(x: 0.5, y: 0)
         desk3.position = CGPoint( x: self.size.width*17/20+20 , y: 550)
+        desk3.zPosition = 7
         self.addChild(desk3)
         
         //MARK: Bg
         let backgroundNode = BackgroundNode()
         let whiteBackgroundNode = SKSpriteNode(color: .white, size: CGSize(width: 428, height: 300))
         
-        whiteBackgroundNode.zPosition = 3
+        whiteBackgroundNode.zPosition = 4
         whiteBackgroundNode.anchorPoint = CGPoint(x: 0.5, y: 0)
         whiteBackgroundNode.position = CGPoint( x: self.size.width/2, y: 600)
         self.addChild(whiteBackgroundNode)
         
         backgroundNode.anchorPoint = CGPoint(x: 0.5, y: 0)
         backgroundNode.position = CGPoint( x: self.size.width/2, y: 500)
+        backgroundNode.zPosition = 5
         self.addChild(backgroundNode)
         
         //MARK: windows
@@ -231,10 +246,12 @@ class GameSceneTeam: SKScene {
         
         window1.anchorPoint = CGPoint(x: 0.75, y: 0)
         window1.position = CGPoint(x: self.size.width*1/3, y: 650)
+        window1.zPosition = 5
         self.addChild(window1)
         
         window2.anchorPoint = CGPoint(x: 0.25, y: 0)
         window2.position = CGPoint(x: self.size.width*2/3, y: 650)
+        window2.zPosition = 5
         self.addChild(window2)
         
         //MARK: Screem
@@ -245,7 +262,7 @@ class GameSceneTeam: SKScene {
         screemNode.name = "screem"
         self.addChild(screemNode)
         
-        terminalNode.setup()
+        terminalNode.setupSelection()
         terminalNode.zPosition = 1
         terminalNode.anchorPoint = CGPoint(x: 0, y: 0)
         terminalNode.position = CGPoint(x: 48, y: 117)

@@ -40,50 +40,56 @@ class GameSceneOffice: SKScene {
     //MARK: TouchesEnded
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        let touch:UITouch = touches.first!
+        for touch in touches {
         let positionInScene = touch.location(in: self)
         let touchedNode = self.atPoint(positionInScene)
-        
         switch touchedNode.name{
-        case "storeLabel":
+            case "storeLabel":
+                timer.deadLine = player.deadLine
+                timer.isDeadLineEnded = false
+                terminalNode.setupForCliker()
+                player.apps.append(App(points: player.points))
+                player.points = 0
+                addToServerAnamation()
+                player.setPlayerUserDefaults()
+            case "sellLabel":
             
-            timer.deadLine = player.deadLine
-            timer.isDeadLineEnded = false
-            terminalNode.setupForCliker()
-            player.apps.append(App(name: "app", points: player.points))
-            player.points = 0
-            player.setPlayerUserDefaults()
+                let app = App(points: player.points)
+                for _ in 0..<10 {
+                    rainMoney(CGpositon: positionInScene)
+                }
+                timer.deadLine = player.deadLine
+                timer.isDeadLineEnded = false
+                terminalNode.setupForCliker()
+                player.money += Int64(app.money)
+                player.points = 0
+                player.setPlayerUserDefaults()
+            case "team":
+                player.setPlayerUserDefaults()
+                self.view?.presentScene( GameSceneTeam() )
+            case "docs":
+                player.setPlayerUserDefaults()
+                self.view?.presentScene( GameSceneDocs() )
+            case "server":
+                player.setPlayerUserDefaults()
+                self.view?.presentScene( GameSceneServe() )
+            default:
             
-        case "sellLabel":
+                if terminalNode.isOfficeTerminalActive {
+                    addLabelPointsAnamation(x:positionInScene.x, y:positionInScene.y)
+
+                }
             
-            timer.deadLine = player.deadLine
-            timer.isDeadLineEnded = false
-            terminalNode.setupForCliker()
-            player.money = player.money+player.points*5
-            player.points = 0
-            player.setPlayerUserDefaults()
-            
-        case "office":
-            print("office")
-        case "team":
-            player.setPlayerUserDefaults()
-            self.view?.presentScene( GameSceneTeam() )
-        case "docs":
-            player.setPlayerUserDefaults()
-            self.view?.presentScene( GameSceneDocs() )
-        case "server":
-            player.setPlayerUserDefaults()
-            self.view?.presentScene( GameSceneServe() )
-        default:
-            if timer.firstCliked{
-                timer.firstCliked = false
-            }
-            
-            if !(timer.isDeadLineEnded){
-                player.points += player.clickPower()
-                terminalNode.addCodeLine(codeLine: CodeNode(width: Int.random(in: 80..<300)))
-                terminalNode.changeTextOfCodeLabel()
-                terminalNode.codeLines += 1                
+                if timer.firstCliked{
+                    timer.firstCliked = false
+                }
+                
+                if !(timer.isDeadLineEnded){
+                    player.points += player.clickPower()
+                    terminalNode.addCodeLine(codeLine: CodeNode(width: Int.random(in: 80..<300)))
+                    terminalNode.changeTextOfCodeLabel()
+                    terminalNode.codeLines += 1
+                }
             }
         }
         
@@ -105,7 +111,8 @@ class GameSceneOffice: SKScene {
                 terminalNode.setupForResults(text: "STORE APP", name: "storeLabel")
             }
             else{
-                terminalNode.setupForResults(text: "SELL: \(player.points*5)", name: "sellLabel")
+                let app = App(points: player.points)
+                terminalNode.setupForResults(text: "SELL: \(app.money)", name: "sellLabel")
             }
             return
         }
@@ -140,19 +147,13 @@ class GameSceneOffice: SKScene {
         let worker2 = WorkerNode(worker: player.team[1])
         let worker3 = WorkerNode(worker: player.team[2])
         
-        worker1.anchorPoint = CGPoint(x: 1, y: 0)
-        worker1.position = CGPoint( x: self.size.width*3/20, y: 550)
-        worker1.scale(to: CGSize(width: 48, height: 141))
+        worker1.position = CGPoint( x: self.size.width*3/20-20, y: 630)
         self.addChild(worker1)
         
-        worker2.anchorPoint = CGPoint(x: 1, y: 0)
-        worker2.position = CGPoint( x: self.size.width/2-10, y: 550)
-        worker2.scale(to: CGSize(width: 48, height: 141))
+        worker2.position = CGPoint( x: self.size.width/2-20, y: 630)
         self.addChild(worker2)
         
-        worker3.anchorPoint = CGPoint(x: 1, y: 0)
-        worker3.position = CGPoint( x: self.size.width*17/20-10 , y: 550)
-        worker3.scale(to: CGSize(width: 48, height: 141))
+        worker3.position = CGPoint( x: self.size.width*17/20-20 , y: 630)
         self.addChild(worker3)
         
         //MARK: Desks
@@ -204,4 +205,53 @@ class GameSceneOffice: SKScene {
         self.addChild(screemNode)
 
     }
+    
+    func addLabelPointsAnamation(x:CGFloat, y:CGFloat){
+        let labelPoints = SKLabelNode()
+        labelPoints.fontColor = ColorPalette.mainGreen
+        labelPoints.zPosition = 11
+        labelPoints.fontName = "Pixel"
+        labelPoints.fontSize = 30
+        labelPoints.text = "+\(player.clickPower())"
+        labelPoints.horizontalAlignmentMode = .center
+        labelPoints.position = CGPoint(x:x, y: y)
+        self.addChild(labelPoints)
+        labelPoints.run(
+        SKAction.moveTo(y: self.size.height, duration: 1)
+        , completion: labelPoints.removeFromParent)
+    }
+    
+    func addToServerAnamation(){
+        
+        var compressFrames: [SKTexture] = []
+
+        for i in 0...33 {
+          let extureName = "New Piskel-\(i).png"
+            compressFrames.append(SKTexture(imageNamed: extureName))
+        }
+        
+        let appCompact = SKSpriteNode(imageNamed: "New Piskel-1.png")
+        appCompact.scale(to: CGSize(width: 332 , height: 364))
+        appCompact.zPosition = 11
+        appCompact.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        appCompact.position = CGPoint(x: 50+appCompact.size.width/2, y: 130+appCompact.size.height/2)
+        self.addChild(appCompact)
+        
+        let sequence = SKAction.sequence(
+            [SKAction.animate(with: compressFrames, timePerFrame: 0.01),
+             SKAction.scale(by: 0.25, duration: 0.25),
+             SKAction.group(
+                [
+                    SKAction.scale(by: 0, duration: 0.35),
+                SKAction.rotate(byAngle: 6, duration: 0.25),
+                SKAction.move(to: CGPoint(x: self.size.width*4/5-5, y: 75), duration: 0.25)
+                ]
+             )
+        ])
+        
+        appCompact.run(
+            sequence
+        )
+    }
+    
 }

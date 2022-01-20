@@ -12,6 +12,7 @@ public class TerminalOffice: SKSpriteNode{
     let codeLabel = SKLabelNode()
     let codeLinesNode = SKSpriteNode()
     var codeLines = 0
+    var isOfficeTerminalActive = true
     
     var player = Player.shared
     
@@ -29,6 +30,8 @@ public class TerminalOffice: SKSpriteNode{
     
     func setupForCliker(){
         removeAllChildren()
+        
+        isOfficeTerminalActive = true
         
         pointsLabel.fontColor = ColorPalette.mainGreen
         pointsLabel.fontName = "Pixel"
@@ -58,11 +61,15 @@ public class TerminalOffice: SKSpriteNode{
     func setupForResults(text:String, name:String){
         removeAllChildren()
         
+        isOfficeTerminalActive = false
+        
+        let app = App(points: player.points)
+        
         pointsLabel.fontColor = ColorPalette.mainGreen
         pointsLabel.zPosition = 1
         pointsLabel.fontName = "Pixel"
         pointsLabel.fontSize = 25
-        pointsLabel.text = "POINTS: \(player.points)"
+        pointsLabel.text = "POINTS: \(app.points)"
         pointsLabel.horizontalAlignmentMode = .center
         pointsLabel.position = CGPoint(x:self.size.width/2, y: self.size.height-60)
         self.addChild(pointsLabel)
@@ -74,31 +81,53 @@ public class TerminalOffice: SKSpriteNode{
         overAllLabel.numberOfLines = 0
         overAllLabel.fontSize = 22
         if name == "sellLabel" {
-            overAllLabel.text = "You clicked :\(player.points)\nYou use 3 programers\nYour server is full\nto store more apps\nsell some apps\nstore in your server"
+            overAllLabel.text = "Earning : \(app.earning)\nYou power was: \(player.clickPower())\nYour server is full\nto store more apps\nsell some apps\nstore in your server"
+            overAllLabel.position = CGPoint(x:10, y: self.size.height-250)
         }
         else{
-            overAllLabel.text = "You clicked :\(player.points)\nYou use 3 programers\nwith you had made\n1000points\nyour multiplaier would \nbe 2 times bigger"
+            overAllLabel.text = "Earning : \(app.earning)\nYou power was: \(player.clickPower())"
+            overAllLabel.position = CGPoint(x:10, y: self.size.height/2)
         }
         overAllLabel.horizontalAlignmentMode = .left
-        overAllLabel.position = CGPoint(x:10, y: self.size.height-250)
         self.addChild(overAllLabel)
         
-        let backgroundSellLabel = SKSpriteNode(color: ColorPalette.mainGreen, size: CGSize(width: 300, height: 50))
-        backgroundSellLabel.zPosition = 2
-        backgroundSellLabel.name = name
-        backgroundSellLabel.position = CGPoint(x:self.size.width/2, y: 60)
-        self.addChild(backgroundSellLabel)
+        let backgroundStoreLabel = SKSpriteNode(color: ColorPalette.mainGreen, size: CGSize(width: 300, height: 50))
+        backgroundStoreLabel.zPosition = 2
+        backgroundStoreLabel.name = name
+        backgroundStoreLabel.position = CGPoint(x:self.size.width/2, y: 60)
+        self.addChild(backgroundStoreLabel)
         
-        let sellLabel = SKLabelNode()
-        sellLabel.name = name
-        sellLabel.zPosition = 2
-        sellLabel.fontColor = .black
-        sellLabel.fontName = "Pixel"
-        sellLabel.fontSize = 25
-        sellLabel.text = text
-        sellLabel.horizontalAlignmentMode = .center
-        sellLabel.position = CGPoint(x:self.size.width/2, y: 50)
-        self.addChild(sellLabel)
+        let storeLabel = SKLabelNode()
+        storeLabel.name = name
+        storeLabel.zPosition = 2
+        storeLabel.fontColor = .black
+        storeLabel.fontName = "Pixel"
+        storeLabel.fontSize = 25
+        storeLabel.text = text
+        storeLabel.horizontalAlignmentMode = .center
+        storeLabel.position = CGPoint(x:self.size.width/2, y: 50)
+        self.addChild(storeLabel)
+        
+        if name != "sellLabel" {
+            let backgroundSellLabel = SKSpriteNode(color: ColorPalette.mainGreen, size: CGSize(width: 300, height: 50))
+            backgroundSellLabel.zPosition = 2
+            backgroundSellLabel.name = "sellLabel"
+            backgroundSellLabel.position = CGPoint(x:self.size.width/2, y: 120)
+            self.addChild(backgroundSellLabel)
+            
+            let sellLabel = SKLabelNode()
+            sellLabel.name = "sellLabel"
+            sellLabel.zPosition = 2
+            sellLabel.fontColor = .black
+            sellLabel.fontName = "Pixel"
+            sellLabel.fontSize = 25
+            sellLabel.text = "SELL: \(app.money)"
+            sellLabel.horizontalAlignmentMode = .center
+            sellLabel.position = CGPoint(x:self.size.width/2, y: 110)
+            self.addChild(sellLabel)
+        }
+        
+
     }
         
     func addCodeLine(codeLine:CodeNode){
