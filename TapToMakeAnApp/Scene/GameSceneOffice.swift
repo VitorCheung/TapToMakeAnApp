@@ -225,7 +225,7 @@ class GameSceneOffice: SKScene {
         
         var compressFrames: [SKTexture] = []
 
-        for i in 0...33 {
+        for i in 1...33 {
           let extureName = "New Piskel-\(i).png"
             compressFrames.append(SKTexture(imageNamed: extureName))
         }

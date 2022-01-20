@@ -20,6 +20,8 @@ class GameViewController: UIViewController{
         Player.shared.team = [nil,nil,nil]
         Player.shared.apps = [App(points: 10)]
         Player.shared.docsBuy = 0
+        
+
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
             let scene = GameSceneOffice()

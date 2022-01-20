@@ -18,6 +18,11 @@
 	<array>
 		<string>Pixel.ttf</string>
 	</array>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+	</dict>
 	<key>UTExportedTypeDeclarations</key>
 	<array>
 		<dict/>
