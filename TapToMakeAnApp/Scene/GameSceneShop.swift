@@ -14,10 +14,12 @@ class GameSceneShop: SKScene {
     var player = Player.shared
     
     var isToucheMoved = false
+    
     //Nodes
     let moneyLabel = SKLabelNode()
     let deadLineLabel = SKLabelNode()
     var terminalNode = TerminalShop()
+    let boxNode = BoxNode()
     
     override func didMove(to view: SKView) {
         // Set the scale mode to scale to fit the window
@@ -121,13 +123,14 @@ class GameSceneShop: SKScene {
         deadLineLabel.position = CGPoint(x:10, y: self.size.height-55)
         self.addChild(deadLineLabel)
         
-        let boxNode = BoxNode()
         boxNode.zPosition = 6
         boxNode.position = CGPoint(x: self.size.width/2, y: 630)
+        boxNode.physicsBody = SKPhysicsBody(rectangleOf: boxNode.size)
         self.addChild(boxNode)
         
         //MARK: Bg
         let backgroundNode = BackgroundNode()
+        let backgroundNodePhysic = SKSpriteNode(color: .clear, size: CGSize(width: self.size.width, height: 5))
         let whiteBackgroundNode = SKSpriteNode(color: .white, size: CGSize(width: 428, height: 300))
         
         whiteBackgroundNode.zPosition = 4
@@ -139,6 +142,13 @@ class GameSceneShop: SKScene {
         backgroundNode.anchorPoint = CGPoint(x: 0.5, y: 0)
         backgroundNode.position = CGPoint( x: self.size.width/2, y: 500)
         self.addChild(backgroundNode)
+        
+        backgroundNodePhysic.physicsBody = SKPhysicsBody(rectangleOf: backgroundNodePhysic.size)
+        backgroundNodePhysic.physicsBody?.affectedByGravity = false
+        backgroundNodePhysic.physicsBody?.isDynamic = false
+        backgroundNodePhysic.zPosition = 6
+        backgroundNodePhysic.position = CGPoint(x: self.size.width/2, y: 500)
+        self.addChild(backgroundNodePhysic)
         
         //MARK: Screem
         
@@ -158,10 +168,34 @@ class GameSceneShop: SKScene {
     }
 
     func buyUpgrade(index:Int){
-        player.money -= player.upgrades[index].price
-        player.upgrades[index].level += 1
-        setup()
+        if player.money > player.upgrades[index].price{
+            player.money -= player.upgrades[index].price
+            player.upgrades[index].level += 1
+            setup()
+            animationBuy()
+        }
     }
+    
+    func animationBuy(){
+        
+        let sequence = SKAction.sequence([
+            SKAction.applyImpulse(CGVector(dx: -5000, dy: 0), duration: 0.2),
+            SKAction.stop(),
+            SKAction.wait(forDuration: 0.5),
+            SKAction.run { [self] in
+                boxNode.removeFromParent()
+                boxNode.position = CGPoint(x: self.size.width/2, y: self.size.height+100)
+                boxNode.zPosition = 6
+                boxNode.physicsBody = SKPhysicsBody(rectangleOf: boxNode.size)
+                self.addChild(boxNode)
+            }
+        ])
+        
+        boxNode.run(
+            sequence
+        )
+    }
+    
 }
 
 
