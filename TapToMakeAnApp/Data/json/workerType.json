@@ -1,0 +1,15 @@
+[
+    {
+        "name" : "coder",
+        "description" : "If your team have 3\nprogramers, your\npawer will be double"
+    },
+    {
+        "name" : "designer",
+        "description" : "If your team have 3\ndesignerall, your\nteam gain 10 power"
+    },
+    {
+        "name" : "host",
+        "description" : "If your team have 3\nHost, your deadline\nwill incrise 5 days"
+    }
+
+]

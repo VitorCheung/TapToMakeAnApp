@@ -1,0 +1,34 @@
+
+[
+    {
+        "name" : "Air Conditioner",
+        "scalePrice" : 1000,
+        "level" : 0,
+        "description" : "+1 day to your\ndeadLine"
+    },
+    {
+        "name" : "Upgrade PC",
+        "scalePrice" : 10000,
+        "level" : 0,
+        "description" : "+1 power for\nyou click"
+    },
+    {
+        "name" : "Coffe",
+        "scalePrice" : 25000,
+        "level" : 0,
+        "description" : "incrise your value\nof apps by 1.50 "
+    },
+    {
+        "name" : "Server",
+        "scalePrice" : 50000,
+        "level" : 0,
+        "description" : "+1 app to store"
+    },
+    {
+        "name" : "Wifi",
+        "scalePrice" : 100000,
+        "level" : 0,
+        "description" : "incrise your\nearning by 1.25"
+    },
+
+]

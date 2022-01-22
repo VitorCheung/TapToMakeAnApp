@@ -1,0 +1,171 @@
+
+[
+    {
+        "name" : "Ju",
+        "power" : 1,
+        "level" : 1,
+        "rarety" : 4,
+        "workerType":["designer",null]
+    },
+    {
+        "name" : "Muza",
+        "power" : 1,
+        "level" : 1,
+        "rarety" : 4,
+        "workerType":["host",null]
+    },
+    {
+        "name" : "Marcus",
+        "power" : 1,
+        "level" : 1,
+        "rarety" : 4,
+        "workerType":["coder",null]
+    },
+    {
+        "name" : "Debs",
+        "power" : 1,
+        "level" : 1,
+        "rarety" : 4,
+        "workerType":["designer",null]
+    },
+    {
+        "name" : "Talita",
+        "power" : 1,
+        "level" : 1,
+        "rarety" : 4,
+        "workerType":["host",null]
+    },
+    {
+        "name" : "Fran",
+        "power" : 1,
+        "level" : 1,
+        "rarety" : 4,
+        "workerType":["coder",null]
+    },
+    {
+        "name" : "Thallis",
+        "power" : 1,
+        "level" : 1,
+        "rarety" : 4,
+        "workerType":["host",null]
+    },
+    {
+        "name" : "Nath",
+        "power" : 1,
+        "level" : 1,
+        "rarety" : 4,
+        "workerType":["coder",null]
+    },
+    {
+        "name" : "GK",
+        "power" : 1,
+        "level" : 1,
+        "rarety" : 4,
+        "workerType":["coder",null]
+    },
+    {
+        "name" : "Mari",
+        "power" : 1,
+        "level" : 1,
+        "rarety" : 4,
+        "workerType":["designer",null]
+    },
+    {
+        "name" : "Felipe",
+        "power" : 1,
+        "level" : 1,
+        "rarety" : 4,
+        "workerType":["coder",null]
+    },
+    {
+        "name" : "Rebecca",
+        "power" : 1,
+        "level" : 1,
+        "rarety" : 4,
+        "workerType":["coder",null]
+    },
+    {
+        "name" : "Paula",
+        "power" : 6,
+        "level" : 1,
+        "rarety" : 5,
+        "workerType":["coder",null]
+    },
+    {
+        "name" : "Taus",
+        "power" : 1,
+        "level" : 1,
+        "rarety" : 4,
+        "workerType":["coder",null]
+    },
+    {
+        "name" : "Oliver",
+        "power" : 1,
+        "level" : 1,
+        "rarety" : 4,
+        "workerType":["coder",null]
+    },
+    {
+        "name" : "Triz",
+        "power" : 1,
+        "level" : 1,
+        "rarety" : 4,
+        "workerType":["coder",null]
+    },
+    {
+        "name" : "Ortega",
+        "power" : 1,
+        "level" : 1,
+        "rarety" : 4,
+        "workerType":["coder",null]
+    },
+    {
+        "name" : "Bii",
+        "power" : 1,
+        "level" : 1,
+        "rarety" : 4,
+        "workerType":["coder",null]
+    },
+    {
+        "name" : "Japa",
+        "power" : 1,
+        "level" : 1,
+        "rarety" : 4,
+        "workerType":["coder",null]
+    },
+    {
+        "name" : "Basile",
+        "power" : 4,
+        "level" : 1,
+        "rarety" : 5,
+        "workerType":["coder","host"]
+    },
+    {
+        "name" : "Cacique",
+        "power" : 6,
+        "level" : 1,
+        "rarety" : 5,
+        "workerType":["coder","designer"]
+    },
+    {
+        "name" : "Joaquim",
+        "power" : 6,
+        "level" : 1,
+        "rarety" : 5,
+        "workerType":["coder",null]
+    },
+    {
+        "name" : "Karina",
+        "power" : 6,
+        "level" : 1,
+        "rarety" : 5,
+        "workerType":["designer",null]
+    },
+    {
+        "name" : "Elo",
+        "power" : 6,
+        "level" : 1,
+        "rarety" : 5,
+        "workerType":["designer",null]
+    },
+]

@@ -53,12 +53,17 @@ class GameSceneServe: SKScene {
                 case "docs":
                     player.setPlayerUserDefaults()
                     self.view?.presentScene( GameSceneDocs() )
+                case "shop":
+                    player.setPlayerUserDefaults()
+                    self.view?.presentScene( GameSceneShop() )
                 case "App":
                     let app = touchedNode as? SellAppNode
+                    let yPositon = terminalNode.position.y
                     sellApp(positionApp: app?.positionLibrary,CGpositon: positionInScene )
                     for _ in 0..<10 {
                         rainMoney(CGpositon: positionInScene)
                     }
+                    terminalNode.position.y = yPositon
                     player.setPlayerUserDefaults()
                 default:
                     return
@@ -129,7 +134,7 @@ class GameSceneServe: SKScene {
         painelLabel.fontName = "Pixel"
         painelLabel.fontSize = 25
         painelLabel.numberOfLines = 0
-        painelLabel.text = "Apps: \(player.apps.count)/9\nEarning: \(player.totalEarning())$/Day"
+        painelLabel.text = "Apps: \(player.apps.count)/\(1+player.upgrades[4].level)\nEarning: \(player.totalEarning())$/Day"
         painelLabel.horizontalAlignmentMode = .center
         painelLabel.position = CGPoint(x:0, y: -30)
         boarderPainel.addChild(painelLabel)

@@ -15,11 +15,19 @@ class GameViewController: UIViewController{
         super.viewDidLoad()
         
         Player.shared = Player.getPlayerUserDefaults()
-        Player.shared.money = 1000000000
-        Player.shared.workers = []
-        Player.shared.team = [nil,nil,nil]
-        Player.shared.apps = [App(points: 10)]
-        Player.shared.docsBuy = 0
+        Player.shared.verifyData()
+//        Player.shared.money = 0
+//        Player.shared.workers = []
+//        Player.shared.team = [nil,nil,nil]
+//        Player.shared.apps = []
+//        Player.shared.docsBuy = 0
+//        Player.shared.upgrades = [
+//            Upgrade(name: "Upgrade PC", scalePrice: 250, description: "+1 power for\nyou click"),
+//            Upgrade(name: "Air Conditioner", scalePrice: 500, description: "+1 day to your\ndeadLine"),
+//            Upgrade(name: "Wifi", scalePrice: 1000, description: "incrise your\nearning by 1.25 "),
+//            Upgrade(name: "Coffe", scalePrice: 2000, description: "incrise your value\nof apps by 1.50 "),
+//            Upgrade(name: "Server", scalePrice: 4000, description: "+1 app to store")
+//        ]
         
 
         if let view = self.view as! SKView? {

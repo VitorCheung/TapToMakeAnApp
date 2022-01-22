@@ -87,7 +87,7 @@ public class TerminalTeam: SKSpriteNode{
             type1Label.fontName = "Pixel"
             type1Label.zPosition = 1
             type1Label.fontSize = 18
-            type1Label.text = w.workerType[0]?.name
+            type1Label.text = w.workerType[0]
             type1Label.horizontalAlignmentMode = .left
             type1Label.position = CGPoint(x: self.size.width/2-75, y: self.size.height-140)
             self.addChild(type1Label)
@@ -98,7 +98,7 @@ public class TerminalTeam: SKSpriteNode{
             type1DescriptionLabel.zPosition = 1
             type1DescriptionLabel.fontSize = 18
             type1DescriptionLabel.numberOfLines = 0
-            type1DescriptionLabel.text = w.workerType[0]?.description
+            type1DescriptionLabel.text = WorkerType.getDescription(name: w.workerType[0] ?? "")
             type1DescriptionLabel.horizontalAlignmentMode = .left
             type1DescriptionLabel.position = CGPoint(x: self.size.width/2-75, y: self.size.height-230)
             self.addChild(type1DescriptionLabel)
@@ -111,7 +111,7 @@ public class TerminalTeam: SKSpriteNode{
             type2Label.zPosition = 1
             type2Label.numberOfLines = 0
             type2Label.fontSize = 18
-            type2Label.text = w.workerType[1]?.name
+            type2Label.text = w.workerType[1]
             type2Label.horizontalAlignmentMode = .left
             type2Label.position = CGPoint(x: self.size.width/2-75, y: self.size.height-280)
             self.addChild(type2Label)
@@ -129,7 +129,7 @@ public class TerminalTeam: SKSpriteNode{
             type2DescriptionLabel.zPosition = 1
             type2DescriptionLabel.numberOfLines = 0
             type2DescriptionLabel.fontSize = 18
-            type2DescriptionLabel.text = w.workerType[1]?.description
+            type2DescriptionLabel.text = WorkerType.getDescription(name: w.workerType[1] ?? "")
             type2DescriptionLabel.horizontalAlignmentMode = .left
             type2DescriptionLabel.position = CGPoint(x: self.size.width/2-75, y: self.size.height-360)
             self.addChild(type2DescriptionLabel)
@@ -245,9 +245,9 @@ public class TerminalTeam: SKSpriteNode{
     
     func activedBonus()->String{
         var bonusString = "Bonus: "
-        for wt in WorkersTypeEnum.library {
-            if player.bonus(workerType: wt){
-                bonusString += "\(wt.name) "
+        for wt in WorkersTypeEnum.allCases {
+            if player.bonus(workerType: wt.rawValue){
+                bonusString += "\(wt.rawValue) "
             }
         }
         return bonusString

@@ -63,26 +63,32 @@ public class ScreemNode: SKSpriteNode{
         let buttonTeam = ButtonTabBarNode(img: "teamIcon", name: "team")
         let buttonDoc = ButtonTabBarNode(img: "docIcon", name: "docs")
         let buttonServer = ButtonTabBarNode(img: "serverIcon", name: "server")
+        let buttonShop = ButtonTabBarNode(img: "Money", name: "shop")
         
         buttonOffice.zPosition = 7
         buttonOffice.anchorPoint = CGPoint(x: 0, y: 0)
-        buttonOffice.position = CGPoint(x: self.size.width*1/5-30, y: 40)
+        buttonOffice.position = CGPoint(x: self.size.width*1/6-30, y: 40)
         self.addChild(buttonOffice)
         
         buttonTeam.zPosition = 7
         buttonTeam.anchorPoint = CGPoint(x: 0, y: 0)
-        buttonTeam.position = CGPoint(x: self.size.width*2/5-30, y: 40)
+        buttonTeam.position = CGPoint(x: self.size.width*2/6-30, y: 40)
         self.addChild(buttonTeam)
         
         buttonDoc.zPosition = 7
         buttonDoc.anchorPoint = CGPoint(x: 0, y: 0)
-        buttonDoc.position = CGPoint(x: self.size.width*3/5-30, y: 40)
+        buttonDoc.position = CGPoint(x: self.size.width*3/6-30, y: 40)
         self.addChild(buttonDoc)
         
         buttonServer.zPosition = 7
         buttonServer.anchorPoint = CGPoint(x: 0, y: 0)
-        buttonServer.position = CGPoint(x: self.size.width*4/5-30, y: 40)
+        buttonServer.position = CGPoint(x: self.size.width*4/6-30, y: 40)
         self.addChild(buttonServer)
+        
+        buttonShop.zPosition = 7
+        buttonShop.anchorPoint = CGPoint(x: 0, y: 0)
+        buttonShop.position = CGPoint(x: self.size.width*5/6-30, y: 40)
+        self.addChild(buttonShop)
 
     }
 }
