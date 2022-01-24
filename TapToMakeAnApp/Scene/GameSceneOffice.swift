@@ -110,7 +110,7 @@ class GameSceneOffice: SKScene {
         
         if timer.isDeadLineEnded{
             player.setPlayerUserDefaults()
-            if player.apps.count < 1+player.upgrades[4].level && player.points != 0{
+            if player.apps.count < player.serverSpace && player.points != 0{
                 terminalNode.setupForResults(text: "STORE APP", name: "storeLabel")
             }
             else{

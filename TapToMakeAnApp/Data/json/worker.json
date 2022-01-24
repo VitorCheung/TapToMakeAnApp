@@ -1,171 +1,219 @@
 
 [
     {
+        "id":0,
+        "isActive":true,
         "name" : "Ju",
-        "power" : 1,
+        "basePower" : 1,
         "level" : 1,
         "rarety" : 4,
         "workerType":["designer",null]
     },
     {
+        "id":1,
+        "isActive":true,
         "name" : "Muza",
-        "power" : 1,
+        "basePower" : 1,
         "level" : 1,
         "rarety" : 4,
         "workerType":["host",null]
     },
     {
+        "id":2,
+        "isActive":true,
         "name" : "Marcus",
-        "power" : 1,
+        "basePower" : 1,
         "level" : 1,
         "rarety" : 4,
         "workerType":["coder",null]
     },
     {
+        "id":3,
+        "isActive":true,
         "name" : "Debs",
-        "power" : 1,
+        "basePower" : 1,
         "level" : 1,
         "rarety" : 4,
         "workerType":["designer",null]
     },
     {
+        "id":4,
+        "isActive":true,
         "name" : "Talita",
-        "power" : 1,
+        "basePower" : 1,
         "level" : 1,
         "rarety" : 4,
         "workerType":["host",null]
     },
     {
+        "id":5,
+        "isActive":true,
         "name" : "Fran",
-        "power" : 1,
+        "basePower" : 1,
         "level" : 1,
         "rarety" : 4,
         "workerType":["coder",null]
     },
     {
+        "id":6,
+        "isActive":true,
         "name" : "Thallis",
-        "power" : 1,
+        "basePower" : 1,
         "level" : 1,
         "rarety" : 4,
         "workerType":["host",null]
     },
     {
+        "id":7,
+        "isActive":true,
         "name" : "Nath",
-        "power" : 1,
+        "basePower" : 1,
         "level" : 1,
         "rarety" : 4,
         "workerType":["coder",null]
     },
     {
+        "id":8,
+        "isActive":true,
         "name" : "GK",
-        "power" : 1,
+        "basePower" : 1,
         "level" : 1,
         "rarety" : 4,
         "workerType":["coder",null]
     },
     {
+        "id":9,
+        "isActive":true,
         "name" : "Mari",
-        "power" : 1,
+        "basePower" : 1,
         "level" : 1,
         "rarety" : 4,
         "workerType":["designer",null]
     },
     {
+        "id":10,
+        "isActive":true,
         "name" : "Felipe",
-        "power" : 1,
+        "basePower" : 1,
         "level" : 1,
         "rarety" : 4,
         "workerType":["coder",null]
     },
     {
+        "id":11,
+        "isActive":true,
         "name" : "Rebecca",
-        "power" : 1,
+        "basePower" : 1,
         "level" : 1,
         "rarety" : 4,
         "workerType":["coder",null]
     },
     {
+        "id":12,
+        "isActive":true,
         "name" : "Paula",
-        "power" : 6,
+        "basePower" : 6,
         "level" : 1,
         "rarety" : 5,
         "workerType":["coder",null]
     },
     {
+        "id":13,
+        "isActive":true,
         "name" : "Taus",
-        "power" : 1,
+        "basePower" : 1,
         "level" : 1,
         "rarety" : 4,
         "workerType":["coder",null]
     },
     {
+        "id":14,
+        "isActive":true,
         "name" : "Oliver",
-        "power" : 1,
+        "basePower" : 1,
         "level" : 1,
         "rarety" : 4,
         "workerType":["coder",null]
     },
     {
+        "id":15,
+        "isActive":true,
         "name" : "Triz",
-        "power" : 1,
+        "basePower" : 1,
         "level" : 1,
         "rarety" : 4,
         "workerType":["coder",null]
     },
     {
+        "id":16,
+        "isActive":true,
         "name" : "Ortega",
-        "power" : 1,
+        "basePower" : 1,
         "level" : 1,
         "rarety" : 4,
         "workerType":["coder",null]
     },
     {
+        "id":17,
+        "isActive":true,
         "name" : "Bii",
-        "power" : 1,
+        "basePower" : 1,
         "level" : 1,
         "rarety" : 4,
         "workerType":["coder",null]
     },
     {
+        "id":18,
+        "isActive":true,
         "name" : "Japa",
-        "power" : 1,
+        "basePower" : 1,
         "level" : 1,
         "rarety" : 4,
         "workerType":["coder",null]
     },
     {
+        "id":19,
+        "isActive":true,
         "name" : "Basile",
-        "power" : 4,
+        "basePower" : 4,
         "level" : 1,
         "rarety" : 5,
         "workerType":["coder","host"]
     },
     {
+        "id":20,
+        "isActive":true,
         "name" : "Cacique",
-        "power" : 6,
+        "basePower" : 6,
         "level" : 1,
         "rarety" : 5,
         "workerType":["coder","designer"]
     },
     {
+        "id":21,
+        "isActive":true,
         "name" : "Joaquim",
-        "power" : 6,
+        "basePower" : 6,
         "level" : 1,
         "rarety" : 5,
         "workerType":["coder",null]
     },
     {
+        "id":22,
+        "isActive":true,
         "name" : "Karina",
-        "power" : 6,
+        "basePower" : 6,
         "level" : 1,
         "rarety" : 5,
         "workerType":["designer",null]
     },
     {
+        "id":23,
+        "isActive":true,
         "name" : "Elo",
-        "power" : 6,
+        "basePower" : 6,
         "level" : 1,
         "rarety" : 5,
         "workerType":["designer",null]
-    },
+    }
 ]

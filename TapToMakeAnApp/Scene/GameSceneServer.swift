@@ -134,7 +134,7 @@ class GameSceneServe: SKScene {
         painelLabel.fontName = "Pixel"
         painelLabel.fontSize = 25
         painelLabel.numberOfLines = 0
-        painelLabel.text = "Apps: \(player.apps.count)/\(1+player.upgrades[4].level)\nEarning: \(player.totalEarning())$/Day"
+        painelLabel.text = "Apps: \(player.apps.count)/\(player.serverSpace)\nEarning: \(player.totalEarning())$/Day"
         painelLabel.horizontalAlignmentMode = .center
         painelLabel.position = CGPoint(x:0, y: -30)
         boarderPainel.addChild(painelLabel)

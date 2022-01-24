@@ -16,7 +16,6 @@ public class TerminalServer: SKSpriteNode{
         name="terminal"
         self.zPosition = -1
         self.anchorPoint = CGPoint(x: 0, y: 0)
-        setup()
         
     }
     

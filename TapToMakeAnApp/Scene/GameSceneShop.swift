@@ -61,11 +61,8 @@ class GameSceneShop: SKScene {
                 case "upgrade":
                     guard let upgrade = touchedNode as? UpgradeNode else { return  }
                     let yPositon = terminalNode.position.y
-                    buyUpgrade(index: upgrade.positionLibrary)
+                    buyUpgrade(index: upgrade.positionLibrary, CGPositon:positionInScene)
                     terminalNode.position.y = yPositon
-                    for _ in 0..<10 {
-                        rainMoney(CGpositon: positionInScene)
-                    }
                     player.setPlayerUserDefaults()
                 default:
                     return
@@ -91,8 +88,7 @@ class GameSceneShop: SKScene {
             let location = touch.location(in: self)
             let previousLocation = touch.previousLocation(in: self)
             let deltaY = location.y - previousLocation.y
-            let countUpgrades = CGFloat(player.upgrades.count)
-            if terminalNode.position.y + deltaY > 90  && terminalNode.position.y + deltaY < 197*countUpgrades {
+            if terminalNode.position.y + deltaY > 90  && terminalNode.position.y + deltaY < 197*CGFloat(terminalNode.totalLines)+1 {
                 terminalNode.position.y += deltaY
             }
         }
@@ -167,12 +163,15 @@ class GameSceneShop: SKScene {
         
     }
 
-    func buyUpgrade(index:Int){
+    func buyUpgrade(index:Int, CGPositon:CGPoint){
         if player.money > player.upgrades[index].price{
             player.money -= player.upgrades[index].price
             player.upgrades[index].level += 1
             setup()
             animationBuy()
+            for _ in 0..<10 {
+                rainMoney(CGpositon: CGPositon)
+            }
         }
     }
     

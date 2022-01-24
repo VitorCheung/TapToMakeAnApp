@@ -8,13 +8,17 @@
 import Foundation
 
 public struct Upgrade: Codable{
-    let name: String
+    
+    let id: Int
+    let isActive: Bool
+    
+    var name: String
     var scalePrice: Double
     var level = 0
     var description: String
     
     var price: Int64 {
-        return Int64(scalePrice*pow(Double(level),Double(2))+scalePrice)
+        return Int64(scalePrice*pow(Double(level),Double(7))+scalePrice)
     }
     
     static var library: [Upgrade] {

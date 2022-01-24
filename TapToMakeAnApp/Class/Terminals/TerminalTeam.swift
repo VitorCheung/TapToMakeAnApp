@@ -16,9 +16,7 @@ public class TerminalTeam: SKSpriteNode{
         super.init(texture: nil, color: ColorPalette.backgroundGray, size: CGSize(width: 332 , height: 364))
         name="terminal"
         self.zPosition = -1
-        self.anchorPoint = CGPoint(x: 0, y: 0)
-        setupSelection()
-        
+        self.anchorPoint = CGPoint(x: 0, y: 0)        
     }
     
     required init?(coder aDecoder: NSCoder) {

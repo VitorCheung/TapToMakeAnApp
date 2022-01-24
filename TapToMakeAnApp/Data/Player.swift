@@ -20,12 +20,15 @@ class Player: Codable{
     var team : [Worker?] = [nil,nil,nil]
     var apps : [App?] = []
     var upgrades : [Upgrade] = Upgrade.library
+    
     var deadLine : Int{
-        var timeDeadLine = 10
-        if bonus(workerType: WorkersTypeEnum.Host.rawValue){
-            timeDeadLine += 15
-        }
-        return timeDeadLine+1*upgrades[1].level
+        guard let up = findUpgradeByName(name: "Air Conditioner") else { return 0 }
+        return 5+up.level
+    }
+    
+    var serverSpace:Int{
+        guard let up = findUpgradeByName(name: "Server") else { return 0 }
+        return 2+up.level
     }
     
     //MARK: Functions
@@ -58,8 +61,37 @@ class Player: Codable{
         if bonus(workerType: WorkersTypeEnum.Coder.rawValue){
             clickPower *= 2
         }
-        return clickPower+1*upgrades[0].level
+        return clickPower
         
+    }
+    
+    func earningPoints()-> Int{
+        guard let upPC = findUpgradeByName(name: "Upgrade PC") else { return 0 }
+        guard let upCoffe = findUpgradeByName(name: "Coffe") else { return 0 }
+        guard let upWifi = findUpgradeByName(name: "Wifi") else { return 0 }
+        guard let upPhone = findUpgradeByName(name: "Phone") else { return 0 }
+        guard let upTablet = findUpgradeByName(name: "Tablet") else { return 0 }
+        
+        let ep = upPC.level + upCoffe.level*(workers.count+team.filter({ $0 == nil }).count) + 5*upWifi.level*apps.count + 25*upPhone.level*countRaraty(rarety: 4) + 50*upTablet.level*countRaraty(rarety: 5)
+        
+        if bonus(workerType: WorkersTypeEnum.Host.rawValue){
+            return ep*2
+        }
+        
+        return ep
+    }
+    
+    func countRaraty(rarety: Int)->Int{
+        let allWorkers = workers+team
+        var num = 0
+        for worker in allWorkers {
+            if let w = worker {
+                if w.rarety == rarety{
+                        num += 1
+                }
+            }
+        }
+        return num
     }
     
     func bonus(workerType:String)->Bool{
@@ -79,6 +111,15 @@ class Player: Codable{
         else{
             return false
         }
+    }
+    
+    func findUpgradeByName(name: String)-> Upgrade?{
+        for up in upgrades {
+            if up.name == name{
+                return up
+            }
+        }
+        return nil
     }
     
     //MARK:Codable
@@ -121,30 +162,48 @@ class Player: Codable{
     func verifyData(){
         
         for i in 0..<workers.count {
-                for workerLibery in Worker.library {
-                    if workers[i].name == workerLibery.name {
-                        workers[i].power = workerLibery.power
-                        workers[i].workerType = workerLibery.workerType
-                    }
+            if Worker.library[workers[i].id].isActive{
+                workers[i].name = Worker.library[workers[i].id].name
+                workers[i].basePower = Worker.library[workers[i].id].basePower
+                workers[i].workerType = Worker.library[workers[i].id].workerType
+            }
+            else{
+                workers.remove(at: i)
             }
         }
         
         for i in 0..<team.count {
-                for workerLibery in Worker.library {
-                    if team[i]?.name == workerLibery.name {
-                        team[i]?.power = workerLibery.power
-                        team[i]?.workerType = workerLibery.workerType
-                    }
+            if var worker = team[i] {
+                if Worker.library[worker.id].isActive{
+                    worker.name = Worker.library[worker.id].name
+                    worker.basePower = Worker.library[worker.id].basePower
+                    worker.workerType = Worker.library[worker.id].workerType
+                    team[i] = worker
+                }
+                else{
+                    team[i] = nil
+                }
             }
+
         }
         
-        for i in 0..<upgrades.count {
-                for upgradeLibrary in Upgrade.library {
-                    if upgrades[i].name == upgradeLibrary.name {
-                        upgrades[i].description = upgradeLibrary.description
-                        upgrades[i].scalePrice = upgradeLibrary.scalePrice
-                    }
+
+        for i in 0..<Upgrade.library.count  {
+            if Upgrade.library[i].isActive {
+                if i<upgrades.count{
+                    upgrades[i].name = Upgrade.library[i].name
+                    upgrades[i].description = Upgrade.library[i].description
+                    upgrades[i].scalePrice = Upgrade.library[i].scalePrice
+                }
+                else{
+                    upgrades.append(Upgrade.library[i])
+                }
+                    
             }
+            else{
+                upgrades.remove(at: i)
+            }
+
         }
         
         

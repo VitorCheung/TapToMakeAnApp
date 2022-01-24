@@ -9,7 +9,7 @@
     },
     {
         "name" : "host",
-        "description" : "If your team have 3\nHost, your deadline\nwill incrise 5 days"
-    }
+        "description" : "If your team have 3\nHost, your deadline\nwill double points/sec"
+    },
 
 ]

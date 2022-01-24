@@ -10,13 +10,13 @@ import SpriteKit
 public class TerminalShop: SKSpriteNode{
     
     var player = Player.shared
+    var totalLines = 1
     
     public init(){
         super.init(texture: nil, color: ColorPalette.backgroundGray, size: CGSize(width: 332 , height: 364))
         name="terminal"
         self.zPosition = -1
         self.anchorPoint = CGPoint(x: 0, y: 0)
-        setup()
         
     }
     
@@ -26,11 +26,39 @@ public class TerminalShop: SKSpriteNode{
     
     public func setup(){
         removeAllChildren()
+        totalLines = 1
+        addUpgrade(x: self.size.width/2, y: self.size.height-CGFloat(197*0)-80, indexUpgrade: 0)
         
-        for line in 0..<player.upgrades.count{
-            addUpgrade(x: self.size.width/2, y: self.size.height-CGFloat(197*line)-80, indexUpgrade: line)
-            
+        
+        for line in 1..<player.upgrades.count{
+            if player.upgrades[line-1].level > 4{
+                addUpgrade(x: self.size.width/2, y: self.size.height-CGFloat(197*line)-80, indexUpgrade: line)
+                totalLines += 1
+            }
         }
+        
+        if totalLines-1 == player.upgrades.count {
+            return
+        }
+        
+        let borderInfo = SKSpriteNode(color: .clear, size: CGSize(width: 290, height: 180))
+        borderInfo.zPosition = 1
+        borderInfo.drawBorder(color: ColorPalette.mainGreen, width: 5)
+        borderInfo.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        borderInfo.position = CGPoint(x: self.size.width/2, y: self.size.height-CGFloat(197*totalLines)-80)
+        
+        let labelInfo = SKLabelNode()
+        labelInfo.fontColor = ColorPalette.mainGreen
+        labelInfo.zPosition = 0
+        labelInfo.fontName = "Pixel"
+        labelInfo.numberOfLines = 0
+        labelInfo.fontSize = 22
+        labelInfo.text = "You need more \(5-player.upgrades[totalLines-1].level)\n times to unlock\nthis upgrade"
+        labelInfo.horizontalAlignmentMode = .center
+        labelInfo.position = CGPoint(x:0, y: -labelInfo.fontSize)
+        borderInfo.addChild(labelInfo)
+        addChild(borderInfo)
+        
     }
     
     func addUpgrade(x:CGFloat, y:CGFloat, indexUpgrade: Int){

@@ -46,8 +46,6 @@
 		06E917BB279A10F600DEA189 /* TerminalShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E917BA279A10F600DEA189 /* TerminalShop.swift */; };
 		06E917BD279A14B300DEA189 /* Upgrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E917BC279A14B300DEA189 /* Upgrade.swift */; };
 		06E917C1279A1C4B00DEA189 /* UpgradeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E917C0279A1C4B00DEA189 /* UpgradeNode.swift */; };
-		06E917C5279B42F700DEA189 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06E917C4279B42F700DEA189 /* CloudKit.framework */; };
-		06E917C7279B437B00DEA189 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06E917C6279B437B00DEA189 /* GameKit.framework */; };
 		06E917CA279B562700DEA189 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E917C9279B562700DEA189 /* ModelData.swift */; };
 		06E917CD279B5AC800DEA189 /* worker.json in Resources */ = {isa = PBXBuildFile; fileRef = 06E917CC279B5AC800DEA189 /* worker.json */; };
 		06E917CF279B5B1D00DEA189 /* upgrades.json in Resources */ = {isa = PBXBuildFile; fileRef = 06E917CE279B5B1D00DEA189 /* upgrades.json */; };
@@ -82,7 +80,6 @@
 		06809D7527892C2F00D3A03F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06809D80278CAF8500D3A03F /* DeskNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeskNode.swift; sourceTree = "<group>"; };
 		06809D87278CB90400D3A03F /* Pixel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pixel.ttf; sourceTree = "<group>"; };
-		06809D89278CBA3600D3A03F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		06809D8B278CBCCE00D3A03F /* BackgroundNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundNode.swift; sourceTree = "<group>"; };
 		06809D8D278CC2F700D3A03F /* ScreemNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreemNode.swift; sourceTree = "<group>"; };
 		06809D8F278CCFF600D3A03F /* WindowNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowNode.swift; sourceTree = "<group>"; };
@@ -96,13 +93,13 @@
 		06E917BA279A10F600DEA189 /* TerminalShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalShop.swift; sourceTree = "<group>"; };
 		06E917BC279A14B300DEA189 /* Upgrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Upgrade.swift; sourceTree = "<group>"; };
 		06E917C0279A1C4B00DEA189 /* UpgradeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeNode.swift; sourceTree = "<group>"; };
-		06E917C2279B42F200DEA189 /* TapToMakeAnApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TapToMakeAnApp.entitlements; sourceTree = "<group>"; };
 		06E917C4279B42F700DEA189 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		06E917C6279B437B00DEA189 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		06E917C9279B562700DEA189 /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		06E917CC279B5AC800DEA189 /* worker.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = worker.json; sourceTree = "<group>"; };
 		06E917CE279B5B1D00DEA189 /* upgrades.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = upgrades.json; sourceTree = "<group>"; };
 		06E917D0279B5B4500DEA189 /* workerType.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = workerType.json; sourceTree = "<group>"; };
+		06E917DC279F6A7400DEA189 /* TapToMakeAnApp.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = TapToMakeAnApp.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +107,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06E917C5279B42F700DEA189 /* CloudKit.framework in Frameworks */,
-				06E917C7279B437B00DEA189 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,9 +183,9 @@
 				06E917C8279B560D00DEA189 /* Modal */,
 				065B7C222792108A007E258B /* Player.swift */,
 				06012DA9278E658B00964E0E /* Worker.swift */,
+				06E917BC279A14B300DEA189 /* Upgrade.swift */,
 				065B7C182790EDD5007E258B /* App.swift */,
 				0686D84C27972F85007C3533 /* WorkerType.swift */,
-				06E917BC279A14B300DEA189 /* Upgrade.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -215,12 +210,11 @@
 		06809D6427892C2D00D3A03F /* TapToMakeAnApp */ = {
 			isa = PBXGroup;
 			children = (
-				06E917C2279B42F200DEA189 /* TapToMakeAnApp.entitlements */,
-				06809D89278CBA3600D3A03F /* Info.plist */,
+				06E917DC279F6A7400DEA189 /* TapToMakeAnApp.entitlements */,
 				06809D6527892C2D00D3A03F /* AppDelegate.swift */,
 				06809D6D27892C2D00D3A03F /* GameViewController.swift */,
-				065B7C2427921C84007E258B /* Data */,
 				062F8619278CFC67008785FF /* Scene */,
+				065B7C2427921C84007E258B /* Data */,
 				062F8613278CE6CF008785FF /* Extension */,
 				06809D7F278CAF2F00D3A03F /* Class */,
 				06809D6F27892C2D00D3A03F /* Main.storyboard */,
@@ -538,13 +532,13 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vitorCheung.TapToMakeAnApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -571,13 +565,13 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vitorCheung.TapToMakeAnApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
