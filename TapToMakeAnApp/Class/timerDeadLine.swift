@@ -34,7 +34,8 @@ class timerDeadLine{
         }
         
         if deadLine>0 {
-        deadLine -= 1
+            deadLine -= 1
+            player.points += player.earningPoints()
         }
         else{
             isDeadLineEnded = true

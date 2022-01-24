@@ -20,7 +20,6 @@ public class TerminalOffice: SKSpriteNode{
         super.init(texture: nil, color: ColorPalette.backgroundGray, size: CGSize(width: 332 , height: 364))
         name="terminal"
         zPosition = 1
-        setupForCliker()
         
     }
     
@@ -81,7 +80,7 @@ public class TerminalOffice: SKSpriteNode{
         overAllLabel.numberOfLines = 0
         overAllLabel.fontSize = 22
         if name == "sellLabel" {
-            overAllLabel.text = "Earning : \(app.earning)\nYou power was: \(player.clickPower())\nYour server is full\nto store more apps\nsell some apps\nstore in your server"
+            overAllLabel.text = "Earning : \(app.earning)\nYou power was: \(player.clickPower())\nYour server is full\nto store more apps\nsell them or\nupgrade your server"
             overAllLabel.position = CGPoint(x:10, y: self.size.height-250)
         }
         else{

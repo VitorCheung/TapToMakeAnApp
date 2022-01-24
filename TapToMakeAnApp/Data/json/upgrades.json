@@ -1,0 +1,84 @@
+
+[
+    {
+        "id":0,
+        "isActive":true,
+        "name" : "Air Conditioner",
+        "scalePrice" : 1000,
+        "level" : 0,
+        "description" : "+1 day to your\ndeadLine"
+    },
+    {
+        "id":1,
+        "isActive":true,
+        "name" : "Server",
+        "scalePrice" : 10000,
+        "level" : 0,
+        "description" : "+1 app to store"
+    },
+    {
+        "id":2,
+        "isActive":true,
+        "name" : "Upgrade PC",
+        "scalePrice" : 50000,
+        "level" : 0,
+        "description" : "+1 point/sec "
+    },
+    {
+        "id":3,
+        "isActive":true,
+        "name" : "Coffe",
+        "scalePrice" : 25000,
+        "level" : 0,
+        "description" : "+1 point/sec for\nevery worker\nthat you have"
+    },
+    {
+        "id":4,
+        "isActive":true,
+        "name" : "Wifi",
+        "scalePrice" : 100000,
+        "level" : 0,
+        "description" : "+5 points/sec for\neach app store"
+    },
+    {
+        "id":5,
+        "isActive":true,
+        "name" : "Drawing tablets",
+        "scalePrice" : 150000,
+        "level" : 0,
+        "description" : "+8 power for\nevery desinger"
+    },
+    {
+        "id":6,
+        "isActive":true,
+        "name" : "mechanical keyboard",
+        "scalePrice" : 200000,
+        "level" : 0,
+        "description" : "+10 power for\nevery coder"
+    },
+    {
+        "id":7,
+        "isActive":true,
+        "name" : "microfone",
+        "scalePrice" : 250000,
+        "level" : 0,
+        "description" : "+20 power for\nevery host"
+    },
+    {
+        "id":8,
+        "isActive":true,
+        "name" : "Phone",
+        "scalePrice" : 500000,
+        "level" : 0,
+        "description" : "+25 points/sec for\nevery 4 star worker"
+    },
+    {
+        "id":10,
+        "isActive":true,
+        "name" : "Tablet",
+        "scalePrice" : 1000000,
+        "level" : 0,
+        "description" : "+50 points/sec for\nevery 5 star worker"
+    },
+
+]

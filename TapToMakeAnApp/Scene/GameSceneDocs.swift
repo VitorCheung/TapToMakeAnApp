@@ -57,21 +57,22 @@ class GameSceneDocs: SKScene {
         case "team":
             player.setPlayerUserDefaults()
             self.view?.presentScene( GameSceneTeam() )
-        case "docs":
-            print("docs")
+        case "shop":
+            player.setPlayerUserDefaults()
+            self.view?.presentScene( GameSceneShop() )
         case "server":
             player.setPlayerUserDefaults()
             self.view?.presentScene( GameSceneServe() )
         case "contrat":
             if !(activeAnimationBuy){
                 
-                guard let worker = WorkersEnum.library.randomElement()  else { return }
+                guard let worker = Worker.library.randomElement()  else { return }
                 
-                if player.money >= Int64(587*pow(Double(player.docsBuy),Double(2))+100){
+                if player.money >= player.priceDocs(){
                     
-                    player.money -= Int64(587*pow(Double(player.docsBuy),Double(2))+100)
+                    player.money -= player.priceDocs()
                     player.docsBuy += 1
-                    self.setup()
+                    setup()
                     activeAnimationBuy = true
                     workerWon = worker
                     
@@ -161,6 +162,7 @@ class GameSceneDocs: SKScene {
         screemNode.name = "screem"
         self.addChild(screemNode)
         
+        terminalNode.setup()
         terminalNode.zPosition = 1
         terminalNode.anchorPoint = CGPoint(x: 0, y: 0)
         terminalNode.position = CGPoint(x: 48, y: 117)
@@ -233,7 +235,7 @@ class GameSceneDocs: SKScene {
         var brilhoFramesDiagonal: [SKTexture] {
             var brilhoFrames : [SKTexture] = []
             for i in 0...9 {
-              let extureName = "Efeito-Diagonal\(i)"
+              let extureName = "diagonal\(i)"
                 brilhoFrames.append(SKTexture(imageNamed: extureName))
             }
             return brilhoFrames
@@ -242,15 +244,15 @@ class GameSceneDocs: SKScene {
         var brilhoFramesVertigal: [SKTexture] {
             var brilhoFrames : [SKTexture] = []
             for i in 0...9 {
-              let extureName = "Efeito-Top\(i)"
+              let extureName = "eixo0\(i)"
                 brilhoFrames.append(SKTexture(imageNamed: extureName))
             }
             return brilhoFrames
         }
         
         for i in 0...3 {
-            let brilhoNodeDiagonal = SKSpriteNode(imageNamed: "Efeito-Diagonal0")
-            brilhoNodeDiagonal.setScale(2)
+            let brilhoNodeDiagonal = SKSpriteNode(imageNamed: "diagona0")
+            brilhoNodeDiagonal.setScale(0.5)
             brilhoNodeDiagonal.zPosition = 0
             brilhoNodeDiagonal.zRotation = (.pi/2)*Double(i)
             brilhoNodeDiagonal.anchorPoint = CGPoint(x: 1, y: 0)
@@ -261,8 +263,8 @@ class GameSceneDocs: SKScene {
                 )
             )
             
-            let brilhoNodeVertinal = SKSpriteNode(imageNamed: "Efeito-Top0")
-            brilhoNodeVertinal.setScale(2)
+            let brilhoNodeVertinal = SKSpriteNode(imageNamed: "eixo00")
+            brilhoNodeVertinal.setScale(0.25)
             brilhoNodeVertinal.zPosition = 0
             brilhoNodeVertinal.zRotation = (.pi/2)*Double(i)
             brilhoNodeVertinal.anchorPoint = CGPoint(x: 0.5, y: 0)
@@ -291,7 +293,7 @@ class GameSceneDocs: SKScene {
         for y in 0...1 {
             for x in 0...1 {
                 let brilhoNodeStar = SKSpriteNode(imageNamed: "star0")
-                brilhoNodeStar.setScale(4)
+                brilhoNodeStar.setScale(0.5)
                 brilhoNodeStar.zPosition = 0
                 brilhoNodeStar.anchorPoint = CGPoint(x: 0.5, y: 0.5)
                 brilhoNodeStar.position = CGPoint(x: 100+x*200, y: 600+y*110)

@@ -17,6 +17,7 @@ public class ButtonTabBarNode: SKSpriteNode{
         self.zPosition = 2
         
         let iconNode = SKSpriteNode(imageNamed: img)
+        iconNode.scale(to: CGSize(width: 40, height: 40))
         iconNode.anchorPoint =  CGPoint(x: 0.5, y:0)
         iconNode.position = CGPoint(x:self.size.width/2, y: self.size.height-32)
         iconNode.name = name

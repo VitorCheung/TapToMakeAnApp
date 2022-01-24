@@ -55,7 +55,7 @@ class GameSceneOffice: SKScene {
             case "sellLabel":
             
                 let app = App(points: player.points)
-                for _ in 0..<10 {
+            for _ in 0..<10+player.upgrades[4].level {
                     rainMoney(CGpositon: positionInScene)
                 }
                 timer.deadLine = player.deadLine
@@ -73,6 +73,9 @@ class GameSceneOffice: SKScene {
             case "server":
                 player.setPlayerUserDefaults()
                 self.view?.presentScene( GameSceneServe() )
+        case "shop":
+            player.setPlayerUserDefaults()
+            self.view?.presentScene( GameSceneShop() )
             default:
             
                 if terminalNode.isOfficeTerminalActive {
@@ -107,7 +110,7 @@ class GameSceneOffice: SKScene {
         
         if timer.isDeadLineEnded{
             player.setPlayerUserDefaults()
-            if player.apps.count < 9 && player.points != 0{
+            if player.apps.count < player.serverSpace && player.points != 0{
                 terminalNode.setupForResults(text: "STORE APP", name: "storeLabel")
             }
             else{
@@ -244,7 +247,7 @@ class GameSceneOffice: SKScene {
                 [
                     SKAction.scale(by: 0, duration: 0.35),
                 SKAction.rotate(byAngle: 6, duration: 0.25),
-                SKAction.move(to: CGPoint(x: self.size.width*4/5-5, y: 75), duration: 0.25)
+                SKAction.move(to: CGPoint(x: self.size.width*4/6-5, y: 75), duration: 0.25)
                 ]
              )
         ])

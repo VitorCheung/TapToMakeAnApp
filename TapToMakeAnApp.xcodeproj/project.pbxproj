@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		06012DAA278E658B00964E0E /* Worker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06012DA9278E658B00964E0E /* Worker.swift */; };
 		06012DAC278E6CD200964E0E /* PhrasesCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06012DAB278E6CD200964E0E /* PhrasesCode.swift */; };
-		06012DAE278E6EA900964E0E /* WorkersEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06012DAD278E6EA900964E0E /* WorkersEnum.swift */; };
 		06012DB0278E721B00964E0E /* WorkerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06012DAF278E721B00964E0E /* WorkerNode.swift */; };
 		062F8615278CE702008785FF /* SpriteNode+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062F8614278CE702008785FF /* SpriteNode+Border.swift */; };
 		062F8618278CE972008785FF /* ColorPalete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062F8617278CE972008785FF /* ColorPalete.swift */; };
@@ -40,14 +39,22 @@
 		06809D93278CD29100D3A03F /* ButtonTabBarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06809D92278CD29100D3A03F /* ButtonTabBarNode.swift */; };
 		0686D84B2796120C007C3533 /* InfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0686D84A2796120C007C3533 /* InfoButton.swift */; };
 		0686D84D27972F85007C3533 /* WorkerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0686D84C27972F85007C3533 /* WorkerType.swift */; };
-		0686D84F279751B7007C3533 /* WorkerTypeEnem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0686D84E279751B7007C3533 /* WorkerTypeEnem.swift */; };
+		0686D84F279751B7007C3533 /* WorkerTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0686D84E279751B7007C3533 /* WorkerTypeEnum.swift */; };
 		0686D8512798CD72007C3533 /* SKScene+RainMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0686D8502798CD72007C3533 /* SKScene+RainMoney.swift */; };
+		06E917B7279A0C6700DEA189 /* BoxNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E917B6279A0C6700DEA189 /* BoxNode.swift */; };
+		06E917B9279A0CA600DEA189 /* GameSceneShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E917B8279A0CA600DEA189 /* GameSceneShop.swift */; };
+		06E917BB279A10F600DEA189 /* TerminalShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E917BA279A10F600DEA189 /* TerminalShop.swift */; };
+		06E917BD279A14B300DEA189 /* Upgrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E917BC279A14B300DEA189 /* Upgrade.swift */; };
+		06E917C1279A1C4B00DEA189 /* UpgradeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E917C0279A1C4B00DEA189 /* UpgradeNode.swift */; };
+		06E917CA279B562700DEA189 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E917C9279B562700DEA189 /* ModelData.swift */; };
+		06E917CD279B5AC800DEA189 /* worker.json in Resources */ = {isa = PBXBuildFile; fileRef = 06E917CC279B5AC800DEA189 /* worker.json */; };
+		06E917CF279B5B1D00DEA189 /* upgrades.json in Resources */ = {isa = PBXBuildFile; fileRef = 06E917CE279B5B1D00DEA189 /* upgrades.json */; };
+		06E917D1279B5B4500DEA189 /* workerType.json in Resources */ = {isa = PBXBuildFile; fileRef = 06E917D0279B5B4500DEA189 /* workerType.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		06012DA9278E658B00964E0E /* Worker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Worker.swift; sourceTree = "<group>"; };
 		06012DAB278E6CD200964E0E /* PhrasesCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrasesCode.swift; sourceTree = "<group>"; };
-		06012DAD278E6EA900964E0E /* WorkersEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkersEnum.swift; sourceTree = "<group>"; };
 		06012DAF278E721B00964E0E /* WorkerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerNode.swift; sourceTree = "<group>"; };
 		062F8614278CE702008785FF /* SpriteNode+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpriteNode+Border.swift"; sourceTree = "<group>"; };
 		062F8617278CE972008785FF /* ColorPalete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalete.swift; sourceTree = "<group>"; };
@@ -73,15 +80,26 @@
 		06809D7527892C2F00D3A03F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06809D80278CAF8500D3A03F /* DeskNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeskNode.swift; sourceTree = "<group>"; };
 		06809D87278CB90400D3A03F /* Pixel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pixel.ttf; sourceTree = "<group>"; };
-		06809D89278CBA3600D3A03F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		06809D8B278CBCCE00D3A03F /* BackgroundNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundNode.swift; sourceTree = "<group>"; };
 		06809D8D278CC2F700D3A03F /* ScreemNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreemNode.swift; sourceTree = "<group>"; };
 		06809D8F278CCFF600D3A03F /* WindowNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowNode.swift; sourceTree = "<group>"; };
 		06809D92278CD29100D3A03F /* ButtonTabBarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTabBarNode.swift; sourceTree = "<group>"; };
 		0686D84A2796120C007C3533 /* InfoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoButton.swift; sourceTree = "<group>"; };
 		0686D84C27972F85007C3533 /* WorkerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerType.swift; sourceTree = "<group>"; };
-		0686D84E279751B7007C3533 /* WorkerTypeEnem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerTypeEnem.swift; sourceTree = "<group>"; };
+		0686D84E279751B7007C3533 /* WorkerTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerTypeEnum.swift; sourceTree = "<group>"; };
 		0686D8502798CD72007C3533 /* SKScene+RainMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKScene+RainMoney.swift"; sourceTree = "<group>"; };
+		06E917B6279A0C6700DEA189 /* BoxNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxNode.swift; sourceTree = "<group>"; };
+		06E917B8279A0CA600DEA189 /* GameSceneShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneShop.swift; sourceTree = "<group>"; };
+		06E917BA279A10F600DEA189 /* TerminalShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalShop.swift; sourceTree = "<group>"; };
+		06E917BC279A14B300DEA189 /* Upgrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Upgrade.swift; sourceTree = "<group>"; };
+		06E917C0279A1C4B00DEA189 /* UpgradeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeNode.swift; sourceTree = "<group>"; };
+		06E917C4279B42F700DEA189 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		06E917C6279B437B00DEA189 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		06E917C9279B562700DEA189 /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		06E917CC279B5AC800DEA189 /* worker.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = worker.json; sourceTree = "<group>"; };
+		06E917CE279B5B1D00DEA189 /* upgrades.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = upgrades.json; sourceTree = "<group>"; };
+		06E917D0279B5B4500DEA189 /* workerType.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = workerType.json; sourceTree = "<group>"; };
+		06E917DC279F6A7400DEA189 /* TapToMakeAnApp.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = TapToMakeAnApp.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,8 +127,7 @@
 			children = (
 				062F8617278CE972008785FF /* ColorPalete.swift */,
 				06012DAB278E6CD200964E0E /* PhrasesCode.swift */,
-				06012DAD278E6EA900964E0E /* WorkersEnum.swift */,
-				0686D84E279751B7007C3533 /* WorkerTypeEnem.swift */,
+				0686D84E279751B7007C3533 /* WorkerTypeEnum.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -122,6 +139,7 @@
 				062F8623278DFF98008785FF /* GameSceneTeam.swift */,
 				066622FE2790B56F0072A6E4 /* GameSceneDocs.swift */,
 				065B7C1A2790F05B007E258B /* GameSceneServer.swift */,
+				06E917B8279A0CA600DEA189 /* GameSceneShop.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -133,6 +151,7 @@
 				066623002790B76C0072A6E4 /* TerminalDocs.swift */,
 				062F862B278E236D008785FF /* TerminalTeam.swift */,
 				065B7C1C2790F090007E258B /* TerminalServer.swift */,
+				06E917BA279A10F600DEA189 /* TerminalShop.swift */,
 			);
 			path = Terminals;
 			sourceTree = "<group>";
@@ -150,6 +169,8 @@
 				065B7C1E27910908007E258B /* ServerNode.swift */,
 				065B7C202791E337007E258B /* SellAppNode.swift */,
 				0686D84A2796120C007C3533 /* InfoButton.swift */,
+				06E917B6279A0C6700DEA189 /* BoxNode.swift */,
+				06E917C0279A1C4B00DEA189 /* UpgradeNode.swift */,
 			);
 			path = Node;
 			sourceTree = "<group>";
@@ -157,8 +178,12 @@
 		065B7C2427921C84007E258B /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				06E917CB279B59F400DEA189 /* json */,
+				062F8616278CE8D5008785FF /* Enum */,
+				06E917C8279B560D00DEA189 /* Modal */,
 				065B7C222792108A007E258B /* Player.swift */,
 				06012DA9278E658B00964E0E /* Worker.swift */,
+				06E917BC279A14B300DEA189 /* Upgrade.swift */,
 				065B7C182790EDD5007E258B /* App.swift */,
 				0686D84C27972F85007C3533 /* WorkerType.swift */,
 			);
@@ -170,6 +195,7 @@
 			children = (
 				06809D6427892C2D00D3A03F /* TapToMakeAnApp */,
 				06809D6327892C2D00D3A03F /* Products */,
+				06E917C3279B42F700DEA189 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -184,10 +210,11 @@
 		06809D6427892C2D00D3A03F /* TapToMakeAnApp */ = {
 			isa = PBXGroup;
 			children = (
-				06809D89278CBA3600D3A03F /* Info.plist */,
+				06E917DC279F6A7400DEA189 /* TapToMakeAnApp.entitlements */,
 				06809D6527892C2D00D3A03F /* AppDelegate.swift */,
 				06809D6D27892C2D00D3A03F /* GameViewController.swift */,
 				062F8619278CFC67008785FF /* Scene */,
+				065B7C2427921C84007E258B /* Data */,
 				062F8613278CE6CF008785FF /* Extension */,
 				06809D7F278CAF2F00D3A03F /* Class */,
 				06809D6F27892C2D00D3A03F /* Main.storyboard */,
@@ -202,12 +229,37 @@
 			isa = PBXGroup;
 			children = (
 				062F8626278E0634008785FF /* timerDeadLine.swift */,
-				065B7C2427921C84007E258B /* Data */,
-				062F8616278CE8D5008785FF /* Enum */,
 				062F8628278E063D008785FF /* Node */,
 				062F861E278D067B008785FF /* Terminals */,
 			);
 			path = Class;
+			sourceTree = "<group>";
+		};
+		06E917C3279B42F700DEA189 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				06E917C6279B437B00DEA189 /* GameKit.framework */,
+				06E917C4279B42F700DEA189 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		06E917C8279B560D00DEA189 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				06E917C9279B562700DEA189 /* ModelData.swift */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
+		06E917CB279B59F400DEA189 /* json */ = {
+			isa = PBXGroup;
+			children = (
+				06E917CC279B5AC800DEA189 /* worker.json */,
+				06E917CE279B5B1D00DEA189 /* upgrades.json */,
+				06E917D0279B5B4500DEA189 /* workerType.json */,
+			);
+			path = json;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +324,9 @@
 				06809D7327892C2F00D3A03F /* Assets.xcassets in Resources */,
 				06809D7627892C2F00D3A03F /* LaunchScreen.storyboard in Resources */,
 				06809D8A278CBC5200D3A03F /* Pixel.ttf in Resources */,
+				06E917CF279B5B1D00DEA189 /* upgrades.json in Resources */,
+				06E917D1279B5B4500DEA189 /* workerType.json in Resources */,
+				06E917CD279B5AC800DEA189 /* worker.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +340,7 @@
 				06012DAC278E6CD200964E0E /* PhrasesCode.swift in Sources */,
 				06809D81278CAF8500D3A03F /* DeskNode.swift in Sources */,
 				065B7C1D2790F090007E258B /* TerminalServer.swift in Sources */,
-				06012DAE278E6EA900964E0E /* WorkersEnum.swift in Sources */,
+				06E917BD279A14B300DEA189 /* Upgrade.swift in Sources */,
 				06012DAA278E658B00964E0E /* Worker.swift in Sources */,
 				06809D6C27892C2D00D3A03F /* GameSceneOffice.swift in Sources */,
 				062F8618278CE972008785FF /* ColorPalete.swift in Sources */,
@@ -301,17 +356,22 @@
 				066623012790B76C0072A6E4 /* TerminalDocs.swift in Sources */,
 				066622FF2790B56F0072A6E4 /* GameSceneDocs.swift in Sources */,
 				065B7C1F27910908007E258B /* ServerNode.swift in Sources */,
-				0686D84F279751B7007C3533 /* WorkerTypeEnem.swift in Sources */,
+				0686D84F279751B7007C3533 /* WorkerTypeEnum.swift in Sources */,
 				065B7C192790EDD5007E258B /* App.swift in Sources */,
 				06809D90278CCFF600D3A03F /* WindowNode.swift in Sources */,
 				065B7C232792108A007E258B /* Player.swift in Sources */,
+				06E917B7279A0C6700DEA189 /* BoxNode.swift in Sources */,
 				06809D8E278CC2F700D3A03F /* ScreemNode.swift in Sources */,
 				06809D6E27892C2D00D3A03F /* GameViewController.swift in Sources */,
+				06E917B9279A0CA600DEA189 /* GameSceneShop.swift in Sources */,
+				06E917CA279B562700DEA189 /* ModelData.swift in Sources */,
 				062F8624278DFF98008785FF /* GameSceneTeam.swift in Sources */,
 				06809D6627892C2D00D3A03F /* AppDelegate.swift in Sources */,
+				06E917BB279A10F600DEA189 /* TerminalShop.swift in Sources */,
 				06012DB0278E721B00964E0E /* WorkerNode.swift in Sources */,
 				065B7C1B2790F05B007E258B /* GameSceneServer.swift in Sources */,
 				06809D8C278CBCCE00D3A03F /* BackgroundNode.swift in Sources */,
+				06E917C1279A1C4B00DEA189 /* UpgradeNode.swift in Sources */,
 				062F861D278D0675008785FF /* TerminalOffice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,6 +519,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TapToMakeAnApp/TapToMakeAnApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NHY67K6358;
@@ -467,17 +528,18 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = gamekit;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = APISwiftUI.TapToMakeAnApp;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vitorCheung.TapToMakeAnApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -490,6 +552,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TapToMakeAnApp/TapToMakeAnApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NHY67K6358;
@@ -498,17 +561,18 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = gamekit;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = APISwiftUI.TapToMakeAnApp;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vitorCheung.TapToMakeAnApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

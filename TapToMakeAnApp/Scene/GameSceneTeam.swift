@@ -49,8 +49,9 @@ class GameSceneTeam: SKScene {
             case "office":
                 player.setPlayerUserDefaults()
                 self.view?.presentScene( GameSceneOffice() )
-            case "team":
-                print("team")
+            case "shop":
+                player.setPlayerUserDefaults()
+                self.view?.presentScene( GameSceneShop() )
             case "docs":
                 player.setPlayerUserDefaults()
                 self.view?.presentScene( GameSceneDocs() )
