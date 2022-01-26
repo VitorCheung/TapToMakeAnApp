@@ -129,7 +129,11 @@ public class TerminalTeam: SKSpriteNode{
             type2DescriptionLabel.fontSize = 18
             type2DescriptionLabel.text = WorkerType.getDescription(name: w.workerType[1] ?? "")
             type2DescriptionLabel.horizontalAlignmentMode = .left
-            type2DescriptionLabel.position = CGPoint(x: self.size.width/2-75, y: self.size.height-360)
+            guard let numbersOfWords = type2DescriptionLabel.text?.count else { return }
+            let numberOfLines: Double = Double(numbersOfWords)/19
+            type2DescriptionLabel.position = CGPoint(x: self.size.width/2-75, y:
+                                                self.size.height-306-CGFloat(numberOfLines.rounded(.up)*18))
+  
             self.addChild(type2DescriptionLabel)
         }
         
@@ -149,7 +153,7 @@ public class TerminalTeam: SKSpriteNode{
         var numberWorkers = player.workers.count
         let linesWorker = player.workers.count%3>0 ? Double(player.workers.count)/3+1 : Double(player.workers.count)/3
         
-        let boaderBonus = SKSpriteNode(color: .clear, size: CGSize(width: 300, height: 50))
+        let boaderBonus = SKSpriteNode(color: .clear, size: CGSize(width: 300, height: 80))
         boaderBonus.zPosition = 1
         boaderBonus.drawBorder(color: ColorPalette.mainGreen, width: 5)
         boaderBonus.anchorPoint = CGPoint(x: 0, y: 0.5)
@@ -160,24 +164,27 @@ public class TerminalTeam: SKSpriteNode{
         bonusLabel.fontColor = ColorPalette.mainGreen
         bonusLabel.zPosition = 1
         bonusLabel.fontName = "Pixel"
-        bonusLabel.fontSize = 30
+        bonusLabel.fontSize = 20
+        bonusLabel.numberOfLines = 0
         bonusLabel.text = activedBonus()
         bonusLabel.horizontalAlignmentMode = .left
-        bonusLabel.position = CGPoint(x:-boaderBonus.size.width/2+20, y: -10)
+        guard let numbersOfWords = bonusLabel.text?.count else { return }
+        let numberOfLines: Double = Double(numbersOfWords)/19
+        bonusLabel.position = CGPoint(x:-boaderBonus.size.width/2+10, y: -numberOfLines*20)
         boaderBonus.addChild(bonusLabel)
         
         for line in 0..<Int(linesWorker.rounded()){
             
             if numberWorkers-3>0 {
                 for colum in 0...2 {
-                    addWorker(x: CGFloat(66+100*colum), y: -140+self.size.height-CGFloat(140*line), indexWorker: numberWorkers-1)
+                    addWorker(x: CGFloat(66+100*colum), y: -160+self.size.height-CGFloat(140*line), indexWorker: numberWorkers-1)
                     numberWorkers -= 1
                 }
                 
             }
             else{
                 for colum in 0..<numberWorkers{
-                    addWorker(x: CGFloat(66+100*colum), y: -140+self.size.height-CGFloat(140*line), indexWorker: numberWorkers-1)
+                    addWorker(x: CGFloat(66+100*colum), y: -160+self.size.height-CGFloat(140*line), indexWorker: numberWorkers-1)
                     numberWorkers -= 1
                 }
             }
@@ -243,9 +250,24 @@ public class TerminalTeam: SKSpriteNode{
     
     func activedBonus()->String{
         var bonusString = "Bonus: "
-        for wt in WorkersTypeEnum.allCases {
-            if player.bonus(workerType: wt.rawValue){
-                bonusString += "\(wt.rawValue) "
+        for wt in EnumWorkweType3.allCases {
+            if player.bonus3(workerType: wt.rawValue){
+                if bonusString == "Bonus: "{
+                    bonusString += "\(wt.rawValue)\n"
+                }
+                else{
+                    bonusString += "\(wt.rawValue) "
+                }
+            }
+        }
+        for wt in EnumWorkweType2.allCases {
+            if player.bonus2(workerType: wt.rawValue){
+                if bonusString == "Bonus: "{
+                    bonusString += "\(wt.rawValue)\n"
+                }
+                else{
+                    bonusString += "\(wt.rawValue) "
+                }
             }
         }
         return bonusString

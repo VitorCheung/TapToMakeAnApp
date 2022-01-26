@@ -10,6 +10,17 @@ import GameplayKit
 
 class GameSceneTeam: SKScene {
     
+    var vc : GameViewController
+    
+    init( vc : GameViewController) {
+        self.vc = vc
+        super.init(size: CGSize(width: 428 , height: 840))
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     //data
     var player = Player.shared
     
@@ -40,24 +51,25 @@ class GameSceneTeam: SKScene {
     
     //MARK: TouchesEnded
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
         if !(isToucheMoved){
             let touch:UITouch = touches.first!
             let positionInScene = touch.location(in: self)
             let touchedNode = self.atPoint(positionInScene)
             switch touchedNode.name{
+            case "rank":
+                vc.showGameLeaderBoard()
             case "office":
                 player.setPlayerUserDefaults()
-                self.view?.presentScene( GameSceneOffice() )
+                self.view?.presentScene( GameSceneOffice(vc: vc)  )
             case "shop":
                 player.setPlayerUserDefaults()
-                self.view?.presentScene( GameSceneShop() )
+                self.view?.presentScene( GameSceneShop(vc: vc) )
             case "docs":
                 player.setPlayerUserDefaults()
-                self.view?.presentScene( GameSceneDocs() )
+                self.view?.presentScene( GameSceneDocs(vc: vc) )
             case "server":
                 player.setPlayerUserDefaults()
-                self.view?.presentScene( GameSceneServe() )
+                self.view?.presentScene( GameSceneServe(vc: vc)  )
             case "worker":
                 let workerNode = touchedNode as? WorkerNode
                 addWorkerToTeam(worker: workerNode?.worker, positionInLibary: workerNode?.positonLibary)
@@ -83,7 +95,6 @@ class GameSceneTeam: SKScene {
         else{
             isToucheMoved = false
         }
-        
     }
     
     //MARK: Update
@@ -99,18 +110,17 @@ class GameSceneTeam: SKScene {
             let location = touch.location(in: self)
             let previousLocation = touch.previousLocation(in: self)
             let deltaY = location.y - previousLocation.y
-            if terminalNode.isSelectonOpen {
-                let linesWorker = player.workers.count%3>0 ? Double(player.workers.count)/3+1 : Double(player.workers.count)/3
+            let linesWorker = player.workers.count%3>0 ? Double(player.workers.count)/3+1 : Double(player.workers.count)/3
+            if terminalNode.isSelectonOpen{
                 if terminalNode.position.y + deltaY > 100 && terminalNode.position.y  + deltaY < 140*linesWorker.rounded() {
                     terminalNode.position.y += deltaY
                 }
             }
             else{
-                if terminalNode.position.y + deltaY > 100 && terminalNode.position.y  + deltaY < 200 {
+                if terminalNode.position.y + deltaY > 100 && terminalNode.position.y  + deltaY < 180 {
                     terminalNode.position.y += deltaY
                 }
             }
-
         }
     }
     
@@ -157,6 +167,11 @@ class GameSceneTeam: SKScene {
         deadLineLabel.horizontalAlignmentMode = .left
         deadLineLabel.position = CGPoint(x:10, y: self.size.height-55)
         self.addChild(deadLineLabel)
+        
+        let rankButtonNode = RankButtonNode()
+        rankButtonNode.size = CGSize(width: 40, height: 40)
+        rankButtonNode.position = CGPoint(x: self.size.width-30, y: self.size.height-30)
+        self.addChild(rankButtonNode)
         
         //MARK: WORKER
         let buttonMinus1 = SKSpriteNode(imageNamed: "removeIcon")

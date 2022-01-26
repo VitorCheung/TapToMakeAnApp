@@ -17,7 +17,12 @@ public struct App: Codable{
             i += 1
             multiplier += Int64(points/10)
         }
-        return 2+(2*multiplier)
+        if Player.shared.bonus2(workerType: EnumWorkweType3.CatLovers.rawValue){
+            return (2+(2*multiplier))*4
+        }
+        else{
+            return 2+(2*multiplier)
+        }
     }
     
     var earning: Int64{

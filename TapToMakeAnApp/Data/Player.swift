@@ -23,6 +23,9 @@ class Player: Codable{
     
     var deadLine : Int{
         guard let up = findUpgradeByName(name: "Air Conditioner") else { return 0 }
+            if bonus2(workerType: EnumWorkweType2.Musicians.rawValue){
+                return 15+up.level
+            }
         return 5+up.level
     }
     
@@ -48,19 +51,50 @@ class Player: Codable{
     
     func clickPower()->Int{
         var clickPower = 1
+        var debs: Bool = false
+        var karina: Int = 0
+        for work in team{
+            if work?.name == "Debs"{
+                debs = true
+            }
+            if work?.name == "Karina"{
+                guard let l = work?.level else { return 0}
+                karina = l
+            }
+        }
+        
         for work in team{
             if let power = work?.power {
-                if bonus(workerType: WorkersTypeEnum.Designer.rawValue){
-                    clickPower += (power+10)*(work?.level ?? 1)
-                }else{
-                    clickPower += power*(work?.level ?? 1)
+                
+                var level: Int{
+                    if karina > 0{
+                        return (work?.level ?? 1) + karina
+                    }
+                    else{
+                        return work?.level ?? 1
+                    }
+                }
+                
+                if bonus3(workerType: EnumWorkweType3.Designer.rawValue) || debs{
+                    clickPower += (power+10)*(level)
+                }
+                if bonus3(workerType: EnumWorkweType2.Sinblings.rawValue){
+                    clickPower += (power+10*apps.count)*(level)
+                }else
+                {
+                    clickPower += power*(level)
                 }
             }
         }
         
-        if bonus(workerType: WorkersTypeEnum.Coder.rawValue){
+        if bonus2(workerType: EnumWorkweType2.Otaku.rawValue){
+            clickPower += workers.count+team.filter({ $0 == nil }).count
+        }
+        
+        if bonus3(workerType: EnumWorkweType3.Coder.rawValue){
             clickPower *= 2
         }
+
         return clickPower
         
     }
@@ -74,7 +108,7 @@ class Player: Codable{
         
         let ep = upPC.level + upCoffe.level*(workers.count+team.filter({ $0 == nil }).count) + 5*upWifi.level*apps.count + 25*upPhone.level*countRaraty(rarety: 4) + 50*upTablet.level*countRaraty(rarety: 5)
         
-        if bonus(workerType: WorkersTypeEnum.Host.rawValue){
+        if bonus3(workerType: EnumWorkweType3.Host.rawValue){
             return ep*2
         }
         
@@ -94,7 +128,26 @@ class Player: Codable{
         return num
     }
     
-    func bonus(workerType:String)->Bool{
+    func bonus2(workerType:String)->Bool{
+        var worker = 0
+        for members in team {
+            if let m = members {
+                for wt in m.workerType {
+                    if wt == workerType{
+                        worker += 1
+                    }
+                }
+            }
+        }
+        if worker == 2 {
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    
+    func bonus3(workerType:String)->Bool{
         var worker = 0
         for members in team {
             if let m = members {

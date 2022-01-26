@@ -10,6 +10,17 @@ import GameplayKit
 
 class GameSceneShop: SKScene {
     
+    var vc : GameViewController
+    
+    init( vc : GameViewController) {
+        self.vc = vc
+        super.init(size: CGSize(width: 428 , height: 840))
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     //data
     var player = Player.shared
     
@@ -46,18 +57,20 @@ class GameSceneShop: SKScene {
                 let positionInScene = touch.location(in: self)
                 let touchedNode = self.atPoint(positionInScene)
                 switch touchedNode.name{
+                case "rank":
+                    vc.showGameLeaderBoard()
                 case "office":
                     player.setPlayerUserDefaults()
-                    self.view?.presentScene( GameSceneOffice() )
+                    self.view?.presentScene( GameSceneOffice(vc: vc)  )
                 case "team":
                     player.setPlayerUserDefaults()
-                    self.view?.presentScene( GameSceneTeam() )
+                    self.view?.presentScene( GameSceneTeam(vc: vc)  )
                 case "docs":
                     player.setPlayerUserDefaults()
-                    self.view?.presentScene( GameSceneDocs() )
+                    self.view?.presentScene( GameSceneDocs(vc: vc) )
                 case "server":
                     player.setPlayerUserDefaults()
-                    self.view?.presentScene( GameSceneServe() )
+                    self.view?.presentScene( GameSceneServe(vc: vc)  )
                 case "upgrade":
                     guard let upgrade = touchedNode as? UpgradeNode else { return  }
                     let yPositon = terminalNode.position.y
@@ -118,6 +131,11 @@ class GameSceneShop: SKScene {
         deadLineLabel.horizontalAlignmentMode = .left
         deadLineLabel.position = CGPoint(x:10, y: self.size.height-55)
         self.addChild(deadLineLabel)
+        
+        let rankButtonNode = RankButtonNode()
+        rankButtonNode.size = CGSize(width: 40, height: 40)
+        rankButtonNode.position = CGPoint(x: self.size.width-30, y: self.size.height-30)
+        self.addChild(rankButtonNode)
         
         boxNode.zPosition = 6
         boxNode.position = CGPoint(x: self.size.width/2, y: 630)

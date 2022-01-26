@@ -4,25 +4,25 @@
         "id":0,
         "isActive":true,
         "name" : "Ju",
-        "basePower" : 1,
+        "basePower" : 2,
         "level" : 1,
         "rarety" : 4,
-        "workerType":["designer",null]
+        "workerType":["designer","cat lovers"]
     },
     {
         "id":1,
         "isActive":true,
         "name" : "Muza",
-        "basePower" : 1,
+        "basePower" : 2,
         "level" : 1,
         "rarety" : 4,
-        "workerType":["host",null]
+        "workerType":["host","musicians"]
     },
     {
         "id":2,
         "isActive":true,
         "name" : "Marcus",
-        "basePower" : 1,
+        "basePower" : 5,
         "level" : 1,
         "rarety" : 4,
         "workerType":["coder",null]
@@ -31,16 +31,16 @@
         "id":3,
         "isActive":true,
         "name" : "Debs",
-        "basePower" : 1,
+        "basePower" : 3,
         "level" : 1,
-        "rarety" : 4,
-        "workerType":["designer",null]
+        "rarety" : 5,
+        "workerType":["designer","we all are debs"]
     },
     {
         "id":4,
         "isActive":true,
         "name" : "Talita",
-        "basePower" : 1,
+        "basePower" : 5,
         "level" : 1,
         "rarety" : 4,
         "workerType":["host",null]
@@ -49,25 +49,25 @@
         "id":5,
         "isActive":true,
         "name" : "Fran",
-        "basePower" : 1,
+        "basePower" : 2,
         "level" : 1,
         "rarety" : 4,
-        "workerType":["coder",null]
+        "workerType":["coder","otaku"]
     },
     {
         "id":6,
         "isActive":true,
         "name" : "Thallis",
-        "basePower" : 1,
+        "basePower" : 2,
         "level" : 1,
         "rarety" : 4,
-        "workerType":["host",null]
+        "workerType":["host","cat lovers"]
     },
     {
         "id":7,
         "isActive":true,
         "name" : "Nath",
-        "basePower" : 1,
+        "basePower" : 5,
         "level" : 1,
         "rarety" : 4,
         "workerType":["coder",null]
@@ -76,37 +76,37 @@
         "id":8,
         "isActive":true,
         "name" : "GK",
-        "basePower" : 1,
+        "basePower" : 2,
         "level" : 1,
         "rarety" : 4,
-        "workerType":["coder",null]
+        "workerType":["coder","musicians"]
     },
     {
         "id":9,
         "isActive":true,
         "name" : "Mari",
-        "basePower" : 1,
+        "basePower" : 2,
         "level" : 1,
         "rarety" : 4,
-        "workerType":["designer",null]
+        "workerType":["designer","musicians"]
     },
     {
         "id":10,
         "isActive":true,
         "name" : "Felipe",
-        "basePower" : 1,
+        "basePower" : 2,
         "level" : 1,
         "rarety" : 4,
-        "workerType":["coder",null]
+        "workerType":["coder","siblings"]
     },
     {
         "id":11,
         "isActive":true,
         "name" : "Rebecca",
-        "basePower" : 1,
+        "basePower" : 2,
         "level" : 1,
         "rarety" : 4,
-        "workerType":["coder",null]
+        "workerType":["coder","designer"]
     },
     {
         "id":12,
@@ -115,22 +115,22 @@
         "basePower" : 6,
         "level" : 1,
         "rarety" : 5,
-        "workerType":["coder",null]
+        "workerType":["coder","siblings"]
     },
     {
         "id":13,
         "isActive":true,
         "name" : "Taus",
-        "basePower" : 1,
+        "basePower" : 2,
         "level" : 1,
         "rarety" : 4,
-        "workerType":["coder",null]
+        "workerType":["coder","cat lovers"]
     },
     {
         "id":14,
         "isActive":true,
         "name" : "Oliver",
-        "basePower" : 1,
+        "basePower" : 5,
         "level" : 1,
         "rarety" : 4,
         "workerType":["coder",null]
@@ -139,7 +139,7 @@
         "id":15,
         "isActive":true,
         "name" : "Triz",
-        "basePower" : 1,
+        "basePower" : 5,
         "level" : 1,
         "rarety" : 4,
         "workerType":["coder",null]
@@ -148,7 +148,7 @@
         "id":16,
         "isActive":true,
         "name" : "Ortega",
-        "basePower" : 1,
+        "basePower" : 5,
         "level" : 1,
         "rarety" : 4,
         "workerType":["coder",null]
@@ -157,7 +157,7 @@
         "id":17,
         "isActive":true,
         "name" : "Bii",
-        "basePower" : 1,
+        "basePower" : 5,
         "level" : 1,
         "rarety" : 4,
         "workerType":["coder",null]
@@ -166,16 +166,16 @@
         "id":18,
         "isActive":true,
         "name" : "Japa",
-        "basePower" : 1,
+        "basePower" : 2,
         "level" : 1,
         "rarety" : 4,
-        "workerType":["coder",null]
+        "workerType":["coder","otaku"]
     },
     {
         "id":19,
         "isActive":true,
         "name" : "Basile",
-        "basePower" : 4,
+        "basePower" : 6,
         "level" : 1,
         "rarety" : 5,
         "workerType":["coder","host"]
@@ -196,16 +196,16 @@
         "basePower" : 6,
         "level" : 1,
         "rarety" : 5,
-        "workerType":["coder",null]
+        "workerType":["coder","musicians"]
     },
     {
         "id":22,
         "isActive":true,
         "name" : "Karina",
-        "basePower" : 6,
+        "basePower" : 4,
         "level" : 1,
         "rarety" : 5,
-        "workerType":["designer",null]
+        "workerType":["designer","cactus"]
     },
     {
         "id":23,
@@ -214,6 +214,6 @@
         "basePower" : 6,
         "level" : 1,
         "rarety" : 5,
-        "workerType":["designer",null]
+        "workerType":["designer","cat lovers"]
     }
 ]

@@ -39,7 +39,7 @@
 		06809D93278CD29100D3A03F /* ButtonTabBarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06809D92278CD29100D3A03F /* ButtonTabBarNode.swift */; };
 		0686D84B2796120C007C3533 /* InfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0686D84A2796120C007C3533 /* InfoButton.swift */; };
 		0686D84D27972F85007C3533 /* WorkerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0686D84C27972F85007C3533 /* WorkerType.swift */; };
-		0686D84F279751B7007C3533 /* WorkerTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0686D84E279751B7007C3533 /* WorkerTypeEnum.swift */; };
+		0686D84F279751B7007C3533 /* EnumWorkweType3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0686D84E279751B7007C3533 /* EnumWorkweType3.swift */; };
 		0686D8512798CD72007C3533 /* SKScene+RainMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0686D8502798CD72007C3533 /* SKScene+RainMoney.swift */; };
 		06E917B7279A0C6700DEA189 /* BoxNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E917B6279A0C6700DEA189 /* BoxNode.swift */; };
 		06E917B9279A0CA600DEA189 /* GameSceneShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E917B8279A0CA600DEA189 /* GameSceneShop.swift */; };
@@ -50,6 +50,9 @@
 		06E917CD279B5AC800DEA189 /* worker.json in Resources */ = {isa = PBXBuildFile; fileRef = 06E917CC279B5AC800DEA189 /* worker.json */; };
 		06E917CF279B5B1D00DEA189 /* upgrades.json in Resources */ = {isa = PBXBuildFile; fileRef = 06E917CE279B5B1D00DEA189 /* upgrades.json */; };
 		06E917D1279B5B4500DEA189 /* workerType.json in Resources */ = {isa = PBXBuildFile; fileRef = 06E917D0279B5B4500DEA189 /* workerType.json */; };
+		06E917E327A080A900DEA189 /* ManegerGamerCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E917E227A080A900DEA189 /* ManegerGamerCenter.swift */; };
+		06E917E527A08E3300DEA189 /* RankButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E917E427A08E3300DEA189 /* RankButtonNode.swift */; };
+		06E917E927A0A51300DEA189 /* EnumWorkweType2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E917E827A0A51300DEA189 /* EnumWorkweType2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,20 +89,23 @@
 		06809D92278CD29100D3A03F /* ButtonTabBarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTabBarNode.swift; sourceTree = "<group>"; };
 		0686D84A2796120C007C3533 /* InfoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoButton.swift; sourceTree = "<group>"; };
 		0686D84C27972F85007C3533 /* WorkerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerType.swift; sourceTree = "<group>"; };
-		0686D84E279751B7007C3533 /* WorkerTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerTypeEnum.swift; sourceTree = "<group>"; };
+		0686D84E279751B7007C3533 /* EnumWorkweType3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumWorkweType3.swift; sourceTree = "<group>"; };
 		0686D8502798CD72007C3533 /* SKScene+RainMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKScene+RainMoney.swift"; sourceTree = "<group>"; };
 		06E917B6279A0C6700DEA189 /* BoxNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxNode.swift; sourceTree = "<group>"; };
 		06E917B8279A0CA600DEA189 /* GameSceneShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneShop.swift; sourceTree = "<group>"; };
 		06E917BA279A10F600DEA189 /* TerminalShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalShop.swift; sourceTree = "<group>"; };
 		06E917BC279A14B300DEA189 /* Upgrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Upgrade.swift; sourceTree = "<group>"; };
 		06E917C0279A1C4B00DEA189 /* UpgradeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeNode.swift; sourceTree = "<group>"; };
-		06E917C4279B42F700DEA189 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		06E917C6279B437B00DEA189 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		06E917C9279B562700DEA189 /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		06E917CC279B5AC800DEA189 /* worker.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = worker.json; sourceTree = "<group>"; };
 		06E917CE279B5B1D00DEA189 /* upgrades.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = upgrades.json; sourceTree = "<group>"; };
 		06E917D0279B5B4500DEA189 /* workerType.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = workerType.json; sourceTree = "<group>"; };
 		06E917DC279F6A7400DEA189 /* TapToMakeAnApp.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = TapToMakeAnApp.entitlements; sourceTree = "<group>"; };
+		06E917E0279F778E00DEA189 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		06E917E227A080A900DEA189 /* ManegerGamerCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManegerGamerCenter.swift; sourceTree = "<group>"; };
+		06E917E427A08E3300DEA189 /* RankButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankButtonNode.swift; sourceTree = "<group>"; };
+		06E917E827A0A51300DEA189 /* EnumWorkweType2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumWorkweType2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +133,8 @@
 			children = (
 				062F8617278CE972008785FF /* ColorPalete.swift */,
 				06012DAB278E6CD200964E0E /* PhrasesCode.swift */,
-				0686D84E279751B7007C3533 /* WorkerTypeEnum.swift */,
+				0686D84E279751B7007C3533 /* EnumWorkweType3.swift */,
+				06E917E827A0A51300DEA189 /* EnumWorkweType2.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -171,6 +178,7 @@
 				0686D84A2796120C007C3533 /* InfoButton.swift */,
 				06E917B6279A0C6700DEA189 /* BoxNode.swift */,
 				06E917C0279A1C4B00DEA189 /* UpgradeNode.swift */,
+				06E917E427A08E3300DEA189 /* RankButtonNode.swift */,
 			);
 			path = Node;
 			sourceTree = "<group>";
@@ -210,6 +218,7 @@
 		06809D6427892C2D00D3A03F /* TapToMakeAnApp */ = {
 			isa = PBXGroup;
 			children = (
+				06E917E127A0809200DEA189 /* Game Center */,
 				06E917DC279F6A7400DEA189 /* TapToMakeAnApp.entitlements */,
 				06809D6527892C2D00D3A03F /* AppDelegate.swift */,
 				06809D6D27892C2D00D3A03F /* GameViewController.swift */,
@@ -239,7 +248,6 @@
 			isa = PBXGroup;
 			children = (
 				06E917C6279B437B00DEA189 /* GameKit.framework */,
-				06E917C4279B42F700DEA189 /* CloudKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -260,6 +268,14 @@
 				06E917D0279B5B4500DEA189 /* workerType.json */,
 			);
 			path = json;
+			sourceTree = "<group>";
+		};
+		06E917E127A0809200DEA189 /* Game Center */ = {
+			isa = PBXGroup;
+			children = (
+				06E917E227A080A900DEA189 /* ManegerGamerCenter.swift */,
+			);
+			path = "Game Center";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,6 +364,7 @@
 				062F862C278E236D008785FF /* TerminalTeam.swift in Sources */,
 				065B7C212791E337007E258B /* SellAppNode.swift in Sources */,
 				062F8627278E0634008785FF /* timerDeadLine.swift in Sources */,
+				06E917E527A08E3300DEA189 /* RankButtonNode.swift in Sources */,
 				0686D84D27972F85007C3533 /* WorkerType.swift in Sources */,
 				0686D84B2796120C007C3533 /* InfoButton.swift in Sources */,
 				062F8620278D13D4008785FF /* CodeNode.swift in Sources */,
@@ -356,7 +373,7 @@
 				066623012790B76C0072A6E4 /* TerminalDocs.swift in Sources */,
 				066622FF2790B56F0072A6E4 /* GameSceneDocs.swift in Sources */,
 				065B7C1F27910908007E258B /* ServerNode.swift in Sources */,
-				0686D84F279751B7007C3533 /* WorkerTypeEnum.swift in Sources */,
+				0686D84F279751B7007C3533 /* EnumWorkweType3.swift in Sources */,
 				065B7C192790EDD5007E258B /* App.swift in Sources */,
 				06809D90278CCFF600D3A03F /* WindowNode.swift in Sources */,
 				065B7C232792108A007E258B /* Player.swift in Sources */,
@@ -367,10 +384,12 @@
 				06E917CA279B562700DEA189 /* ModelData.swift in Sources */,
 				062F8624278DFF98008785FF /* GameSceneTeam.swift in Sources */,
 				06809D6627892C2D00D3A03F /* AppDelegate.swift in Sources */,
+				06E917E327A080A900DEA189 /* ManegerGamerCenter.swift in Sources */,
 				06E917BB279A10F600DEA189 /* TerminalShop.swift in Sources */,
 				06012DB0278E721B00964E0E /* WorkerNode.swift in Sources */,
 				065B7C1B2790F05B007E258B /* GameSceneServer.swift in Sources */,
 				06809D8C278CBCCE00D3A03F /* BackgroundNode.swift in Sources */,
+				06E917E927A0A51300DEA189 /* EnumWorkweType2.swift in Sources */,
 				06E917C1279A1C4B00DEA189 /* UpgradeNode.swift in Sources */,
 				062F861D278D0675008785FF /* TerminalOffice.swift in Sources */,
 			);
@@ -383,6 +402,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				06809D7027892C2D00D3A03F /* Base */,
+				06E917E0279F778E00DEA189 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

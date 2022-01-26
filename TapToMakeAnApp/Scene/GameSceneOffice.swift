@@ -10,6 +10,17 @@ import GameplayKit
 
 class GameSceneOffice: SKScene {
     
+    var vc : GameViewController
+    
+    init( vc : GameViewController) {
+        self.vc = vc
+        super.init(size: CGSize(width: 428 , height: 840))
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     //data
     var player = Player.shared
     
@@ -24,7 +35,7 @@ class GameSceneOffice: SKScene {
     override func didMove(to view: SKView) {
         // Set the scale mode to scale to fit the window
         self.scaleMode = .aspectFit
-
+        
         // Set scene to phone size
         self.size = CGSize(width: 428 , height: 840)
         
@@ -44,6 +55,8 @@ class GameSceneOffice: SKScene {
         let positionInScene = touch.location(in: self)
         let touchedNode = self.atPoint(positionInScene)
         switch touchedNode.name{
+            case "rank":
+                vc.showGameLeaderBoard()
             case "storeLabel":
                 timer.deadLine = player.deadLine
                 timer.isDeadLineEnded = false
@@ -66,16 +79,16 @@ class GameSceneOffice: SKScene {
                 player.setPlayerUserDefaults()
             case "team":
                 player.setPlayerUserDefaults()
-                self.view?.presentScene( GameSceneTeam() )
+                self.view?.presentScene( GameSceneTeam(vc: vc) )
             case "docs":
                 player.setPlayerUserDefaults()
-                self.view?.presentScene( GameSceneDocs() )
+                self.view?.presentScene( GameSceneDocs(vc: vc)  )
             case "server":
                 player.setPlayerUserDefaults()
-                self.view?.presentScene( GameSceneServe() )
+                self.view?.presentScene( GameSceneServe(vc: vc)  )
         case "shop":
             player.setPlayerUserDefaults()
-            self.view?.presentScene( GameSceneShop() )
+            self.view?.presentScene( GameSceneShop(vc: vc) )
             default:
             
                 if terminalNode.isOfficeTerminalActive {
@@ -144,6 +157,11 @@ class GameSceneOffice: SKScene {
         deadLineLabel.horizontalAlignmentMode = .left
         deadLineLabel.position = CGPoint(x:10, y: self.size.height-55)
         self.addChild(deadLineLabel)
+        
+        let rankButtonNode = RankButtonNode()
+        rankButtonNode.size = CGSize(width: 40, height: 40)
+        rankButtonNode.position = CGPoint(x: self.size.width-30, y: self.size.height-30)
+        self.addChild(rankButtonNode)
         
         //MARK: WORKER
         let worker1 = WorkerNode(worker: player.team[0])

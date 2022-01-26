@@ -7,8 +7,9 @@
 
 import Foundation
 
-enum WorkersTypeEnum: String, CaseIterable{
+enum EnumWorkweType3: String, CaseIterable{
     case Coder = "coder",
          Designer = "designer",
-         Host = "host"
+         Host = "host",
+         CatLovers = "cat lovers"
 }

@@ -1,15 +1,39 @@
 [
     {
         "name" : "coder",
-        "description" : "If your team have 3\nprogramers, your\npawer will be double"
+        "description" : "If your team have 3\ncoders, your power\nwill be double"
     },
     {
         "name" : "designer",
-        "description" : "If your team have 3\ndesignerall, your\nteam gain 10 power"
+        "description" : "If your team have 3\ndesigners, they\ngain +10power"
     },
     {
         "name" : "host",
-        "description" : "If your team have 3\nHost, your deadline\nwill double points/sec"
+        "description" : "If your team have 3\nHost, your points/\nsec will be double "
+    },
+    {
+        "name" : "cat lovers",
+        "description" : "If your team have 2\ncat lovers, the\nvalue of your apps\nwill be quadruple"
+    },
+    {
+        "name" : "siblings",
+        "description" : "If your team have 2\nsiblings, they gain\n 10power for each\napp store"
+    },
+    {
+        "name" : "musicians",
+        "description" : "If your team have\n2 musicians, your\ndeadline will incrise\n10"
+    },
+    {
+        "name" : "otaku",
+        "description" : "If your team have 2\notaku, your power\n will incrise 1\nfor each worker"
+    },
+    {
+        "name" : "we all are debs",
+        "description" : "If you have debs on\nyour team, she\nwill make all\nyour tem designer"
+    },
+    {
+        "name" : "cactus",
+        "description" : "If you have Karina\non your team, she\nwill incrise the\n level of your team\n equal to her level"
     },
 
 ]

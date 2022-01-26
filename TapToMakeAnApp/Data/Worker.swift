@@ -23,7 +23,7 @@ public struct Worker: Codable{
         var power = basePower
         for wt in workerType {
             if wt != nil{
-                switch WorkersTypeEnum(rawValue: wt!){
+                switch EnumWorkweType3(rawValue: wt!){
                 case .Coder:
                     guard let up = player.findUpgradeByName(name: "mechanical keyboard") else { return 0 }
                     power += up.level*10
@@ -33,7 +33,7 @@ public struct Worker: Codable{
                 case .Host:
                     guard let up = player.findUpgradeByName(name: "microfone") else { return 0 }
                     power += up.level*20
-                case .none:
+                default:
                     break
                 }
             }

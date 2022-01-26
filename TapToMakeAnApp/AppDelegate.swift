@@ -38,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         Player.shared.points = 0
         Player.shared.setPlayerUserDefaults()
+        ManagerGameCenter.setHighScore(score: Player.shared.money)
     }
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {

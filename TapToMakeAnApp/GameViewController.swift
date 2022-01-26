@@ -7,7 +7,7 @@
 
 import UIKit
 import SpriteKit
-import GameplayKit
+import GameKit
 
 class GameViewController: UIViewController{
     
@@ -32,7 +32,7 @@ class GameViewController: UIViewController{
 
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
-            let scene = GameSceneOffice()
+            let scene = GameSceneOffice(vc: self) 
                 // Present the scene
                 view.presentScene(scene)
             
@@ -41,12 +41,22 @@ class GameViewController: UIViewController{
 //            view.showsFPS = true
 //            view.showsNodeCount = true
         }
+        
+        ManagerGameCenter.authenticateUser(from: self)
+        
     }
+
 
     override var shouldAutorotate: Bool {
         return true
     }
 
+    func showGameLeaderBoard() {
+        if (!ManagerGameCenter().toSpecificPage(from: self, to: .leaderboards)) {
+                    print("Not connected")
+                }
+        ManagerGameCenter.setHighScore(score: Player.shared.money)
+    }
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
             return .allButUpsideDown
