@@ -42,11 +42,12 @@ public class TerminalServer: SKSpriteNode{
         borderApp.position = CGPoint(x: x, y: y)
         
         let sellButton = SellAppNode(app: app, positionLibrary: indexApp)
+        sellButton.size = CGSize(width: 240, height: 42)
         sellButton.zPosition = 1
         sellButton.position = CGPoint(x:0, y: -30)
         borderApp.addChild(sellButton)
         
-        let sellBackground = SKSpriteNode(color: ColorPalette.mainGreen, size: CGSize(width: 200, height: 42))
+        let sellBackground = SKSpriteNode(color: ColorPalette.mainGreen, size: CGSize(width: 240, height: 42))
         sellBackground.zPosition = 0
         sellBackground.position = CGPoint(x:0, y: -30)
         borderApp.addChild(sellBackground)
@@ -54,8 +55,8 @@ public class TerminalServer: SKSpriteNode{
         let labelApp = SKLabelNode()
         labelApp.fontColor = .black
         labelApp.zPosition = 0
-        labelApp.fontName = "Pixel"
-        labelApp.fontSize = 18
+        labelApp.fontName = "munro"
+        labelApp.fontSize = 23
         labelApp.text = "SELL: \(app.money)$"
         labelApp.horizontalAlignmentMode = .center
         labelApp.position = CGPoint(x:0, y: -35)
@@ -64,8 +65,8 @@ public class TerminalServer: SKSpriteNode{
         let labelInfo = SKLabelNode()
         labelInfo.fontColor = ColorPalette.mainGreen
         labelInfo.zPosition = 0
-        labelInfo.fontName = "Pixel"
-        labelInfo.fontSize = 20
+        labelInfo.fontName = "munro"
+        labelInfo.fontSize = 25
         labelInfo.numberOfLines = 0
         labelInfo.text = "POINTS: \(app.points)\nEANING: \(app.earning)$"
         labelInfo.horizontalAlignmentMode = .center

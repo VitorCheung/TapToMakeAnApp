@@ -13,13 +13,14 @@ class Player: Codable{
     static var shared = Player()
     
     //Data
-    var money : Int64 = 0
+    var money : Int64 = 200
     var points : Int = 0
     var docsBuy = 0
     var workers : [Worker] = []
     var team : [Worker?] = [nil,nil,nil]
     var apps : [App?] = []
     var upgrades : [Upgrade] = Upgrade.library
+    var didTutorial :[Bool] = [false,false,false,false,false,false,false,false,false,false,false,false,false]
     
     var deadLine : Int{
         guard let up = findUpgradeByName(name: "Air Conditioner") else { return 0 }
@@ -186,7 +187,7 @@ class Player: Codable{
             let data = try encoder.encode(self)
 
             // Write/Set Data
-            UserDefaults.standard.set(data, forKey: "player")
+            UserDefaults.standard.set(data, forKey: "dataPlayer1")
 
         } catch {
             print("Unable to Encode Array of Notes (\(error))")
@@ -195,7 +196,7 @@ class Player: Codable{
     
     static func getPlayerUserDefaults()->Player{
         // Read/Get Data
-        if let data = UserDefaults.standard.data(forKey: "player") {
+        if let data = UserDefaults.standard.data(forKey: "dataPlayer1") {
             do {
                 // Create JSON Decoder
                 let decoder = JSONDecoder()

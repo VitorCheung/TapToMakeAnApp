@@ -5,6 +5,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Pixel.ttf</string>
+		<string>munro.ttf</string>
 	</array>
 </dict>
 </plist>

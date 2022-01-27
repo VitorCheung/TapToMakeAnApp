@@ -16,7 +16,6 @@ class GameViewController: UIViewController{
         
         Player.shared = Player.getPlayerUserDefaults()
         Player.shared.verifyData()
-        Player.shared.money = 100000000
 //        Player.shared.workers = []
 //        Player.shared.team = [nil,nil,nil]
 //        Player.shared.apps = []

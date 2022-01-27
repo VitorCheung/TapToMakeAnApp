@@ -33,25 +33,25 @@ public class TerminalOffice: SKSpriteNode{
         isOfficeTerminalActive = true
         
         pointsLabel.fontColor = ColorPalette.mainGreen
-        pointsLabel.fontName = "Pixel"
-        pointsLabel.zPosition = 1
-        pointsLabel.fontSize = 25
+        pointsLabel.fontName = "munro"
+        pointsLabel.zPosition = 2
+        pointsLabel.fontSize = 30
         pointsLabel.text = "POINTS: \(player.points)"
         pointsLabel.horizontalAlignmentMode = .left
         pointsLabel.position = CGPoint(x:10, y: self.size.height-30)
         self.addChild(pointsLabel)
         
         codeLabel.fontColor = ColorPalette.mainGreen
-        codeLabel.fontName = "Pixel"
-        codeLabel.zPosition = 1
-        codeLabel.fontSize = 15
+        codeLabel.fontName = "munro"
+        codeLabel.zPosition = 2
+        codeLabel.fontSize = 20
         codeLabel.text = "CLICK TO CODE"
         codeLabel.horizontalAlignmentMode = .left
         codeLabel.position = CGPoint(x:10, y: self.size.height-50)
         self.addChild(codeLabel)
         
         codeLinesNode.anchorPoint = CGPoint(x: 0, y: 0)
-        codeLinesNode.zPosition = 1
+        codeLinesNode.zPosition = 2
         codeLinesNode.scale(to: CGSize(width: 309 , height: 211))
         codeLinesNode.position = CGPoint(x:10, y: 52)
         self.addChild(codeLinesNode)
@@ -65,9 +65,9 @@ public class TerminalOffice: SKSpriteNode{
         let app = App(points: player.points)
         
         pointsLabel.fontColor = ColorPalette.mainGreen
-        pointsLabel.zPosition = 1
-        pointsLabel.fontName = "Pixel"
-        pointsLabel.fontSize = 25
+        pointsLabel.zPosition = 2
+        pointsLabel.fontName = "munro"
+        pointsLabel.fontSize = 30
         pointsLabel.text = "POINTS: \(app.points)"
         pointsLabel.horizontalAlignmentMode = .center
         pointsLabel.position = CGPoint(x:self.size.width/2, y: self.size.height-60)
@@ -75,10 +75,10 @@ public class TerminalOffice: SKSpriteNode{
         
         let overAllLabel = SKLabelNode()
         overAllLabel.fontColor = ColorPalette.mainGreen
-        overAllLabel.zPosition = 1
-        overAllLabel.fontName = "Pixel"
+        overAllLabel.zPosition = 2
+        overAllLabel.fontName = "munro"
         overAllLabel.numberOfLines = 0
-        overAllLabel.fontSize = 22
+        overAllLabel.fontSize = 27
         if name == "sellLabel" {
             overAllLabel.text = "Earning : \(app.earning)\nYou power was: \(player.clickPower())\nYour server is full\nto store more apps\nsell them or\nupgrade your server"
             overAllLabel.position = CGPoint(x:10, y: self.size.height-250)
@@ -91,17 +91,17 @@ public class TerminalOffice: SKSpriteNode{
         self.addChild(overAllLabel)
         
         let backgroundStoreLabel = SKSpriteNode(color: ColorPalette.mainGreen, size: CGSize(width: 300, height: 50))
-        backgroundStoreLabel.zPosition = 2
+        backgroundStoreLabel.zPosition = 3
         backgroundStoreLabel.name = name
         backgroundStoreLabel.position = CGPoint(x:self.size.width/2, y: 60)
         self.addChild(backgroundStoreLabel)
         
         let storeLabel = SKLabelNode()
         storeLabel.name = name
-        storeLabel.zPosition = 2
+        storeLabel.zPosition = 3
         storeLabel.fontColor = .black
-        storeLabel.fontName = "Pixel"
-        storeLabel.fontSize = 25
+        storeLabel.fontName = "munro"
+        storeLabel.fontSize = 30
         storeLabel.text = text
         storeLabel.horizontalAlignmentMode = .center
         storeLabel.position = CGPoint(x:self.size.width/2, y: 50)
@@ -109,17 +109,17 @@ public class TerminalOffice: SKSpriteNode{
         
         if name != "sellLabel" {
             let backgroundSellLabel = SKSpriteNode(color: ColorPalette.mainGreen, size: CGSize(width: 300, height: 50))
-            backgroundSellLabel.zPosition = 2
+            backgroundSellLabel.zPosition = 3
             backgroundSellLabel.name = "sellLabel"
             backgroundSellLabel.position = CGPoint(x:self.size.width/2, y: 120)
             self.addChild(backgroundSellLabel)
             
             let sellLabel = SKLabelNode()
             sellLabel.name = "sellLabel"
-            sellLabel.zPosition = 2
+            sellLabel.zPosition = 3
             sellLabel.fontColor = .black
-            sellLabel.fontName = "Pixel"
-            sellLabel.fontSize = 25
+            sellLabel.fontName = "munro"
+            sellLabel.fontSize = 30
             sellLabel.text = "SELL: \(app.money)"
             sellLabel.horizontalAlignmentMode = .center
             sellLabel.position = CGPoint(x:self.size.width/2, y: 110)

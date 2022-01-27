@@ -60,23 +60,50 @@ class GameSceneShop: SKScene {
                 case "rank":
                     vc.showGameLeaderBoard()
                 case "office":
+                    if player.didTutorial[12]{
                     player.setPlayerUserDefaults()
                     self.view?.presentScene( GameSceneOffice(vc: vc)  )
+                    }
                 case "team":
+                    if player.didTutorial[12]{
                     player.setPlayerUserDefaults()
                     self.view?.presentScene( GameSceneTeam(vc: vc)  )
+                    }
                 case "docs":
+                    if player.didTutorial[12]{
                     player.setPlayerUserDefaults()
                     self.view?.presentScene( GameSceneDocs(vc: vc) )
+                    }
                 case "server":
+                    if player.didTutorial[12]{
                     player.setPlayerUserDefaults()
                     self.view?.presentScene( GameSceneServe(vc: vc)  )
+                    }
                 case "upgrade":
+
                     guard let upgrade = touchedNode as? UpgradeNode else { return  }
                     let yPositon = terminalNode.position.y
                     buyUpgrade(index: upgrade.positionLibrary, CGPositon:positionInScene)
                     terminalNode.position.y = yPositon
+                    if !player.didTutorial[12]{
+                        let tutorial = tutorialNode(text: "Okaay!\nYou are all set!\nNow tou can\nTAP TO MAKE AN APP!")
+                        addChild(tutorial)
+                    }
                     player.setPlayerUserDefaults()
+                case "tutorial":
+
+                    if !player.didTutorial[11]{
+                        player.didTutorial[11].toggle()
+                        setup()
+                        break
+                    }
+                    
+                    if !player.didTutorial[12]{
+                        player.didTutorial[12].toggle()
+                        setup()
+                        break
+                    }
+
                 default:
                     return
                 }
@@ -110,23 +137,26 @@ class GameSceneShop: SKScene {
     
     func setup(){
         removeAllChildren()
-
-
         //MARK: Labels
+        
+        if !player.didTutorial[11]{
+            let tutorial = tutorialNode(text: "This is the shop\nyou can buy upgrades\nhere!\ntry to buy one!")
+            addChild(tutorial)
+        }
         
         moneyLabel.fontColor = .black
         moneyLabel.zPosition = 10
-        moneyLabel.fontName = "Pixel"
-        moneyLabel.fontSize = 25
+        moneyLabel.fontName = "munro"
+        moneyLabel.fontSize = 35
         moneyLabel.text = "$\(player.money)"
         moneyLabel.horizontalAlignmentMode = .left
-        moneyLabel.position = CGPoint(x:10, y: self.size.height-25)
+        moneyLabel.position = CGPoint(x:10, y: self.size.height-30)
         self.addChild(moneyLabel)
         
         deadLineLabel.fontColor = .red
         deadLineLabel.zPosition = 10
-        deadLineLabel.fontName = "Pixel"
-        deadLineLabel.fontSize = 25
+        deadLineLabel.fontName = "munro"
+        deadLineLabel.fontSize = 30
         deadLineLabel.text = "Dead line: 10 days"
         deadLineLabel.horizontalAlignmentMode = .left
         deadLineLabel.position = CGPoint(x:10, y: self.size.height-55)

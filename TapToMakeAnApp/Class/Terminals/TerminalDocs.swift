@@ -29,9 +29,9 @@ public class TerminalDocs: SKSpriteNode{
         
         let hireLabel = SKLabelNode()
         hireLabel.fontColor = ColorPalette.mainGreen
-        hireLabel.fontName = "Pixel"
+        hireLabel.fontName = "munro"
         hireLabel.zPosition = 1
-        hireLabel.fontSize = 30
+        hireLabel.fontSize = 35
         hireLabel.text = "HIRE"
         hireLabel.horizontalAlignmentMode = .left
         hireLabel.position = CGPoint(x:15, y: self.size.height-30)
@@ -59,10 +59,10 @@ public class TerminalDocs: SKSpriteNode{
         let contratLabel = SKLabelNode()
         contratLabel.fontColor = ColorPalette.mainGreen
         contratLabel.name = "contrat"
-        contratLabel.fontName = "Pixel"
+        contratLabel.fontName = "munro"
         contratLabel.zPosition = 1
         contratLabel.numberOfLines = 0
-        contratLabel.fontSize = 20
+        contratLabel.fontSize = 25
         contratLabel.text = "1 contrat X\n$\(player.priceDocs())"
         contratLabel.horizontalAlignmentMode = .center
         contratLabel.position = CGPoint(x:self.size.width/2, y: self.size.height/2)

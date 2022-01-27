@@ -25,7 +25,7 @@ public struct Worker: Codable{
             if wt != nil{
                 switch EnumWorkweType3(rawValue: wt!){
                 case .Coder:
-                    guard let up = player.findUpgradeByName(name: "mechanical keyboard") else { return 0 }
+                    guard let up = player.findUpgradeByName(name: "new keyboard") else { return 0 }
                     power += up.level*10
                 case .Designer:
                     guard let up = player.findUpgradeByName(name: "Drawing tablets") else { return 0 }

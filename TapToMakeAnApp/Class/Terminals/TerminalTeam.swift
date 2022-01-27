@@ -39,9 +39,9 @@ public class TerminalTeam: SKSpriteNode{
         
         let nameLabel = SKLabelNode()
         nameLabel.fontColor = ColorPalette.mainGreen
-        nameLabel.fontName = "Pixel"
+        nameLabel.fontName = "munro"
         nameLabel.zPosition = 1
-        nameLabel.fontSize = 30
+        nameLabel.fontSize = 35
         nameLabel.text = w.name
         nameLabel.horizontalAlignmentMode = .left
         nameLabel.position = CGPoint(x: self.size.width/2-75, y: self.size.height-30)
@@ -49,9 +49,9 @@ public class TerminalTeam: SKSpriteNode{
         
         let rarityLabel = SKLabelNode()
         rarityLabel.fontColor = ColorPalette.mainGreen
-        rarityLabel.fontName = "Pixel"
+        rarityLabel.fontName = "munro"
         rarityLabel.zPosition = 1
-        rarityLabel.fontSize = 22
+        rarityLabel.fontSize = 27
         rarityLabel.text = "RARITY: "
         rarityLabel.horizontalAlignmentMode = .left
         rarityLabel.position = CGPoint(x: self.size.width/2-75, y: self.size.height-60)
@@ -63,9 +63,9 @@ public class TerminalTeam: SKSpriteNode{
         
         let powerLabel = SKLabelNode()
         powerLabel.fontColor = ColorPalette.mainGreen
-        powerLabel.fontName = "Pixel"
+        powerLabel.fontName = "munro"
         powerLabel.zPosition = 1
-        powerLabel.fontSize = 22
+        powerLabel.fontSize = 27
         powerLabel.text = "POWER: \(w.power*w.level)/click"
         powerLabel.horizontalAlignmentMode = .left
         powerLabel.position = CGPoint(x: self.size.width/2-75, y: self.size.height-90)
@@ -82,9 +82,9 @@ public class TerminalTeam: SKSpriteNode{
             
             let type1Label = SKLabelNode()
             type1Label.fontColor = ColorPalette.mainGreen
-            type1Label.fontName = "Pixel"
+            type1Label.fontName = "munro"
             type1Label.zPosition = 1
-            type1Label.fontSize = 18
+            type1Label.fontSize = 23
             type1Label.text = w.workerType[0]
             type1Label.horizontalAlignmentMode = .left
             type1Label.position = CGPoint(x: self.size.width/2-75, y: self.size.height-140)
@@ -92,9 +92,9 @@ public class TerminalTeam: SKSpriteNode{
             
             let type1DescriptionLabel = SKLabelNode()
             type1DescriptionLabel.fontColor = ColorPalette.mainGreen
-            type1DescriptionLabel.fontName = "Pixel"
+            type1DescriptionLabel.fontName = "munro"
             type1DescriptionLabel.zPosition = 1
-            type1DescriptionLabel.fontSize = 18
+            type1DescriptionLabel.fontSize = 23
             type1DescriptionLabel.numberOfLines = 0
             type1DescriptionLabel.text = WorkerType.getDescription(name: w.workerType[0] ?? "")
             type1DescriptionLabel.horizontalAlignmentMode = .left
@@ -105,10 +105,10 @@ public class TerminalTeam: SKSpriteNode{
         if (w.workerType[1]) != nil {
             let type2Label = SKLabelNode()
             type2Label.fontColor = ColorPalette.mainGreen
-            type2Label.fontName = "Pixel"
+            type2Label.fontName = "munro"
             type2Label.zPosition = 1
             type2Label.numberOfLines = 0
-            type2Label.fontSize = 18
+            type2Label.fontSize = 23
             type2Label.text = w.workerType[1]
             type2Label.horizontalAlignmentMode = .left
             type2Label.position = CGPoint(x: self.size.width/2-75, y: self.size.height-280)
@@ -123,16 +123,16 @@ public class TerminalTeam: SKSpriteNode{
             
             let type2DescriptionLabel = SKLabelNode()
             type2DescriptionLabel.fontColor = ColorPalette.mainGreen
-            type2DescriptionLabel.fontName = "Pixel"
+            type2DescriptionLabel.fontName = "munro"
             type2DescriptionLabel.zPosition = 1
             type2DescriptionLabel.numberOfLines = 0
-            type2DescriptionLabel.fontSize = 18
+            type2DescriptionLabel.fontSize = 23
             type2DescriptionLabel.text = WorkerType.getDescription(name: w.workerType[1] ?? "")
             type2DescriptionLabel.horizontalAlignmentMode = .left
             guard let numbersOfWords = type2DescriptionLabel.text?.count else { return }
             let numberOfLines: Double = Double(numbersOfWords)/19
             type2DescriptionLabel.position = CGPoint(x: self.size.width/2-75, y:
-                                                self.size.height-306-CGFloat(numberOfLines.rounded(.up)*18))
+                                                self.size.height-306-CGFloat(numberOfLines.rounded(.up)*15))
   
             self.addChild(type2DescriptionLabel)
         }
@@ -163,8 +163,8 @@ public class TerminalTeam: SKSpriteNode{
         let bonusLabel = SKLabelNode()
         bonusLabel.fontColor = ColorPalette.mainGreen
         bonusLabel.zPosition = 1
-        bonusLabel.fontName = "Pixel"
-        bonusLabel.fontSize = 20
+        bonusLabel.fontName = "munro"
+        bonusLabel.fontSize = 25
         bonusLabel.numberOfLines = 0
         bonusLabel.text = activedBonus()
         bonusLabel.horizontalAlignmentMode = .left
@@ -200,9 +200,9 @@ public class TerminalTeam: SKSpriteNode{
         
         let levelLabel = SKLabelNode()
         levelLabel.fontColor = ColorPalette.mainGreen
-        levelLabel.fontName = "Pixel"
+        levelLabel.fontName = "munro"
         levelLabel.zPosition = 1
-        levelLabel.fontSize = 18
+        levelLabel.fontSize = 23
         levelLabel.text = "X\(player.workers[indexWorker].level)"
         levelLabel.horizontalAlignmentMode = .left
         levelLabel.position = CGPoint(x: -worker.size.width/2+5, y: worker.size.height/2-23)

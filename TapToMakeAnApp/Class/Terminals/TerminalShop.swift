@@ -50,9 +50,9 @@ public class TerminalShop: SKSpriteNode{
         let labelInfo = SKLabelNode()
         labelInfo.fontColor = ColorPalette.mainGreen
         labelInfo.zPosition = 0
-        labelInfo.fontName = "Pixel"
+        labelInfo.fontName = "munro"
         labelInfo.numberOfLines = 0
-        labelInfo.fontSize = 22
+        labelInfo.fontSize = 27
         labelInfo.text = "You need more \(5-player.upgrades[totalLines-1].level)\n times to unlock\nthis upgrade"
         labelInfo.horizontalAlignmentMode = .center
         labelInfo.position = CGPoint(x:0, y: -labelInfo.fontSize)
@@ -85,8 +85,8 @@ public class TerminalShop: SKSpriteNode{
         let labelUpgrade = SKLabelNode()
         labelUpgrade.fontColor = .black
         labelUpgrade.zPosition = 0
-        labelUpgrade.fontName = "Pixel"
-        labelUpgrade.fontSize = 18
+        labelUpgrade.fontName = "munro"
+        labelUpgrade.fontSize = 23
         labelUpgrade.text = "BUY: \(upgrade.price)$"
         labelUpgrade.horizontalAlignmentMode = .center
         labelUpgrade.position = CGPoint(x:0, y: -63)
@@ -95,19 +95,19 @@ public class TerminalShop: SKSpriteNode{
         let labelInfo = SKLabelNode()
         labelInfo.fontColor = ColorPalette.mainGreen
         labelInfo.zPosition = 0
-        labelInfo.fontName = "Pixel"
-        labelInfo.fontSize = 20
+        labelInfo.fontName = "munro"
+        labelInfo.fontSize = 23
         labelInfo.numberOfLines = 0
         labelInfo.text = upgrade.description
         labelInfo.horizontalAlignmentMode = .center
-        labelInfo.position = CGPoint(x:0, y: -15)
+        labelInfo.position = CGPoint(x:0, y: -20)
         borderUpgrade.addChild(labelInfo)
         
         let labelTitle = SKLabelNode()
         labelTitle.fontColor = ColorPalette.mainGreen
         labelTitle.zPosition = 0
-        labelTitle.fontName = "Pixel"
-        labelTitle.fontSize = 25
+        labelTitle.fontName = "munro"
+        labelTitle.fontSize = 30
         labelTitle.numberOfLines = 0
         labelTitle.text = upgrade.name+":"
         labelTitle.horizontalAlignmentMode = .left

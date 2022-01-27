@@ -26,7 +26,7 @@ class GameSceneOffice: SKScene {
     
     //Timer
     var timer = timerDeadLine.shared
-
+    
     //Nodes
     let moneyLabel = SKLabelNode()
     let deadLineLabel = SKLabelNode()
@@ -45,19 +45,23 @@ class GameSceneOffice: SKScene {
         self.anchorPoint = CGPoint(x: 0, y: 0)
         
         setup()
-
+        
     }
     
     //MARK: TouchesEnded
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
         for touch in touches {
-        let positionInScene = touch.location(in: self)
-        let touchedNode = self.atPoint(positionInScene)
-        switch touchedNode.name{
+            let positionInScene = touch.location(in: self)
+            let touchedNode = self.atPoint(positionInScene)
+            
+            
+            switch touchedNode.name{
             case "rank":
                 vc.showGameLeaderBoard()
             case "storeLabel":
+                if !player.didTutorial[2]{
+                    player.didTutorial[2].toggle()
+                }
                 timer.deadLine = player.deadLine
                 timer.isDeadLineEnded = false
                 terminalNode.setupForCliker()
@@ -66,47 +70,72 @@ class GameSceneOffice: SKScene {
                 addToServerAnamation()
                 player.setPlayerUserDefaults()
             case "sellLabel":
-            
-                let app = App(points: player.points)
-            for _ in 0..<10+player.upgrades[4].level {
-                    rainMoney(CGpositon: positionInScene)
+                if (player.didTutorial[0] && !player.didTutorial[1]) || player.didTutorial[3]{
+                    let app = App(points: player.points)
+                    for _ in 0..<10+player.upgrades[4].level {
+                        rainMoney(CGpositon: positionInScene)
+                    }
+                    timer.deadLine = player.deadLine
+                    timer.isDeadLineEnded = false
+                    terminalNode.setupForCliker()
+                    player.money += Int64(app.money)
+                    player.points = 0
+                    player.setPlayerUserDefaults()
                 }
-                timer.deadLine = player.deadLine
-                timer.isDeadLineEnded = false
-                terminalNode.setupForCliker()
-                player.money += Int64(app.money)
-                player.points = 0
-                player.setPlayerUserDefaults()
             case "team":
-                player.setPlayerUserDefaults()
-                self.view?.presentScene( GameSceneTeam(vc: vc) )
-            case "docs":
-                player.setPlayerUserDefaults()
-                self.view?.presentScene( GameSceneDocs(vc: vc)  )
-            case "server":
-                player.setPlayerUserDefaults()
-                self.view?.presentScene( GameSceneServe(vc: vc)  )
-        case "shop":
-            player.setPlayerUserDefaults()
-            self.view?.presentScene( GameSceneShop(vc: vc) )
-            default:
-            
-                if terminalNode.isOfficeTerminalActive {
-                    addLabelPointsAnamation(x:positionInScene.x, y:positionInScene.y)
-
+                if player.didTutorial[3]{
+                    player.setPlayerUserDefaults()
+                    self.view?.presentScene( GameSceneTeam(vc: vc) )
                 }
-            
-                if timer.firstCliked{
-                    timer.firstCliked = false
+            case "docs":
+                if player.didTutorial[3]{
+                    player.setPlayerUserDefaults()
+                    self.view?.presentScene( GameSceneDocs(vc: vc)  )
+                }
+            case "server":
+                if player.didTutorial[2]{
+                    player.setPlayerUserDefaults()
+                    self.view?.presentScene( GameSceneServe(vc: vc)  )
+                }
+            case "shop":
+                if player.didTutorial[3]{
+                    player.setPlayerUserDefaults()
+                    self.view?.presentScene( GameSceneShop(vc: vc) )
+                }
+            case "tutorial":
+                if !(player.didTutorial[0]){
+                    player.didTutorial[0].toggle()
+                    setup()
+                    break
+                }
+                if player.didTutorial[1]{
+                    setup()
+                    break
                 }
                 
-                if !(timer.isDeadLineEnded){
-                    player.points += player.clickPower()
-                    terminalNode.addCodeLine(codeLine: CodeNode(width: Int.random(in: 80..<300)))
-                    terminalNode.changeTextOfCodeLabel()
-                    terminalNode.codeLines += 1
+                
+                
+            default:
+                if player.didTutorial[0]{
+                    if terminalNode.isOfficeTerminalActive {
+                        addLabelPointsAnamation(x:positionInScene.x, y:positionInScene.y)
+                        
+                    }
+                    
+                    if timer.firstCliked{
+                        timer.firstCliked = false
+                    }
+                    
+                    if !(timer.isDeadLineEnded){
+                        player.points += player.clickPower()
+                        terminalNode.addCodeLine(codeLine: CodeNode(width: Int.random(in: 80..<300)))
+                        terminalNode.changeTextOfCodeLabel()
+                        terminalNode.codeLines += 1
+                    }
                 }
             }
+            
+            
         }
         
     }
@@ -117,13 +146,19 @@ class GameSceneOffice: SKScene {
         terminalNode.pointsLabel.text = "POINTS: \(player.points)"
         deadLineLabel.text = "Dead line: \(timer.deadLine) days"
         moneyLabel.text = "$\(player.money)"
-//        if points%5==0 {
-//            //jump worker
-//        }
+        //        if points%5==0 {
+        //            //jump worker
+        //        }
         
         if timer.isDeadLineEnded{
             player.setPlayerUserDefaults()
+            
             if player.apps.count < player.serverSpace && player.points != 0{
+                if !(player.didTutorial[1]){
+                    let tutorial = tutorialNode(text: "Excellent!!\nYou have develop your\nfist app! Now click on\nSTORE APP to store the \napp!")
+                    addChild(tutorial)
+                    player.didTutorial[1] = true
+                }
                 terminalNode.setupForResults(text: "STORE APP", name: "storeLabel")
             }
             else{
@@ -133,26 +168,33 @@ class GameSceneOffice: SKScene {
             return
         }
         
-
+        
         
     }
     
     func setup(){
+        removeAllChildren()
         //MARK: Labels
-        
-        timer.starCounter()
+        if player.didTutorial[0]{
+            timer.starCounter()
+        }
+        else{
+            
+            let tutorial = tutorialNode(text: "Hello, you must be the\nnew CEO!\nGreat, my name is japa\nI am herer to help you\nget started!\nFirst thing, click as much\nas you can on the\nscreem to make points!")
+            addChild(tutorial)
+        }
         
         moneyLabel.fontColor = .black
-        moneyLabel.fontName = "Pixel"
-        moneyLabel.fontSize = 25
+        moneyLabel.fontName = "munro"
+        moneyLabel.fontSize = 35
         moneyLabel.text = "$\(player.money)"
         moneyLabel.horizontalAlignmentMode = .left
-        moneyLabel.position = CGPoint(x:10, y: self.size.height-25)
+        moneyLabel.position = CGPoint(x:10, y: self.size.height-30)
         self.addChild(moneyLabel)
         
         deadLineLabel.fontColor = .red
-        deadLineLabel.fontName = "Pixel"
-        deadLineLabel.fontSize = 25
+        deadLineLabel.fontName = "munro"
+        deadLineLabel.fontSize = 30
         deadLineLabel.text = "Dead line: 10 days"
         deadLineLabel.horizontalAlignmentMode = .left
         deadLineLabel.position = CGPoint(x:10, y: self.size.height-55)
@@ -224,30 +266,30 @@ class GameSceneOffice: SKScene {
         screemNode.anchorPoint = CGPoint(x: 0, y: 0)
         screemNode.position = CGPoint( x: 0 , y: 0)
         self.addChild(screemNode)
-
+        
     }
     
     func addLabelPointsAnamation(x:CGFloat, y:CGFloat){
         let labelPoints = SKLabelNode()
         labelPoints.fontColor = ColorPalette.mainGreen
         labelPoints.zPosition = 11
-        labelPoints.fontName = "Pixel"
-        labelPoints.fontSize = 30
+        labelPoints.fontName = "munro"
+        labelPoints.fontSize = 35
         labelPoints.text = "+\(player.clickPower())"
         labelPoints.horizontalAlignmentMode = .center
         labelPoints.position = CGPoint(x:x, y: y)
         self.addChild(labelPoints)
         labelPoints.run(
-        SKAction.moveTo(y: self.size.height, duration: 1)
-        , completion: labelPoints.removeFromParent)
+            SKAction.moveTo(y: self.size.height, duration: 1)
+            , completion: labelPoints.removeFromParent)
     }
     
     func addToServerAnamation(){
         
         var compressFrames: [SKTexture] = []
-
+        
         for i in 1...33 {
-          let extureName = "New Piskel-\(i).png"
+            let extureName = "New Piskel-\(i).png"
             compressFrames.append(SKTexture(imageNamed: extureName))
         }
         
@@ -264,11 +306,17 @@ class GameSceneOffice: SKScene {
              SKAction.group(
                 [
                     SKAction.scale(by: 0, duration: 0.35),
-                SKAction.rotate(byAngle: 6, duration: 0.25),
-                SKAction.move(to: CGPoint(x: self.size.width*4/6-5, y: 75), duration: 0.25)
+                    SKAction.rotate(byAngle: 6, duration: 0.25),
+                    SKAction.move(to: CGPoint(x: self.size.width*4/6-5, y: 75), duration: 0.25)
                 ]
-             )
-        ])
+             ),
+             SKAction.run {
+                 if !self.player.didTutorial[3]{
+                     let tutorial = tutorialNode(text: "Nice!!\nNow go to the servers\nto see how your app\nis doing.")
+                     self.addChild(tutorial)
+                 }
+             }
+            ])
         
         appCompact.run(
             sequence

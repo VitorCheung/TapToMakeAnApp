@@ -53,6 +53,8 @@
 		06E917E327A080A900DEA189 /* ManegerGamerCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E917E227A080A900DEA189 /* ManegerGamerCenter.swift */; };
 		06E917E527A08E3300DEA189 /* RankButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E917E427A08E3300DEA189 /* RankButtonNode.swift */; };
 		06E917E927A0A51300DEA189 /* EnumWorkweType2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E917E827A0A51300DEA189 /* EnumWorkweType2.swift */; };
+		06E917EB27A1D74D00DEA189 /* munro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06E917EA27A1D74C00DEA189 /* munro.ttf */; };
+		06E917ED27A1E94400DEA189 /* tutorialNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E917EC27A1E94400DEA189 /* tutorialNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +108,8 @@
 		06E917E227A080A900DEA189 /* ManegerGamerCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManegerGamerCenter.swift; sourceTree = "<group>"; };
 		06E917E427A08E3300DEA189 /* RankButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankButtonNode.swift; sourceTree = "<group>"; };
 		06E917E827A0A51300DEA189 /* EnumWorkweType2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumWorkweType2.swift; sourceTree = "<group>"; };
+		06E917EA27A1D74C00DEA189 /* munro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = munro.ttf; sourceTree = "<group>"; };
+		06E917EC27A1E94400DEA189 /* tutorialNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tutorialNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +183,7 @@
 				06E917B6279A0C6700DEA189 /* BoxNode.swift */,
 				06E917C0279A1C4B00DEA189 /* UpgradeNode.swift */,
 				06E917E427A08E3300DEA189 /* RankButtonNode.swift */,
+				06E917EC27A1E94400DEA189 /* tutorialNode.swift */,
 			);
 			path = Node;
 			sourceTree = "<group>";
@@ -230,6 +235,7 @@
 				06809D7227892C2F00D3A03F /* Assets.xcassets */,
 				06809D7427892C2F00D3A03F /* LaunchScreen.storyboard */,
 				06809D87278CB90400D3A03F /* Pixel.ttf */,
+				06E917EA27A1D74C00DEA189 /* munro.ttf */,
 			);
 			path = TapToMakeAnApp;
 			sourceTree = "<group>";
@@ -342,6 +348,7 @@
 				06809D8A278CBC5200D3A03F /* Pixel.ttf in Resources */,
 				06E917CF279B5B1D00DEA189 /* upgrades.json in Resources */,
 				06E917D1279B5B4500DEA189 /* workerType.json in Resources */,
+				06E917EB27A1D74D00DEA189 /* munro.ttf in Resources */,
 				06E917CD279B5AC800DEA189 /* worker.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,6 +367,7 @@
 				06012DAA278E658B00964E0E /* Worker.swift in Sources */,
 				06809D6C27892C2D00D3A03F /* GameSceneOffice.swift in Sources */,
 				062F8618278CE972008785FF /* ColorPalete.swift in Sources */,
+				06E917ED27A1E94400DEA189 /* tutorialNode.swift in Sources */,
 				062F8615278CE702008785FF /* SpriteNode+Border.swift in Sources */,
 				062F862C278E236D008785FF /* TerminalTeam.swift in Sources */,
 				065B7C212791E337007E258B /* SellAppNode.swift in Sources */,

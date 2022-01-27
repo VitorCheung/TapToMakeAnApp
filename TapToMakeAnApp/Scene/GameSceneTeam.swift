@@ -59,21 +59,34 @@ class GameSceneTeam: SKScene {
             case "rank":
                 vc.showGameLeaderBoard()
             case "office":
+                if player.didTutorial[11]{
                 player.setPlayerUserDefaults()
                 self.view?.presentScene( GameSceneOffice(vc: vc)  )
+                }
             case "shop":
+                if player.didTutorial[10]{
                 player.setPlayerUserDefaults()
                 self.view?.presentScene( GameSceneShop(vc: vc) )
+                }
             case "docs":
+                if player.didTutorial[11]{
                 player.setPlayerUserDefaults()
                 self.view?.presentScene( GameSceneDocs(vc: vc) )
+                }
             case "server":
+                if player.didTutorial[11]{
                 player.setPlayerUserDefaults()
                 self.view?.presentScene( GameSceneServe(vc: vc)  )
+                }
             case "worker":
+                if player.didTutorial[9]{
                 let workerNode = touchedNode as? WorkerNode
                 addWorkerToTeam(worker: workerNode?.worker, positionInLibary: workerNode?.positonLibary)
-                player.setPlayerUserDefaults()
+                    if !player.didTutorial[10]{
+                        let tutorial = tutorialNode(text: "Nice, now you have team!\nYou have some extra\nlets buys some\nupgrades!\nclick on shop\nto buy upgrades.")
+                        addChild(tutorial)
+                    }
+                }
             case "remove1":
                 removeWorkerOfTeam(position: 0)
                 player.setPlayerUserDefaults()
@@ -84,10 +97,43 @@ class GameSceneTeam: SKScene {
                 removeWorkerOfTeam(position: 2)
                 player.setPlayerUserDefaults()
             case "info":
+                if !player.didTutorial[8]{
+                    let tutorial = tutorialNode(text: "Here you can see the\npower of your worker:\nthis is how much extra\npoints you will  gain\nfor your click! Below\nthis, you can see the\ntype of your worker: if\nyour team has enough\nworkers of the same \ntype, it will receive\na bonus!")
+                    addChild(tutorial)
+                }
                 let infoButton = touchedNode as? InfoButton
+                terminalNode.position.y = 100
                 terminalNode.setupInfo(worker: infoButton?.worker)
             case "back":
+                if !player.didTutorial[9]{
+                    let tutorial = tutorialNode(text: "Now click on the\nworker to add him to\nyour team!")
+                    addChild(tutorial)
+                }
                 terminalNode.setupSelection()
+            case "tutorial":
+
+                if !player.didTutorial[7]{
+                    player.didTutorial[7].toggle()
+                    setup()
+                    break
+                }
+                if !player.didTutorial[8]{
+                    player.didTutorial[8].toggle()
+                    setup()
+                    terminalNode.setupInfo(worker: player.workers[0])
+                    break
+                }
+                if !player.didTutorial[9]{
+                    player.didTutorial[9].toggle()
+                    setup()
+                    break
+                }
+                if !player.didTutorial[10]{
+                    player.didTutorial[10].toggle()
+                    setup()
+                    break
+                }
+   
             default:
                 return
             }
@@ -130,11 +176,13 @@ class GameSceneTeam: SKScene {
             if player.team[position] == nil{
                 player.team[position] = worker
                 player.workers.remove(at: index)
+                player.setPlayerUserDefaults()
+                self.removeAllChildren()
+                setup()
                 break
             }
         }
-        self.removeAllChildren()
-        setup()
+
     }
     
     func removeWorkerOfTeam(position:Int){
@@ -147,22 +195,27 @@ class GameSceneTeam: SKScene {
     }
     
     func setup(){
-
+        removeAllChildren()
         //MARK: Labels
+        
+        if !player.didTutorial[7]{
+            let tutorial = tutorialNode(text: "Here you can see your\nworkers that you have!\nBefore you add this\nworker to your team\nclick on info button\nto now more about\nyour worker")
+            addChild(tutorial)
+        }
         
         moneyLabel.fontColor = .black
         moneyLabel.zPosition = 10
-        moneyLabel.fontName = "Pixel"
-        moneyLabel.fontSize = 25
+        moneyLabel.fontName = "munro"
+        moneyLabel.fontSize = 35
         moneyLabel.text = "$\(player.money)"
         moneyLabel.horizontalAlignmentMode = .left
-        moneyLabel.position = CGPoint(x:10, y: self.size.height-25)
+        moneyLabel.position = CGPoint(x:10, y: self.size.height-30)
         self.addChild(moneyLabel)
         
         deadLineLabel.fontColor = .red
         deadLineLabel.zPosition = 10
-        deadLineLabel.fontName = "Pixel"
-        deadLineLabel.fontSize = 25
+        deadLineLabel.fontName = "munro"
+        deadLineLabel.fontSize = 30
         deadLineLabel.text = "Dead line: 10 days"
         deadLineLabel.horizontalAlignmentMode = .left
         deadLineLabel.position = CGPoint(x:10, y: self.size.height-55)

@@ -58,18 +58,28 @@ class GameSceneServe: SKScene {
                 case "rank":
                     vc.showGameLeaderBoard()
                 case "office":
+                    if player.didTutorial[5]{
                     player.setPlayerUserDefaults()
                     self.view?.presentScene( GameSceneOffice(vc: vc)  )
+                    }
                 case "team":
+                    if player.didTutorial[5]{
                     player.setPlayerUserDefaults()
                     self.view?.presentScene( GameSceneTeam(vc: vc)  )
+                    }
                 case "docs":
+                    if player.didTutorial[4]{
                     player.setPlayerUserDefaults()
                     self.view?.presentScene( GameSceneDocs(vc: vc)  )
+                    }
                 case "shop":
+                    if player.didTutorial[5]{
                     player.setPlayerUserDefaults()
                     self.view?.presentScene( GameSceneShop(vc: vc)  )
+                    }
                 case "App":
+                    if player.didTutorial[3]{
+                    
                     let app = touchedNode as? SellAppNode
                     let yPositon = terminalNode.position.y
                     sellApp(positionApp: app?.positionLibrary,CGpositon: positionInScene )
@@ -77,7 +87,25 @@ class GameSceneServe: SKScene {
                         rainMoney(CGpositon: positionInScene)
                     }
                     terminalNode.position.y = yPositon
+                        if !player.didTutorial[4]{
+                            let tutorial = tutorialNode(text: "Nice!!\nUse this money to\ncontrat a worker!\nGo to Docs page")
+                            addChild(tutorial)
+                        }
                     player.setPlayerUserDefaults()
+                    }
+                case "tutorial":
+
+                    if !player.didTutorial[3]{
+                        player.didTutorial[3].toggle()
+                        setup()
+                        break
+                    }
+                    if !player.didTutorial[4]{
+                        player.didTutorial[4].toggle()
+                        setup()
+                        break
+                    }
+
                 default:
                     return
                 }
@@ -113,22 +141,25 @@ class GameSceneServe: SKScene {
     func setup(){
         removeAllChildren()
 
-
+        if !player.didTutorial[3]{
+            let tutorial = tutorialNode(text: "Here you can see how\nmuch money yours app\nare making and how\nmany apps you can\nstore!\nYou can sell app here\ntoo! Try to sell one")
+            addChild(tutorial)
+        }
         //MARK: Labels
         
         moneyLabel.fontColor = .black
         moneyLabel.zPosition = 10
-        moneyLabel.fontName = "Pixel"
-        moneyLabel.fontSize = 25
+        moneyLabel.fontName = "munro"
+        moneyLabel.fontSize = 35
         moneyLabel.text = "$\(player.money)"
         moneyLabel.horizontalAlignmentMode = .left
-        moneyLabel.position = CGPoint(x:10, y: self.size.height-25)
+        moneyLabel.position = CGPoint(x:10, y: self.size.height-30)
         self.addChild(moneyLabel)
         
         deadLineLabel.fontColor = .red
         deadLineLabel.zPosition = 10
-        deadLineLabel.fontName = "Pixel"
-        deadLineLabel.fontSize = 25
+        deadLineLabel.fontName = "munro"
+        deadLineLabel.fontSize = 30
         deadLineLabel.text = "Dead line: 10 days"
         deadLineLabel.horizontalAlignmentMode = .left
         deadLineLabel.position = CGPoint(x:10, y: self.size.height-55)
@@ -149,8 +180,8 @@ class GameSceneServe: SKScene {
         let painelLabel = SKLabelNode()
         painelLabel.fontColor = .red
         painelLabel.zPosition = 1
-        painelLabel.fontName = "Pixel"
-        painelLabel.fontSize = 25
+        painelLabel.fontName = "munro"
+        painelLabel.fontSize = 30
         painelLabel.numberOfLines = 0
         painelLabel.text = "Apps: \(player.apps.count)/\(player.serverSpace)\nEarning: \(player.totalEarning())$/Day"
         painelLabel.horizontalAlignmentMode = .center

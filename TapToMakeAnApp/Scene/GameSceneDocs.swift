@@ -65,17 +65,25 @@ class GameSceneDocs: SKScene {
         case "rank":
             vc.showGameLeaderBoard()
         case "office":
+            if player.didTutorial[7]{
             player.setPlayerUserDefaults()
             self.view?.presentScene( GameSceneOffice(vc: vc)  )
+            }
         case "team":
-            player.setPlayerUserDefaults()
-            self.view?.presentScene( GameSceneTeam(vc: vc)  )
+            if player.didTutorial[6]{
+                player.setPlayerUserDefaults()
+                self.view?.presentScene( GameSceneTeam(vc: vc)  )
+            }
         case "shop":
+            if player.didTutorial[7]{
             player.setPlayerUserDefaults()
             self.view?.presentScene( GameSceneShop(vc: vc)  )
+            }
         case "server":
+            if player.didTutorial[7]{
             player.setPlayerUserDefaults()
             self.view?.presentScene( GameSceneServe(vc: vc)  )
+            }
         case "contrat":
             if !(activeAnimationBuy){
                 
@@ -118,6 +126,19 @@ class GameSceneDocs: SKScene {
                     
             }
             player.setPlayerUserDefaults()
+        case "tutorial":
+
+            if !player.didTutorial[5]{
+                player.didTutorial[5].toggle()
+                setup()
+                break
+            }
+            if !player.didTutorial[6]{
+                player.didTutorial[6].toggle()
+                setup()
+                break
+            }
+
         default:
             return
         }
@@ -142,19 +163,24 @@ class GameSceneDocs: SKScene {
         //MARK: Labels
         self.removeAllChildren()
         
+        if !player.didTutorial[5]{
+            let tutorial = tutorialNode(text: "Here you can contrat\nnew workers, click on\ncontrart to get\na worker!")
+            addChild(tutorial)
+        }
+        
         moneyLabel.fontColor = .black
         moneyLabel.zPosition = 10
-        moneyLabel.fontName = "Pixel"
-        moneyLabel.fontSize = 25
+        moneyLabel.fontName = "munro"
+        moneyLabel.fontSize = 35
         moneyLabel.text = "$\(player.money)"
         moneyLabel.horizontalAlignmentMode = .left
-        moneyLabel.position = CGPoint(x:10, y: self.size.height-25)
+        moneyLabel.position = CGPoint(x:10, y: self.size.height-30)
         self.addChild(moneyLabel)
         
         deadLineLabel.fontColor = .red
         deadLineLabel.zPosition = 10
-        deadLineLabel.fontName = "Pixel"
-        deadLineLabel.fontSize = 25
+        deadLineLabel.fontName = "munro"
+        deadLineLabel.fontSize = 30
         deadLineLabel.text = "Dead line: 10 days"
         deadLineLabel.horizontalAlignmentMode = .left
         deadLineLabel.position = CGPoint(x:10, y: self.size.height-55)
@@ -239,6 +265,10 @@ class GameSceneDocs: SKScene {
             }
             else{
                 winAnimation()
+                if !player.didTutorial[6]{
+                    let tutorial = tutorialNode(text: "Nice!!\nYou have a new\nworkers! Now click on\nteam to add this\nworker to your team!")
+                    addChild(tutorial)
+                }
                 isFirstAnimationDone = false
                 activeAnimationBuy = false
                 
@@ -269,8 +299,8 @@ class GameSceneDocs: SKScene {
         }
         
         for i in 0...3 {
-            let brilhoNodeDiagonal = SKSpriteNode(imageNamed: "diagona0")
-            brilhoNodeDiagonal.setScale(0.5)
+            let brilhoNodeDiagonal = SKSpriteNode(imageNamed: "diagonal0")
+            brilhoNodeDiagonal.setScale(0.25)
             brilhoNodeDiagonal.zPosition = 0
             brilhoNodeDiagonal.zRotation = (.pi/2)*Double(i)
             brilhoNodeDiagonal.anchorPoint = CGPoint(x: 1, y: 0)
