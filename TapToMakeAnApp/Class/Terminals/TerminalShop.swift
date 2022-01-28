@@ -37,7 +37,7 @@ public class TerminalShop: SKSpriteNode{
             }
         }
         
-        if totalLines-1 == player.upgrades.count {
+        if totalLines == player.upgrades.count {
             return
         }
         
@@ -87,7 +87,7 @@ public class TerminalShop: SKSpriteNode{
         labelUpgrade.zPosition = 0
         labelUpgrade.fontName = "munro"
         labelUpgrade.fontSize = 23
-        labelUpgrade.text = "BUY: \(upgrade.price)$"
+        labelUpgrade.text = "BUY: \(Int64.numRedable(num: upgrade.price))$"
         labelUpgrade.horizontalAlignmentMode = .center
         labelUpgrade.position = CGPoint(x:0, y: -63)
         borderUpgrade.addChild(labelUpgrade)

@@ -148,7 +148,7 @@ class GameSceneDocs: SKScene {
     //MARK: Update
     override func update(_ currentTime: TimeInterval) {
         deadLineLabel.text = "Dead line: \(timerDeadLine.shared.deadLine) days"
-        moneyLabel.text = "$\(player.money)"
+        moneyLabel.text = "$\(Int64.numRedable(num:player.money))"
         if activeAnimationBuy{
             animationBuy(worker: workerWon)
         }
@@ -164,7 +164,7 @@ class GameSceneDocs: SKScene {
         self.removeAllChildren()
         
         if !player.didTutorial[5]{
-            let tutorial = tutorialNode(text: "Here you can contrat\nnew workers, click on\ncontrart to get\na worker!")
+            let tutorial = tutorialNode(text: "Here you can contract\nnew workers, click on\ncontrart to hire\na new worker!")
             addChild(tutorial)
         }
         
@@ -266,7 +266,7 @@ class GameSceneDocs: SKScene {
             else{
                 winAnimation()
                 if !player.didTutorial[6]{
-                    let tutorial = tutorialNode(text: "Nice!!\nYou have a new\nworkers! Now click on\nteam to add this\nworker to your team!")
+                    let tutorial = tutorialNode(text: "Nice!!\nYou have a new\nworker! Now click on\nteam to add this\nworker to your team!")
                     addChild(tutorial)
                 }
                 isFirstAnimationDone = false

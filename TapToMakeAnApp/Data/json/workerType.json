@@ -5,7 +5,7 @@
     },
     {
         "name" : "designer",
-        "description" : "If your team have 3\ndesigners, they gain\n+10power"
+        "description" : "If your team have 3\ndesigners, they gain\n+10 power"
     },
     {
         "name" : "host",
@@ -17,7 +17,7 @@
     },
     {
         "name" : "siblings",
-        "description" : "If your team have 2\nsiblings, they gain 10\npower for eachapp store"
+        "description" : "If your team have 2\nsiblings, they gain 3\npower for eachapp store"
     },
     {
         "name" : "musicians",
@@ -28,12 +28,20 @@
         "description" : "If your team have 2\notaku, your power will\nincrise 1 for each worker"
     },
     {
+        "name" : "best",
+        "description" : "If you have 2 best on\nyour team, they will\ntriple their level"
+    },
+    {
         "name" : "we all are debs",
         "description" : "If you have debs on your\nteam, she will make\nall your tem designer"
     },
     {
         "name" : "cactus",
         "description" : "If you have Karina\non your team, she will\nincrise the level of your\nteam equal to her level"
+    },
+    {
+        "name" : "pro player",
+        "description" : "If you have Triz on your\nteam, she will double the\neffect of the coder bonus"
     },
 
 ]

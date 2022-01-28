@@ -139,19 +139,19 @@
         "id":15,
         "isActive":true,
         "name" : "Triz",
-        "basePower" : 5,
+        "basePower" : 2,
         "level" : 1,
-        "rarety" : 4,
-        "workerType":["coder",null]
+        "rarety" : 5,
+        "workerType":["coder","pro player",]
     },
     {
         "id":16,
         "isActive":true,
         "name" : "Ortega",
-        "basePower" : 5,
+        "basePower" : 2,
         "level" : 1,
         "rarety" : 4,
-        "workerType":["coder",null]
+        "workerType":["coder","best"]
     },
     {
         "id":17,
@@ -215,5 +215,14 @@
         "level" : 1,
         "rarety" : 5,
         "workerType":["designer","cat lovers"]
+    },
+    {
+        "id":24,
+        "isActive":true,
+        "name" : "Gabi",
+        "basePower" : 2,
+        "level" : 1,
+        "rarety" : 4,
+        "workerType":["coder","best"]
     }
 ]

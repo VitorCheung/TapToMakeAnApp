@@ -86,7 +86,7 @@ class GameSceneShop: SKScene {
                     buyUpgrade(index: upgrade.positionLibrary, CGPositon:positionInScene)
                     terminalNode.position.y = yPositon
                     if !player.didTutorial[12]{
-                        let tutorial = tutorialNode(text: "Okaay!\nYou are all set!\nNow tou can\nTAP TO MAKE AN APP!")
+                        let tutorial = tutorialNode(text: "Okaay!\nYou are all set!\nNow you can\nTAP TO MAKE AN APP!")
                         addChild(tutorial)
                     }
                     player.setPlayerUserDefaults()
@@ -118,7 +118,7 @@ class GameSceneShop: SKScene {
     //MARK: Update
     override func update(_ currentTime: TimeInterval) {
         deadLineLabel.text = "Dead line: \(timerDeadLine.shared.deadLine) days"
-        moneyLabel.text = "$\(player.money)"
+        moneyLabel.text = "$\(Int64.numRedable(num: player.money))"
         
     }
     

@@ -34,7 +34,7 @@ class ManagerGameCenter: GKGameCenterViewController, GKGameCenterControllerDeleg
         if (GKLocalPlayer.local.isAuthenticated) {
             GKLeaderboard.submitScore(Int(score), context: 0,
                                       player: GKLocalPlayer.local,
-                                      leaderboardIDs: ["com.VitorCheung.leaderboard.TapToMakeAnAPP"],
+                                      leaderboardIDs: ["leaderboard"],
                                       completionHandler:{error in}
             )
         }
@@ -55,7 +55,7 @@ class ManagerGameCenter: GKGameCenterViewController, GKGameCenterControllerDeleg
     public func toSpecificPage(from:UIViewController, to:GKGameCenterViewControllerState) -> Bool {
         if (GKLocalPlayer.local.isAuthenticated) {
             let viewController = GKGameCenterViewController(
-                            leaderboardID: "com.VitorCheung.leaderboard.TapToMakeAnAPP",
+                            leaderboardID: "leaderboard",
                             playerScope: .global,
                             timeScope: .allTime)
             viewController.gameCenterDelegate = self

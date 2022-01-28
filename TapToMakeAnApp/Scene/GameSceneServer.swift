@@ -88,10 +88,11 @@ class GameSceneServe: SKScene {
                     }
                     terminalNode.position.y = yPositon
                         if !player.didTutorial[4]{
-                            let tutorial = tutorialNode(text: "Nice!!\nUse this money to\ncontrat a worker!\nGo to Docs page")
+                            let tutorial = tutorialNode(text: "Nice!!\nUse this money to\ncontract a worker!\nGo to Docs tab")
                             addChild(tutorial)
                         }
                     player.setPlayerUserDefaults()
+                    ManagerGameCenter.setHighScore(score: Player.shared.money)
                     }
                 case "tutorial":
 
@@ -120,7 +121,7 @@ class GameSceneServe: SKScene {
     //MARK: Update
     override func update(_ currentTime: TimeInterval) {
         deadLineLabel.text = "Dead line: \(timerDeadLine.shared.deadLine) days"
-        moneyLabel.text = "$\(player.money)"
+        moneyLabel.text = "$\(Int64.numRedable(num: player.money))"
         
     }
     
@@ -142,7 +143,7 @@ class GameSceneServe: SKScene {
         removeAllChildren()
 
         if !player.didTutorial[3]{
-            let tutorial = tutorialNode(text: "Here you can see how\nmuch money yours app\nare making and how\nmany apps you can\nstore!\nYou can sell app here\ntoo! Try to sell one")
+            let tutorial = tutorialNode(text: "Here you can see how\nmuch money yours apps\nare making and how\nmany apps you can\nstore!\nYou can sell apps here\ntoo! Try to sell one")
             addChild(tutorial)
         }
         //MARK: Labels
@@ -183,7 +184,7 @@ class GameSceneServe: SKScene {
         painelLabel.fontName = "munro"
         painelLabel.fontSize = 30
         painelLabel.numberOfLines = 0
-        painelLabel.text = "Apps: \(player.apps.count)/\(player.serverSpace)\nEarning: \(player.totalEarning())$/Day"
+        painelLabel.text = "Apps: \(player.apps.count)/\(player.serverSpace)\nEarning: \(Int64.numRedable(num: player.totalEarning()))$/Day"
         painelLabel.horizontalAlignmentMode = .center
         painelLabel.position = CGPoint(x:0, y: -30)
         boarderPainel.addChild(painelLabel)

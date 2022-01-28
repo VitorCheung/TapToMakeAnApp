@@ -18,7 +18,7 @@ public struct Upgrade: Codable{
     var description: String
     
     var price: Int64 {
-        return Int64(scalePrice*pow(Double(level),Double(2))+scalePrice)
+        return Int64((scalePrice*7)*pow(Double(level),Double(3))+scalePrice)
     }
     
     static var library: [Upgrade] {

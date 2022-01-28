@@ -81,6 +81,7 @@ class GameSceneOffice: SKScene {
                     player.money += Int64(app.money)
                     player.points = 0
                     player.setPlayerUserDefaults()
+                    ManagerGameCenter.setHighScore(score: Player.shared.money)
                 }
             case "team":
                 if player.didTutorial[3]{
@@ -143,9 +144,9 @@ class GameSceneOffice: SKScene {
     //MARK: Update
     override func update(_ currentTime: TimeInterval) {
         
-        terminalNode.pointsLabel.text = "POINTS: \(player.points)"
+        terminalNode.pointsLabel.text = "POINTS: \(Int64.numRedable(num: Int64(player.points)))"
         deadLineLabel.text = "Dead line: \(timer.deadLine) days"
-        moneyLabel.text = "$\(player.money)"
+        moneyLabel.text = "$\(Int64.numRedable(num: player.money))"
         //        if points%5==0 {
         //            //jump worker
         //        }
@@ -155,7 +156,7 @@ class GameSceneOffice: SKScene {
             
             if player.apps.count < player.serverSpace && player.points != 0{
                 if !(player.didTutorial[1]){
-                    let tutorial = tutorialNode(text: "Excellent!!\nYou have develop your\nfist app! Now click on\nSTORE APP to store the \napp!")
+                    let tutorial = tutorialNode(text: "Excellent!!\nYou have developed your\nfirst app! Now tap on\nSTORE APP to store the \napp!")
                     addChild(tutorial)
                     player.didTutorial[1] = true
                 }
@@ -163,7 +164,7 @@ class GameSceneOffice: SKScene {
             }
             else{
                 let app = App(points: player.points)
-                terminalNode.setupForResults(text: "SELL: \(app.money)", name: "sellLabel")
+                terminalNode.setupForResults(text: "SELL: \(Int64.numRedable(num: app.money))", name: "sellLabel")
             }
             return
         }
@@ -180,7 +181,7 @@ class GameSceneOffice: SKScene {
         }
         else{
             
-            let tutorial = tutorialNode(text: "Hello, you must be the\nnew CEO!\nGreat, my name is japa\nI am herer to help you\nget started!\nFirst thing, click as much\nas you can on the\nscreem to make points!")
+            let tutorial = tutorialNode(text: "Hello, you must be the\nnew CEO!\nGreat, my name is japa\nI am here to help you\nget started!\nFirst thing, tap as much\nas you can on the\nscreem to gain points!")
             addChild(tutorial)
         }
         

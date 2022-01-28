@@ -68,7 +68,7 @@ public class TerminalOffice: SKSpriteNode{
         pointsLabel.zPosition = 2
         pointsLabel.fontName = "munro"
         pointsLabel.fontSize = 30
-        pointsLabel.text = "POINTS: \(app.points)"
+        pointsLabel.text = "POINTS: \(Int64.numRedable(num: Int64(app.points)))"
         pointsLabel.horizontalAlignmentMode = .center
         pointsLabel.position = CGPoint(x:self.size.width/2, y: self.size.height-60)
         self.addChild(pointsLabel)
@@ -80,11 +80,11 @@ public class TerminalOffice: SKSpriteNode{
         overAllLabel.numberOfLines = 0
         overAllLabel.fontSize = 27
         if name == "sellLabel" {
-            overAllLabel.text = "Earning : \(app.earning)\nYou power was: \(player.clickPower())\nYour server is full\nto store more apps\nsell them or\nupgrade your server"
+            overAllLabel.text = "Earning : \(Int64.numRedable(num: app.earning))\nYou power was: \(Int64.numRedable(num: Int64(player.clickPower())))\nYour server is full\nto store more apps\nsell them or\nupgrade your server"
             overAllLabel.position = CGPoint(x:10, y: self.size.height-250)
         }
         else{
-            overAllLabel.text = "Earning : \(app.earning)\nYou power was: \(player.clickPower())"
+            overAllLabel.text = "Earning : \(Int64.numRedable(num: app.earning))\nYou power was: \(Int64.numRedable(num: Int64(player.clickPower())))"
             overAllLabel.position = CGPoint(x:10, y: self.size.height/2)
         }
         overAllLabel.horizontalAlignmentMode = .left
@@ -120,7 +120,7 @@ public class TerminalOffice: SKSpriteNode{
             sellLabel.fontColor = .black
             sellLabel.fontName = "munro"
             sellLabel.fontSize = 30
-            sellLabel.text = "SELL: \(app.money)"
+            sellLabel.text = "SELL: \(Int64.numRedable(num: app.money))"
             sellLabel.horizontalAlignmentMode = .center
             sellLabel.position = CGPoint(x:self.size.width/2, y: 110)
             self.addChild(sellLabel)

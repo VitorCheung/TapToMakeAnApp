@@ -26,7 +26,7 @@ public class ButtonTabBarNode: SKSpriteNode{
         
         let label = SKLabelNode()
         label.fontColor = ColorPalette.mainGreen
-        label.fontName = "Pixel"
+        label.fontName = "munro"
         label.fontSize = 15
         label.text = name
         label.name = name

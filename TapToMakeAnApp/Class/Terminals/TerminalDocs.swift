@@ -63,7 +63,7 @@ public class TerminalDocs: SKSpriteNode{
         contratLabel.zPosition = 1
         contratLabel.numberOfLines = 0
         contratLabel.fontSize = 25
-        contratLabel.text = "1 contrat X\n$\(player.priceDocs())"
+        contratLabel.text = "1 contract X\n$\(Int64.numRedable(num: player.priceDocs()))"
         contratLabel.horizontalAlignmentMode = .center
         contratLabel.position = CGPoint(x:self.size.width/2, y: self.size.height/2)
         self.addChild(contratLabel)

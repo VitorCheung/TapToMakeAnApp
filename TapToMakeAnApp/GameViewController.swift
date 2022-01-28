@@ -17,7 +17,6 @@ class GameViewController: UIViewController{
         Player.shared = Player.getPlayerUserDefaults()
         Player.shared.verifyData()
 //        Player.shared.workers = []
-//        Player.shared.team = [nil,nil,nil]
 //        Player.shared.apps = []
 //        Player.shared.docsBuy = 0
 //        Player.shared.upgrades = [
@@ -51,10 +50,10 @@ class GameViewController: UIViewController{
     }
 
     func showGameLeaderBoard() {
+        ManagerGameCenter.setHighScore(score: Player.shared.money)
         if (!ManagerGameCenter().toSpecificPage(from: self, to: .leaderboards)) {
                     print("Not connected")
                 }
-        ManagerGameCenter.setHighScore(score: Player.shared.money)
     }
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {

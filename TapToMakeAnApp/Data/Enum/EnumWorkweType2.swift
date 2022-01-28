@@ -11,5 +11,6 @@ enum EnumWorkweType2: String, CaseIterable{
     case CatLovers = "cat lovers",
          Sinblings = "siblings",
          Musicians = "musicians",
-         Otaku = "otaku"
+         Otaku = "otaku",
+         Best = "best"
 }

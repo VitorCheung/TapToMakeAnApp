@@ -12,7 +12,7 @@
         "id":1,
         "isActive":true,
         "name" : "Server",
-        "scalePrice" : 5000,
+        "scalePrice" : 9163,
         "level" : 0,
         "description" : "+1 app to store"
     },
@@ -20,7 +20,7 @@
         "id":2,
         "isActive":true,
         "name" : "Upgrade PC",
-        "scalePrice" : 20000,
+        "scalePrice" : 890815,
         "level" : 0,
         "description" : "+1 point/sec "
     },
@@ -28,7 +28,7 @@
         "id":3,
         "isActive":true,
         "name" : "Coffe",
-        "scalePrice" : 500000,
+        "scalePrice" : 9754237,
         "level" : 0,
         "description" : "+1 point/sec for every\nworker that you have"
     },
@@ -36,7 +36,7 @@
         "id":4,
         "isActive":true,
         "name" : "Wifi",
-        "scalePrice" : 2000000,
+        "scalePrice" : 55974424,
         "level" : 0,
         "description" : "+5 points/sec for\neach app store"
     },
@@ -44,7 +44,7 @@
         "id":5,
         "isActive":true,
         "name" : "Drawing tablets",
-        "scalePrice" : 2500000,
+        "scalePrice" : 479744263,
         "level" : 0,
         "description" : "+8 power for\nevery desinger"
     },
@@ -52,7 +52,7 @@
         "id":6,
         "isActive":true,
         "name" : "new keyboard",
-        "scalePrice" : 3000000,
+        "scalePrice" : 7263547896,
         "level" : 0,
         "description" : "+10 power for\nevery coder"
     },
@@ -60,7 +60,7 @@
         "id":7,
         "isActive":true,
         "name" : "microfone",
-        "scalePrice" : 3500000,
+        "scalePrice" : 97368432564,
         "level" : 0,
         "description" : "+20 power for\nevery host"
     },
@@ -68,7 +68,7 @@
         "id":8,
         "isActive":true,
         "name" : "Phone",
-        "scalePrice" : 50000000,
+        "scalePrice" : 748765425821,
         "level" : 0,
         "description" : "+25 points/sec for\nevery 4 star worker"
     },
@@ -76,7 +76,7 @@
         "id":10,
         "isActive":true,
         "name" : "Tablet",
-        "scalePrice" : 800000000,
+        "scalePrice" : 9835746534322,
         "level" : 0,
         "description" : "+50 points/sec for\nevery 5 star worker"
     },

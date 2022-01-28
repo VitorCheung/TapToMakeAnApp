@@ -38,7 +38,7 @@ class Player: Codable{
     //MARK: Functions
     
     func priceDocs()->Int64{
-        return Int64(1041*pow(Double(docsBuy),Double(2))+100)
+        return Int64(1041*pow(Double(docsBuy),Double(3))+100)
     }
 
     func totalEarning()->Int64{
@@ -53,6 +53,7 @@ class Player: Codable{
     func clickPower()->Int{
         var clickPower = 1
         var debs: Bool = false
+        var triz: Bool = false
         var karina: Int = 0
         for work in team{
             if work?.name == "Debs"{
@@ -61,6 +62,9 @@ class Player: Codable{
             if work?.name == "Karina"{
                 guard let l = work?.level else { return 0}
                 karina = l
+            }
+            if work?.name == "Triz"{
+                triz = true
             }
         }
         
@@ -79,8 +83,11 @@ class Player: Codable{
                 if bonus3(workerType: EnumWorkweType3.Designer.rawValue) || debs{
                     clickPower += (power+10)*(level)
                 }
-                if bonus3(workerType: EnumWorkweType2.Sinblings.rawValue){
-                    clickPower += (power+10*apps.count)*(level)
+                if bonus2(workerType: EnumWorkweType2.Sinblings.rawValue){
+                    clickPower += (power+3*apps.count)*(level)
+                }
+                if bonus2(workerType: EnumWorkweType2.Best.rawValue){
+                    clickPower += (power)*3*(level)
                 }else
                 {
                     clickPower += power*(level)
@@ -93,6 +100,9 @@ class Player: Codable{
         }
         
         if bonus3(workerType: EnumWorkweType3.Coder.rawValue){
+            if triz {
+                clickPower *= 2
+            }
             clickPower *= 2
         }
 
@@ -187,7 +197,7 @@ class Player: Codable{
             let data = try encoder.encode(self)
 
             // Write/Set Data
-            UserDefaults.standard.set(data, forKey: "dataPlayer1")
+            UserDefaults.standard.set(data, forKey: "dataPlayer7")
 
         } catch {
             print("Unable to Encode Array of Notes (\(error))")
@@ -196,7 +206,7 @@ class Player: Codable{
     
     static func getPlayerUserDefaults()->Player{
         // Read/Get Data
-        if let data = UserDefaults.standard.data(forKey: "dataPlayer1") {
+        if let data = UserDefaults.standard.data(forKey: "dataPlayer7") {
             do {
                 // Create JSON Decoder
                 let decoder = JSONDecoder()

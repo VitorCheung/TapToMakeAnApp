@@ -132,7 +132,7 @@ public class TerminalTeam: SKSpriteNode{
             guard let numbersOfWords = type2DescriptionLabel.text?.count else { return }
             let numberOfLines: Double = Double(numbersOfWords)/19
             type2DescriptionLabel.position = CGPoint(x: self.size.width/2-75, y:
-                                                self.size.height-306-CGFloat(numberOfLines.rounded(.up)*15))
+                                                self.size.height-320-CGFloat(numberOfLines.rounded(.up)*15))
   
             self.addChild(type2DescriptionLabel)
         }

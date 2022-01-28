@@ -57,7 +57,7 @@ public class TerminalServer: SKSpriteNode{
         labelApp.zPosition = 0
         labelApp.fontName = "munro"
         labelApp.fontSize = 23
-        labelApp.text = "SELL: \(app.money)$"
+        labelApp.text = "SELL: \(Int64.numRedable(num: app.money))$"
         labelApp.horizontalAlignmentMode = .center
         labelApp.position = CGPoint(x:0, y: -35)
         borderApp.addChild(labelApp)
@@ -68,7 +68,7 @@ public class TerminalServer: SKSpriteNode{
         labelInfo.fontName = "munro"
         labelInfo.fontSize = 25
         labelInfo.numberOfLines = 0
-        labelInfo.text = "POINTS: \(app.points)\nEANING: \(app.earning)$"
+        labelInfo.text = "POINTS: \(Int64.numRedable(num: Int64(app.points)))\nEANING: \(Int64.numRedable(num: app.earning))$"
         labelInfo.horizontalAlignmentMode = .center
         labelInfo.position = CGPoint(x:0, y: 5)
         borderApp.addChild(labelInfo)

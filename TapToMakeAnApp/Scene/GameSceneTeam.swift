@@ -83,7 +83,7 @@ class GameSceneTeam: SKScene {
                 let workerNode = touchedNode as? WorkerNode
                 addWorkerToTeam(worker: workerNode?.worker, positionInLibary: workerNode?.positonLibary)
                     if !player.didTutorial[10]{
-                        let tutorial = tutorialNode(text: "Nice, now you have team!\nYou have some extra\nlets buys some\nupgrades!\nclick on shop\nto buy upgrades.")
+                        let tutorial = tutorialNode(text: "Nice, now you have a\nteam!\nYou have some extra,\nlet's buys some\nupgrades!\ntap on shop to buy\nupgrades.")
                         addChild(tutorial)
                     }
                 }
@@ -146,7 +146,7 @@ class GameSceneTeam: SKScene {
     //MARK: Update
     override func update(_ currentTime: TimeInterval) {
         deadLineLabel.text = "Dead line: \(timerDeadLine.shared.deadLine) days"
-        moneyLabel.text = "$\(player.money)"
+        moneyLabel.text = "$\(Int64.numRedable(num: player.money))"
         
     }
     
