@@ -56,7 +56,33 @@
 		06E917EB27A1D74D00DEA189 /* munro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06E917EA27A1D74C00DEA189 /* munro.ttf */; };
 		06E917ED27A1E94400DEA189 /* tutorialNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E917EC27A1E94400DEA189 /* tutorialNode.swift */; };
 		06E917EF27A33E3300DEA189 /* Int+NumRedable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E917EE27A33E3300DEA189 /* Int+NumRedable.swift */; };
+		06FB660A27ADC76200CE12F1 /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06FB660927ADC76200CE12F1 /* Stickers.xcassets */; };
+		06FB660E27ADC76200CE12F1 /* TapToMakeAnAppStiker.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 06FB660727ADC76100CE12F1 /* TapToMakeAnAppStiker.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		06FB660C27ADC76200CE12F1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 06809D5A27892C2D00D3A03F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 06FB660627ADC76100CE12F1;
+			remoteInfo = TapToMakeAnAppStiker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		06FB660127ADC58900CE12F1 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				06FB660E27ADC76200CE12F1 /* TapToMakeAnAppStiker.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		06012DA9278E658B00964E0E /* Worker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Worker.swift; sourceTree = "<group>"; };
@@ -112,6 +138,9 @@
 		06E917EA27A1D74C00DEA189 /* munro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = munro.ttf; sourceTree = "<group>"; };
 		06E917EC27A1E94400DEA189 /* tutorialNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tutorialNode.swift; sourceTree = "<group>"; };
 		06E917EE27A33E3300DEA189 /* Int+NumRedable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+NumRedable.swift"; sourceTree = "<group>"; };
+		06FB660727ADC76100CE12F1 /* TapToMakeAnAppStiker.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TapToMakeAnAppStiker.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		06FB660927ADC76200CE12F1 /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
+		06FB660B27ADC76200CE12F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				06809D6427892C2D00D3A03F /* TapToMakeAnApp */,
+				06FB660827ADC76100CE12F1 /* TapToMakeAnAppStiker */,
 				06809D6327892C2D00D3A03F /* Products */,
 				06E917C3279B42F700DEA189 /* Frameworks */,
 			);
@@ -219,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				06809D6227892C2D00D3A03F /* TapToMakeAnApp.app */,
+				06FB660727ADC76100CE12F1 /* TapToMakeAnAppStiker.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -287,6 +318,15 @@
 			path = "Game Center";
 			sourceTree = "<group>";
 		};
+		06FB660827ADC76100CE12F1 /* TapToMakeAnAppStiker */ = {
+			isa = PBXGroup;
+			children = (
+				06FB660927ADC76200CE12F1 /* Stickers.xcassets */,
+				06FB660B27ADC76200CE12F1 /* Info.plist */,
+			);
+			path = TapToMakeAnAppStiker;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -297,15 +337,32 @@
 				06809D5E27892C2D00D3A03F /* Sources */,
 				06809D5F27892C2D00D3A03F /* Frameworks */,
 				06809D6027892C2D00D3A03F /* Resources */,
+				06FB660127ADC58900CE12F1 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				06FB660D27ADC76200CE12F1 /* PBXTargetDependency */,
 			);
 			name = TapToMakeAnApp;
 			productName = TapToMakeAnApp;
 			productReference = 06809D6227892C2D00D3A03F /* TapToMakeAnApp.app */;
 			productType = "com.apple.product-type.application";
+		};
+		06FB660627ADC76100CE12F1 /* TapToMakeAnAppStiker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06FB660F27ADC76200CE12F1 /* Build configuration list for PBXNativeTarget "TapToMakeAnAppStiker" */;
+			buildPhases = (
+				06FB660527ADC76100CE12F1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TapToMakeAnAppStiker;
+			productName = TapToMakeAnAppStiker;
+			productReference = 06FB660727ADC76100CE12F1 /* TapToMakeAnAppStiker.appex */;
+			productType = "com.apple.product-type.app-extension.messages-sticker-pack";
 		};
 /* End PBXNativeTarget section */
 
@@ -318,6 +375,9 @@
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					06809D6127892C2D00D3A03F = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					06FB660627ADC76100CE12F1 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
 				};
@@ -336,6 +396,7 @@
 			projectRoot = "";
 			targets = (
 				06809D6127892C2D00D3A03F /* TapToMakeAnApp */,
+				06FB660627ADC76100CE12F1 /* TapToMakeAnAppStiker */,
 			);
 		};
 /* End PBXProject section */
@@ -353,6 +414,14 @@
 				06E917D1279B5B4500DEA189 /* workerType.json in Resources */,
 				06E917EB27A1D74D00DEA189 /* munro.ttf in Resources */,
 				06E917CD279B5AC800DEA189 /* worker.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06FB660527ADC76100CE12F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06FB660A27ADC76200CE12F1 /* Stickers.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +477,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		06FB660D27ADC76200CE12F1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 06FB660627ADC76100CE12F1 /* TapToMakeAnAppStiker */;
+			targetProxy = 06FB660C27ADC76200CE12F1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		06809D6F27892C2D00D3A03F /* Main.storyboard */ = {
@@ -571,7 +648,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vitorCheung.TapToMakeAnApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -605,11 +682,51 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vitorCheung.TapToMakeAnApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		06FB661027ADC76200CE12F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = NHY67K6358;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TapToMakeAnAppStiker/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TapToMakeAnApp;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vitorCheung.TapToMakeAnApp.TapToMakeAnAppStiker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		06FB661127ADC76200CE12F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = NHY67K6358;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TapToMakeAnAppStiker/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TapToMakeAnApp;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vitorCheung.TapToMakeAnApp.TapToMakeAnAppStiker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -631,6 +748,15 @@
 			buildConfigurations = (
 				06809D7A27892C2F00D3A03F /* Debug */,
 				06809D7B27892C2F00D3A03F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		06FB660F27ADC76200CE12F1 /* Build configuration list for PBXNativeTarget "TapToMakeAnAppStiker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06FB661027ADC76200CE12F1 /* Debug */,
+				06FB661127ADC76200CE12F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
