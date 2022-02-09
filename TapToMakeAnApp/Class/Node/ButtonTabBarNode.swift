@@ -13,14 +13,14 @@ public class ButtonTabBarNode: SKSpriteNode{
         super.init(texture: nil, color: .clear, size: CGSize(width: 54, height: 54))
         
         self.anchorPoint =  CGPoint(x: 0.5, y:0.5)
-        self.name = name
+        self.name = img
         self.zPosition = 2
         
         let iconNode = SKSpriteNode(imageNamed: img)
         iconNode.scale(to: CGSize(width: 40, height: 40))
         iconNode.anchorPoint =  CGPoint(x: 0.5, y:0)
         iconNode.position = CGPoint(x:self.size.width/2, y: self.size.height-32)
-        iconNode.name = name
+        iconNode.name = img
         self.addChild(iconNode)
         
         
@@ -29,7 +29,7 @@ public class ButtonTabBarNode: SKSpriteNode{
         label.fontName = "munro"
         label.fontSize = 15
         label.text = name
-        label.name = name
+        label.name = img
         label.horizontalAlignmentMode = .center
         label.position = CGPoint(x:self.size.width/2, y: self.size.height-46)
         self.addChild(label)

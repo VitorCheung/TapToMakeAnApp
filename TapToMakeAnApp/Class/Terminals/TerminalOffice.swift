@@ -36,7 +36,7 @@ public class TerminalOffice: SKSpriteNode{
         pointsLabel.fontName = "munro"
         pointsLabel.zPosition = 2
         pointsLabel.fontSize = 30
-        pointsLabel.text = "POINTS: \(player.points)"
+        pointsLabel.text = NSLocalizedString("points", comment: "")+": \(player.points)"
         pointsLabel.horizontalAlignmentMode = .left
         pointsLabel.position = CGPoint(x:10, y: self.size.height-30)
         self.addChild(pointsLabel)
@@ -45,7 +45,7 @@ public class TerminalOffice: SKSpriteNode{
         codeLabel.fontName = "munro"
         codeLabel.zPosition = 2
         codeLabel.fontSize = 20
-        codeLabel.text = "CLICK TO CODE"
+        codeLabel.text = NSLocalizedString("Phrases.Code0", comment: "")
         codeLabel.horizontalAlignmentMode = .left
         codeLabel.position = CGPoint(x:10, y: self.size.height-50)
         self.addChild(codeLabel)
@@ -68,7 +68,7 @@ public class TerminalOffice: SKSpriteNode{
         pointsLabel.zPosition = 2
         pointsLabel.fontName = "munro"
         pointsLabel.fontSize = 30
-        pointsLabel.text = "POINTS: \(Int64.numRedable(num: Int64(app.points)))"
+        pointsLabel.text = NSLocalizedString("points", comment: "")+": \(Int64.numRedable(num: Int64(app.points)))"
         pointsLabel.horizontalAlignmentMode = .center
         pointsLabel.position = CGPoint(x:self.size.width/2, y: self.size.height-60)
         self.addChild(pointsLabel)
@@ -80,11 +80,11 @@ public class TerminalOffice: SKSpriteNode{
         overAllLabel.numberOfLines = 0
         overAllLabel.fontSize = 27
         if name == "sellLabel" {
-            overAllLabel.text = "Earning : \(Int64.numRedable(num: app.earning))\nYou power was: \(Int64.numRedable(num: Int64(player.clickPower())))\nYour server is full\nto store more apps\nsell them or\nupgrade your server"
+            overAllLabel.text = NSLocalizedString("Earning", comment: "")+": \(Int64.numRedable(num: app.earning))\n"+NSLocalizedString("YourPower", comment: "")+" \(Int64.numRedable(num: Int64(player.clickPower())))\nYour server is full\nto store more apps\nsell them or\nupgrade your server"
             overAllLabel.position = CGPoint(x:10, y: self.size.height-250)
         }
         else{
-            overAllLabel.text = "Earning : \(Int64.numRedable(num: app.earning))\nYou power was: \(Int64.numRedable(num: Int64(player.clickPower())))"
+            overAllLabel.text = NSLocalizedString("Earning", comment: "")+": \(Int64.numRedable(num: app.earning))\n"+NSLocalizedString("YourPower", comment: "")+" \(Int64.numRedable(num: Int64(player.clickPower())))"
             overAllLabel.position = CGPoint(x:10, y: self.size.height/2)
         }
         overAllLabel.horizontalAlignmentMode = .left
@@ -120,7 +120,7 @@ public class TerminalOffice: SKSpriteNode{
             sellLabel.fontColor = .black
             sellLabel.fontName = "munro"
             sellLabel.fontSize = 30
-            sellLabel.text = "SELL: \(Int64.numRedable(num: app.money))"
+            sellLabel.text = NSLocalizedString("Sell", comment: "")+": \(Int64.numRedable(num: app.money))"
             sellLabel.horizontalAlignmentMode = .center
             sellLabel.position = CGPoint(x:self.size.width/2, y: 110)
             self.addChild(sellLabel)
@@ -143,8 +143,9 @@ public class TerminalOffice: SKSpriteNode{
     }
     
     func changeTextOfCodeLabel(){
+        let phrasesCode = [NSLocalizedString("Phrases.Code1", comment: ""),NSLocalizedString("Phrases.Code2", comment: ""),NSLocalizedString("Phrases.Code3", comment: ""),NSLocalizedString("Phrases.Code4", comment: "")]
         if  player.points%15==0{
-            codeLabel.text = PhrasesCode.allCases.randomElement()?.rawValue
+            codeLabel.text = phrasesCode.randomElement()
         }
     }
 }

@@ -12,5 +12,6 @@ enum EnumWorkweType2: String, CaseIterable{
          Sinblings = "siblings",
          Musicians = "musicians",
          Otaku = "otaku",
-         Best = "best"
+         Best = "best",
+         Psychologist = "psychologist"
 }

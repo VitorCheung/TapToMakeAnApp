@@ -53,8 +53,7 @@ class GameSceneOffice: SKScene {
         for touch in touches {
             let positionInScene = touch.location(in: self)
             let touchedNode = self.atPoint(positionInScene)
-            
-            
+                        
             switch touchedNode.name{
             case "rank":
                 vc.showGameLeaderBoard()
@@ -83,22 +82,22 @@ class GameSceneOffice: SKScene {
                     player.setPlayerUserDefaults()
                     ManagerGameCenter.setHighScore(score: Player.shared.money)
                 }
-            case "team":
+            case "teamIcon":
                 if player.didTutorial[3]{
                     player.setPlayerUserDefaults()
                     self.view?.presentScene( GameSceneTeam(vc: vc) )
                 }
-            case "docs":
+            case "docIcon":
                 if player.didTutorial[3]{
                     player.setPlayerUserDefaults()
                     self.view?.presentScene( GameSceneDocs(vc: vc)  )
                 }
-            case "server":
+            case "serverIcon":
                 if player.didTutorial[2]{
                     player.setPlayerUserDefaults()
                     self.view?.presentScene( GameSceneServe(vc: vc)  )
                 }
-            case "shop":
+            case "Money":
                 if player.didTutorial[3]{
                     player.setPlayerUserDefaults()
                     self.view?.presentScene( GameSceneShop(vc: vc) )
@@ -144,8 +143,8 @@ class GameSceneOffice: SKScene {
     //MARK: Update
     override func update(_ currentTime: TimeInterval) {
         
-        terminalNode.pointsLabel.text = "POINTS: \(Int64.numRedable(num: Int64(player.points)))"
-        deadLineLabel.text = "Dead line: \(timer.deadLine) days"
+        terminalNode.pointsLabel.text = NSLocalizedString("points", comment: "")+": \(Int64.numRedable(num: Int64(player.points)))"
+        deadLineLabel.text = "Deadline: \(timer.deadLine) "+NSLocalizedString("days", comment: "")
         moneyLabel.text = "$\(Int64.numRedable(num: player.money))"
         //        if points%5==0 {
         //            //jump worker
@@ -156,15 +155,16 @@ class GameSceneOffice: SKScene {
             
             if player.apps.count < player.serverSpace && player.points != 0{
                 if !(player.didTutorial[1]){
-                    let tutorial = tutorialNode(text: "Excellent!!\nYou have developed your\nfirst app! Now tap on\nSTORE APP to store the \napp!")
+                    let tutorial = tutorialNode(text: NSLocalizedString("Tutorial1", comment: ""))
+                    
                     addChild(tutorial)
                     player.didTutorial[1] = true
                 }
-                terminalNode.setupForResults(text: "STORE APP", name: "storeLabel")
+                terminalNode.setupForResults(text: NSLocalizedString("storeApp", comment: ""), name: "storeLabel")
             }
             else{
                 let app = App(points: player.points)
-                terminalNode.setupForResults(text: "SELL: \(Int64.numRedable(num: app.money))", name: "sellLabel")
+                terminalNode.setupForResults(text: NSLocalizedString("Sell", comment: "")+": \(Int64.numRedable(num: app.money))", name: "sellLabel")
             }
             return
         }
@@ -181,14 +181,13 @@ class GameSceneOffice: SKScene {
         }
         else{
             
-            let tutorial = tutorialNode(text: "Hello, you must be the\nnew CEO!\nGreat, my name is japa\nI am here to help you\nget started!\nFirst thing, tap as much\nas you can on the\nscreem to gain points!")
+            let tutorial = tutorialNode(text: NSLocalizedString("Tutorial0", comment: ""))
             addChild(tutorial)
         }
         
         moneyLabel.fontColor = .black
         moneyLabel.fontName = "munro"
         moneyLabel.fontSize = 35
-        moneyLabel.text = "$\(player.money)"
         moneyLabel.horizontalAlignmentMode = .left
         moneyLabel.position = CGPoint(x:10, y: self.size.height-30)
         self.addChild(moneyLabel)
@@ -196,7 +195,6 @@ class GameSceneOffice: SKScene {
         deadLineLabel.fontColor = .red
         deadLineLabel.fontName = "munro"
         deadLineLabel.fontSize = 30
-        deadLineLabel.text = "Dead line: 10 days"
         deadLineLabel.horizontalAlignmentMode = .left
         deadLineLabel.position = CGPoint(x:10, y: self.size.height-55)
         self.addChild(deadLineLabel)
@@ -313,7 +311,7 @@ class GameSceneOffice: SKScene {
              ),
              SKAction.run {
                  if !self.player.didTutorial[3]{
-                     let tutorial = tutorialNode(text: "Nice!!\nNow go to the servers\nto see how your app\nis doing.")
+                     let tutorial = tutorialNode(text: NSLocalizedString("Tutorial2", comment: ""))
                      self.addChild(tutorial)
                  }
              }

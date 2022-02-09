@@ -58,22 +58,22 @@ class GameSceneTeam: SKScene {
             switch touchedNode.name{
             case "rank":
                 vc.showGameLeaderBoard()
-            case "office":
+            case "officeIcon":
                 if player.didTutorial[11]{
                 player.setPlayerUserDefaults()
                 self.view?.presentScene( GameSceneOffice(vc: vc)  )
                 }
-            case "shop":
+            case "Money":
                 if player.didTutorial[10]{
                 player.setPlayerUserDefaults()
                 self.view?.presentScene( GameSceneShop(vc: vc) )
                 }
-            case "docs":
+            case "docIcon":
                 if player.didTutorial[11]{
                 player.setPlayerUserDefaults()
                 self.view?.presentScene( GameSceneDocs(vc: vc) )
                 }
-            case "server":
+            case "serverIcon":
                 if player.didTutorial[11]{
                 player.setPlayerUserDefaults()
                 self.view?.presentScene( GameSceneServe(vc: vc)  )
@@ -83,7 +83,7 @@ class GameSceneTeam: SKScene {
                 let workerNode = touchedNode as? WorkerNode
                 addWorkerToTeam(worker: workerNode?.worker, positionInLibary: workerNode?.positonLibary)
                     if !player.didTutorial[10]{
-                        let tutorial = tutorialNode(text: "Nice, now you have a\nteam!\nYou have some extra,\nlet's buys some\nupgrades!\ntap on shop to buy\nupgrades.")
+                        let tutorial = tutorialNode(text:  NSLocalizedString("Tutorial10", comment: ""))
                         addChild(tutorial)
                     }
                 }
@@ -98,7 +98,7 @@ class GameSceneTeam: SKScene {
                 player.setPlayerUserDefaults()
             case "info":
                 if !player.didTutorial[8]{
-                    let tutorial = tutorialNode(text: "Here you can see the\npower of your worker:\nthis is how much extra\npoints you will  gain\nfor your click! Below\nthis, you can see the\ntype of your worker: if\nyour team has enough\nworkers of the same \ntype, it will receive\na bonus!")
+                    let tutorial = tutorialNode(text:  NSLocalizedString("Tutorial8", comment: ""))
                     addChild(tutorial)
                 }
                 let infoButton = touchedNode as? InfoButton
@@ -106,7 +106,7 @@ class GameSceneTeam: SKScene {
                 terminalNode.setupInfo(worker: infoButton?.worker)
             case "back":
                 if !player.didTutorial[9]{
-                    let tutorial = tutorialNode(text: "Now click on the\nworker to add him to\nyour team!")
+                    let tutorial = tutorialNode(text:  NSLocalizedString("Tutorial9", comment: ""))
                     addChild(tutorial)
                 }
                 terminalNode.setupSelection()
@@ -145,7 +145,7 @@ class GameSceneTeam: SKScene {
     
     //MARK: Update
     override func update(_ currentTime: TimeInterval) {
-        deadLineLabel.text = "Dead line: \(timerDeadLine.shared.deadLine) days"
+        deadLineLabel.text = "Deadline: \(timerDeadLine.shared.deadLine) "+NSLocalizedString("days", comment: "")
         moneyLabel.text = "$\(Int64.numRedable(num: player.money))"
         
     }
@@ -163,7 +163,7 @@ class GameSceneTeam: SKScene {
                 }
             }
             else{
-                if terminalNode.position.y + deltaY > 100 && terminalNode.position.y  + deltaY < 180 {
+                if terminalNode.position.y + deltaY > 100 && terminalNode.position.y  + deltaY < 200 {
                     terminalNode.position.y += deltaY
                 }
             }
@@ -199,7 +199,7 @@ class GameSceneTeam: SKScene {
         //MARK: Labels
         
         if !player.didTutorial[7]{
-            let tutorial = tutorialNode(text: "Here you can see your\nworkers that you have!\nBefore you add this\nworker to your team\nclick on info button\nto now more about\nyour worker")
+            let tutorial = tutorialNode(text:  NSLocalizedString("Tutorial7", comment: ""))
             addChild(tutorial)
         }
         
@@ -207,7 +207,6 @@ class GameSceneTeam: SKScene {
         moneyLabel.zPosition = 10
         moneyLabel.fontName = "munro"
         moneyLabel.fontSize = 35
-        moneyLabel.text = "$\(player.money)"
         moneyLabel.horizontalAlignmentMode = .left
         moneyLabel.position = CGPoint(x:10, y: self.size.height-30)
         self.addChild(moneyLabel)
@@ -216,7 +215,6 @@ class GameSceneTeam: SKScene {
         deadLineLabel.zPosition = 10
         deadLineLabel.fontName = "munro"
         deadLineLabel.fontSize = 30
-        deadLineLabel.text = "Dead line: 10 days"
         deadLineLabel.horizontalAlignmentMode = .left
         deadLineLabel.position = CGPoint(x:10, y: self.size.height-55)
         self.addChild(deadLineLabel)

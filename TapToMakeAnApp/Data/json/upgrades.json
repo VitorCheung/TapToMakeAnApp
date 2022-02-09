@@ -22,7 +22,7 @@
         "name" : "Upgrade PC",
         "scalePrice" : 890815,
         "level" : 0,
-        "description" : "+1 point/sec "
+        "description" : "+10 point/sec "
     },
     {
         "id":3,

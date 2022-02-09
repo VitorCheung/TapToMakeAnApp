@@ -61,7 +61,7 @@
         "basePower" : 2,
         "level" : 1,
         "rarety" : 4,
-        "workerType":["host","cat lovers"]
+        "workerType":["host","psychologist"]
     },
     {
         "id":7,
@@ -178,7 +178,7 @@
         "basePower" : 6,
         "level" : 1,
         "rarety" : 5,
-        "workerType":["coder","host"]
+        "workerType":["host","coder"]
     },
     {
         "id":20,
@@ -224,5 +224,14 @@
         "level" : 1,
         "rarety" : 4,
         "workerType":["coder","best"]
+    },
+    {
+        "id":25,
+        "isActive":true,
+        "name" : "Le",
+        "basePower" : 2,
+        "level" : 1,
+        "rarety" : 4,
+        "workerType":["host","psychologist"]
     }
 ]

@@ -1,0 +1,121 @@
+/* 
+  Localizable.strings
+  TapToMakeAnApp
+
+  Created by Vitor Cheung on 07/02/22.
+  
+*/
+
+"SKSpriteNode.TerminalShop.Label.LabelInfoUpgrades" = "Voce precisa demais\n%@ upgrade para\nliberar o proximo";
+
+//MARK: Enum codes
+"Phrases.Code0" = "CLICK PARA CODAR";
+"Phrases.Code1" = "DECLARANDO VARIAVEIS";
+"Phrases.Code2" = "CRIANDO FUNÇOES";
+"Phrases.Code3" = "CRIANDO LOOPS DE REPETIÇAO";
+"Phrases.Code4" = "TESTANDO APP";
+
+"SKSpriteNode.ScreenNode.ButtonOffice.Label" = "escritorio";
+"SKSpriteNode.ScreenNode.ButtonDocs.Label" = "Docs";
+"SKSpriteNode.ScreenNode.ButtonServer.Label" = "servidor";
+"SKSpriteNode.ScreenNode.ButtonTeam.Label" = "time";
+"SKSpriteNode.ScreenNode.ButtonUpgrades.Label" = "Upgrades";
+
+"TerminalDocs.Label.docs" = "Contrato";
+"TerminalDocs.Label.hire" = "Contratar";
+
+"points" = "PONTOS";
+"Earning" = "GANHOS";
+"Sell" = "Vender";
+"storeApp" = "ARMAZENAR APP";
+"days" = "Dias";
+"Power" = "Poder";
+"Rarity" = "Raridade";
+"YourPower" = "Seu poder era:";
+"buy" = "Comprar";
+
+//MARK: workertypes
+
+"coder" = "coder";
+"coder.description" = "Se seu time tiver 3\ncoders, seu poder sera\ndobrado";
+
+"designer" = "designer";
+"designer.description" = "Se seu time tiver 3\ndesigners, eles ganharam\n+10 poder";
+
+"host" = "host";
+"host.description" = "Se seu time tiver 3\nHost, seus pontos/sec\niram multiplicar por 8";
+
+"cat lovers" = "amantes de gatos";
+"cat lovers.description" = "Se seu time tiver 2\namantes de gatos, o\nvalor de seus apps vao\nser quadublicados";
+
+"siblings" = "irmaos";
+"siblings.description" = "Se seu time tiver 2\nirmaos, eles iram ganhar\n+3 poder para cada app\nno seu server";
+
+"musicians" = "musico";
+"musicians.description" = "Se seu time tiver 2\nmusicos, sua deadline\nira aumentar em 10 dias";
+
+"otaku" = "otaku";
+"otaku.description" = "Se seu time tiver 2\notaku, eles iram ganhar\n+2 poder para cada\nworker que voce tiver";
+
+"psychologist" = "psicologo";
+"psychologist.description" = "Se seu time tiver 2\npsicologos, eles iram\nganhar +10 de poder por\ncada host que voce tiver";
+
+"best" = "best";
+"best.description" = "Se seu time tiver 2 best\nEles iram ter seu level\ntriplicado";
+
+"we all are debs" = "todos somos debs";
+"we all are debs.description" = "Se voce tiver a debs no\ntime, ela ira fazer todo\nseu time ser designer";
+
+"cactus" = "cactos";
+"cactus.description" = "Se voce tiver a Karina no\ntime, ela ira aumentar\no level de todo o time\nigual ao level dela";
+
+"pro player" = "pro player";
+"pro player.description" = "Se voce tiver a Triz no\ntime, ela ira dobrar o\nbonus dos coders";
+
+//MARK: upgrade
+
+"Air Conditioner" = "Ar condicionado";
+"Air Conditioner.description" = "+1 dias para sua\ndeadLine";
+
+"Server" = "Server";
+"Server.description" = "+1 app para o server";
+
+"Upgrade PC" = "Upgrade PC";
+"Upgrade PC.description" = "+10 pontos/sec";
+
+"Coffe" = "Cafe";
+"Coffe.description" = "+1 pontos/sec para cada\nworker que voce possue";
+
+"Wifi" = "Wifi";
+"Wifi.description" = "+5 pontos/sec para\ncada app no server";
+
+"Drawing tablets" = "Mesa digitalizadora";
+"Drawing tablets.description" = "+8 poder para\ncada desinger";
+
+"new keyboard" = "novo teclado";
+"new keyboard.description" = "+10 poder para\ncada coder";
+
+"microfone" = "microfone";
+"microfone.description" = "+20 poder para\ntodos host";
+
+"Phone"="Celular";
+"Phone.description" = "+25 pontos/sec para\ncada worker de 4 estrelas";
+
+"Tablet" = "Tablet";
+"Tablet.description" = "+50 pontos/sec para\ncada worker de 5 estrelas";
+
+//MARK:Tutorial
+"Tutorial0" = "Ola, voce deve ser o\nnovo CEO!\nOtimo, meu nome é\njapa. Eu estou aqui para\najudar voce a comecar!\nPrimeira coisa, click o\nmaximo de vezes\npossiveis na tela para\nganhar pontos!";
+"Tutorial1" = "Execelente!!\nVoce desenvolveu seu\nprimeiro app! Agora\nclick em ARMAZENAR APP\npara aguardar seu app!";
+"Tutorial2" = "Boa!!\nAgora va nos\nservidores para ver\ncomo seus app estam.";
+"Tutorial3" = "Aqui voce pode ver\nquanto dinherio seus\napps estam fazendo e\nquantos apps voce pode\nguardar!\nVoce tambem pode\nvender app!\nTente vender um.";
+"Tutorial4" = "Boa!!\nUse esse dinheiro para\ncontratar um worker!\nva para a tab Docs";
+"Tutorial5" = "Aqui voce pode\ncontratar novos\nworkers, click no\ncontrato para contratar\num novo worker!";
+"Tutorial6" = "Boa!!\nVoce tem um\nnovo worker! Agora\nclick no time para\nadicionar ele no seu\ntime!";
+"Tutorial7" = "Aqui voce pode ver\nseus workers!\nMas antes de adicionar\num worker no time\nclick no botao de\ninformacoes para ver\nmais sobre esse\nworker.";
+"Tutorial8" = "Aqui voce pode ver o\npoder dos seus\nworkers: isso e os\npontos extras que voce\nira ganhar por click!\nEmbaixo disso, voce \npode ver o tipo do\nworker: Se seu time\ntiver workers suficiente\ndesse tipo, voce\nrecebera um bonus!";
+"Tutorial9" = "Agora click no worker\npara adicionar ele\nno time!";
+"Tutorial10" = "Boa, agora voce tem\num time!\nVoce ainda tem um\ndinherio extra vamos\ncomprar upgrades!\nclick em upgrades para\ncompras upgrades.";
+"Tutorial11" = "Aqui e o shop\nvoce pode comprar\nupgrades aqui!\ntente comprar um!";
+"Tutorial12" = "Okaay!\nVoce esta pronto!\nAgora voce pode\nTAP TO MAKE AN APP!";
+

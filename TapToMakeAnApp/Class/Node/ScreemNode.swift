@@ -59,11 +59,11 @@ public class ScreemNode: SKSpriteNode{
         self.addChild(topScreem)
         
         //MARK: button
-        let buttonOffice = ButtonTabBarNode(img: "officeIcon", name: "office")
-        let buttonTeam = ButtonTabBarNode(img: "teamIcon", name: "team")
-        let buttonDoc = ButtonTabBarNode(img: "docIcon", name: "docs")
-        let buttonServer = ButtonTabBarNode(img: "serverIcon", name: "server")
-        let buttonShop = ButtonTabBarNode(img: "Money", name: "shop")
+        let buttonOffice = ButtonTabBarNode(img: "officeIcon", name:NSLocalizedString("SKSpriteNode.ScreenNode.ButtonOffice.Label", comment: "name of the Label"))
+        let buttonTeam = ButtonTabBarNode(img: "teamIcon", name: NSLocalizedString("SKSpriteNode.ScreenNode.ButtonTeam.Label", comment: "name of the Label"))
+        let buttonDoc = ButtonTabBarNode(img: "docIcon", name: NSLocalizedString("SKSpriteNode.ScreenNode.ButtonDocs.Label", comment: "name of the Label"))
+        let buttonServer = ButtonTabBarNode(img: "serverIcon", name: NSLocalizedString("SKSpriteNode.ScreenNode.ButtonServer.Label", comment: "name of the Label"))
+        let buttonShop = ButtonTabBarNode(img: "Money", name: NSLocalizedString("SKSpriteNode.ScreenNode.ButtonUpgrades.Label", comment: "name of the Label"))
         
         buttonOffice.zPosition = 7
         buttonOffice.anchorPoint = CGPoint(x: 0, y: 0)

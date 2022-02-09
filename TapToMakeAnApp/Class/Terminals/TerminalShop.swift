@@ -53,7 +53,8 @@ public class TerminalShop: SKSpriteNode{
         labelInfo.fontName = "munro"
         labelInfo.numberOfLines = 0
         labelInfo.fontSize = 27
-        labelInfo.text = "You need more \(5-player.upgrades[totalLines-1].level)\n times to unlock\nthis upgrade"
+        let textInfo = NSLocalizedString("SKSpriteNode.TerminalShop.Label.LabelInfoUpgrades", comment: "information of how many upgrades is needed to unlock more upgrades")
+        labelInfo.text = String.localizedStringWithFormat(textInfo,String(5-player.upgrades[totalLines-1].level))
         labelInfo.horizontalAlignmentMode = .center
         labelInfo.position = CGPoint(x:0, y: -labelInfo.fontSize)
         borderInfo.addChild(labelInfo)
@@ -87,7 +88,7 @@ public class TerminalShop: SKSpriteNode{
         labelUpgrade.zPosition = 0
         labelUpgrade.fontName = "munro"
         labelUpgrade.fontSize = 23
-        labelUpgrade.text = "BUY: \(Int64.numRedable(num: upgrade.price))$"
+        labelUpgrade.text = NSLocalizedString("buy", comment: "")+": \(Int64.numRedable(num: upgrade.price))$"
         labelUpgrade.horizontalAlignmentMode = .center
         labelUpgrade.position = CGPoint(x:0, y: -63)
         borderUpgrade.addChild(labelUpgrade)
@@ -98,7 +99,7 @@ public class TerminalShop: SKSpriteNode{
         labelInfo.fontName = "munro"
         labelInfo.fontSize = 23
         labelInfo.numberOfLines = 0
-        labelInfo.text = upgrade.description
+        labelInfo.text = NSLocalizedString("\(upgrade.name).description", comment: "")
         labelInfo.horizontalAlignmentMode = .center
         labelInfo.position = CGPoint(x:0, y: -20)
         borderUpgrade.addChild(labelInfo)
@@ -109,7 +110,7 @@ public class TerminalShop: SKSpriteNode{
         labelTitle.fontName = "munro"
         labelTitle.fontSize = 30
         labelTitle.numberOfLines = 0
-        labelTitle.text = upgrade.name+":"
+        labelTitle.text = NSLocalizedString("\(upgrade.name)", comment: "")
         labelTitle.horizontalAlignmentMode = .left
         labelTitle.position = CGPoint(x:-borderUpgrade.size.width/2+10, y: borderUpgrade.size.height/2-45)
         borderUpgrade.addChild(labelTitle)

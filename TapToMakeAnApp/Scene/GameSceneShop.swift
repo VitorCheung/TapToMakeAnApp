@@ -59,22 +59,22 @@ class GameSceneShop: SKScene {
                 switch touchedNode.name{
                 case "rank":
                     vc.showGameLeaderBoard()
-                case "office":
+                case "officeIcon":
                     if player.didTutorial[12]{
                     player.setPlayerUserDefaults()
                     self.view?.presentScene( GameSceneOffice(vc: vc)  )
                     }
-                case "team":
+                case "teamIcon":
                     if player.didTutorial[12]{
                     player.setPlayerUserDefaults()
                     self.view?.presentScene( GameSceneTeam(vc: vc)  )
                     }
-                case "docs":
+                case "docIcon":
                     if player.didTutorial[12]{
                     player.setPlayerUserDefaults()
                     self.view?.presentScene( GameSceneDocs(vc: vc) )
                     }
-                case "server":
+                case "serverIcon":
                     if player.didTutorial[12]{
                     player.setPlayerUserDefaults()
                     self.view?.presentScene( GameSceneServe(vc: vc)  )
@@ -86,7 +86,7 @@ class GameSceneShop: SKScene {
                     buyUpgrade(index: upgrade.positionLibrary, CGPositon:positionInScene)
                     terminalNode.position.y = yPositon
                     if !player.didTutorial[12]{
-                        let tutorial = tutorialNode(text: "Okaay!\nYou are all set!\nNow you can\nTAP TO MAKE AN APP!")
+                        let tutorial = tutorialNode(text:  NSLocalizedString("Tutorial12", comment: ""))
                         addChild(tutorial)
                     }
                     player.setPlayerUserDefaults()
@@ -117,7 +117,7 @@ class GameSceneShop: SKScene {
     
     //MARK: Update
     override func update(_ currentTime: TimeInterval) {
-        deadLineLabel.text = "Dead line: \(timerDeadLine.shared.deadLine) days"
+        deadLineLabel.text = "Deadline: \(timerDeadLine.shared.deadLine) "+NSLocalizedString("days", comment: "")
         moneyLabel.text = "$\(Int64.numRedable(num: player.money))"
         
     }
@@ -140,7 +140,7 @@ class GameSceneShop: SKScene {
         //MARK: Labels
         
         if !player.didTutorial[11]{
-            let tutorial = tutorialNode(text: "This is the shop\nyou can buy upgrades\nhere!\ntry to buy one!")
+            let tutorial = tutorialNode(text:  NSLocalizedString("Tutorial11", comment: ""))
             addChild(tutorial)
         }
         
@@ -148,7 +148,6 @@ class GameSceneShop: SKScene {
         moneyLabel.zPosition = 10
         moneyLabel.fontName = "munro"
         moneyLabel.fontSize = 35
-        moneyLabel.text = "$\(player.money)"
         moneyLabel.horizontalAlignmentMode = .left
         moneyLabel.position = CGPoint(x:10, y: self.size.height-30)
         self.addChild(moneyLabel)
@@ -157,7 +156,6 @@ class GameSceneShop: SKScene {
         deadLineLabel.zPosition = 10
         deadLineLabel.fontName = "munro"
         deadLineLabel.fontSize = 30
-        deadLineLabel.text = "Dead line: 10 days"
         deadLineLabel.horizontalAlignmentMode = .left
         deadLineLabel.position = CGPoint(x:10, y: self.size.height-55)
         self.addChild(deadLineLabel)

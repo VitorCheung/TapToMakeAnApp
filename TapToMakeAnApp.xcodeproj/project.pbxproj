@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		06012DAA278E658B00964E0E /* Worker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06012DA9278E658B00964E0E /* Worker.swift */; };
-		06012DAC278E6CD200964E0E /* PhrasesCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06012DAB278E6CD200964E0E /* PhrasesCode.swift */; };
 		06012DB0278E721B00964E0E /* WorkerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06012DAF278E721B00964E0E /* WorkerNode.swift */; };
 		062F8615278CE702008785FF /* SpriteNode+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062F8614278CE702008785FF /* SpriteNode+Border.swift */; };
 		062F8618278CE972008785FF /* ColorPalete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062F8617278CE972008785FF /* ColorPalete.swift */; };
@@ -38,7 +37,6 @@
 		06809D90278CCFF600D3A03F /* WindowNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06809D8F278CCFF600D3A03F /* WindowNode.swift */; };
 		06809D93278CD29100D3A03F /* ButtonTabBarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06809D92278CD29100D3A03F /* ButtonTabBarNode.swift */; };
 		0686D84B2796120C007C3533 /* InfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0686D84A2796120C007C3533 /* InfoButton.swift */; };
-		0686D84D27972F85007C3533 /* WorkerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0686D84C27972F85007C3533 /* WorkerType.swift */; };
 		0686D84F279751B7007C3533 /* EnumWorkweType3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0686D84E279751B7007C3533 /* EnumWorkweType3.swift */; };
 		0686D8512798CD72007C3533 /* SKScene+RainMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0686D8502798CD72007C3533 /* SKScene+RainMoney.swift */; };
 		06E917B7279A0C6700DEA189 /* BoxNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E917B6279A0C6700DEA189 /* BoxNode.swift */; };
@@ -49,13 +47,13 @@
 		06E917CA279B562700DEA189 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E917C9279B562700DEA189 /* ModelData.swift */; };
 		06E917CD279B5AC800DEA189 /* worker.json in Resources */ = {isa = PBXBuildFile; fileRef = 06E917CC279B5AC800DEA189 /* worker.json */; };
 		06E917CF279B5B1D00DEA189 /* upgrades.json in Resources */ = {isa = PBXBuildFile; fileRef = 06E917CE279B5B1D00DEA189 /* upgrades.json */; };
-		06E917D1279B5B4500DEA189 /* workerType.json in Resources */ = {isa = PBXBuildFile; fileRef = 06E917D0279B5B4500DEA189 /* workerType.json */; };
 		06E917E327A080A900DEA189 /* ManegerGamerCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E917E227A080A900DEA189 /* ManegerGamerCenter.swift */; };
 		06E917E527A08E3300DEA189 /* RankButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E917E427A08E3300DEA189 /* RankButtonNode.swift */; };
 		06E917E927A0A51300DEA189 /* EnumWorkweType2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E917E827A0A51300DEA189 /* EnumWorkweType2.swift */; };
 		06E917EB27A1D74D00DEA189 /* munro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06E917EA27A1D74C00DEA189 /* munro.ttf */; };
 		06E917ED27A1E94400DEA189 /* tutorialNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E917EC27A1E94400DEA189 /* tutorialNode.swift */; };
 		06E917EF27A33E3300DEA189 /* Int+NumRedable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E917EE27A33E3300DEA189 /* Int+NumRedable.swift */; };
+		06F9DBF427B189F80035188C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06F9DBF627B189F80035188C /* Localizable.strings */; };
 		06FB660A27ADC76200CE12F1 /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06FB660927ADC76200CE12F1 /* Stickers.xcassets */; };
 		06FB660E27ADC76200CE12F1 /* TapToMakeAnAppStiker.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 06FB660727ADC76100CE12F1 /* TapToMakeAnAppStiker.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -86,7 +84,6 @@
 
 /* Begin PBXFileReference section */
 		06012DA9278E658B00964E0E /* Worker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Worker.swift; sourceTree = "<group>"; };
-		06012DAB278E6CD200964E0E /* PhrasesCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrasesCode.swift; sourceTree = "<group>"; };
 		06012DAF278E721B00964E0E /* WorkerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerNode.swift; sourceTree = "<group>"; };
 		062F8614278CE702008785FF /* SpriteNode+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpriteNode+Border.swift"; sourceTree = "<group>"; };
 		062F8617278CE972008785FF /* ColorPalete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalete.swift; sourceTree = "<group>"; };
@@ -117,7 +114,6 @@
 		06809D8F278CCFF600D3A03F /* WindowNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowNode.swift; sourceTree = "<group>"; };
 		06809D92278CD29100D3A03F /* ButtonTabBarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTabBarNode.swift; sourceTree = "<group>"; };
 		0686D84A2796120C007C3533 /* InfoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoButton.swift; sourceTree = "<group>"; };
-		0686D84C27972F85007C3533 /* WorkerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerType.swift; sourceTree = "<group>"; };
 		0686D84E279751B7007C3533 /* EnumWorkweType3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumWorkweType3.swift; sourceTree = "<group>"; };
 		0686D8502798CD72007C3533 /* SKScene+RainMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKScene+RainMoney.swift"; sourceTree = "<group>"; };
 		06E917B6279A0C6700DEA189 /* BoxNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxNode.swift; sourceTree = "<group>"; };
@@ -129,7 +125,6 @@
 		06E917C9279B562700DEA189 /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		06E917CC279B5AC800DEA189 /* worker.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = worker.json; sourceTree = "<group>"; };
 		06E917CE279B5B1D00DEA189 /* upgrades.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = upgrades.json; sourceTree = "<group>"; };
-		06E917D0279B5B4500DEA189 /* workerType.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = workerType.json; sourceTree = "<group>"; };
 		06E917DC279F6A7400DEA189 /* TapToMakeAnApp.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = TapToMakeAnApp.entitlements; sourceTree = "<group>"; };
 		06E917E0279F778E00DEA189 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		06E917E227A080A900DEA189 /* ManegerGamerCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManegerGamerCenter.swift; sourceTree = "<group>"; };
@@ -138,6 +133,10 @@
 		06E917EA27A1D74C00DEA189 /* munro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = munro.ttf; sourceTree = "<group>"; };
 		06E917EC27A1E94400DEA189 /* tutorialNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tutorialNode.swift; sourceTree = "<group>"; };
 		06E917EE27A33E3300DEA189 /* Int+NumRedable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+NumRedable.swift"; sourceTree = "<group>"; };
+		06F9DBF527B189F80035188C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		06F9DBF727B18A200035188C /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
+		06F9DBF827B18A200035188C /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		06F9DBF927B18A200035188C /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		06FB660727ADC76100CE12F1 /* TapToMakeAnAppStiker.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TapToMakeAnAppStiker.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		06FB660927ADC76200CE12F1 /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
 		06FB660B27ADC76200CE12F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -168,7 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				062F8617278CE972008785FF /* ColorPalete.swift */,
-				06012DAB278E6CD200964E0E /* PhrasesCode.swift */,
 				0686D84E279751B7007C3533 /* EnumWorkweType3.swift */,
 				06E917E827A0A51300DEA189 /* EnumWorkweType2.swift */,
 			);
@@ -230,7 +228,6 @@
 				06012DA9278E658B00964E0E /* Worker.swift */,
 				06E917BC279A14B300DEA189 /* Upgrade.swift */,
 				065B7C182790EDD5007E258B /* App.swift */,
-				0686D84C27972F85007C3533 /* WorkerType.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -238,6 +235,7 @@
 		06809D5927892C2D00D3A03F = {
 			isa = PBXGroup;
 			children = (
+				06F9DBF627B189F80035188C /* Localizable.strings */,
 				06809D6427892C2D00D3A03F /* TapToMakeAnApp */,
 				06FB660827ADC76100CE12F1 /* TapToMakeAnAppStiker */,
 				06809D6327892C2D00D3A03F /* Products */,
@@ -257,6 +255,7 @@
 		06809D6427892C2D00D3A03F /* TapToMakeAnApp */ = {
 			isa = PBXGroup;
 			children = (
+				06F9DBEA27B1892A0035188C /* Fonts */,
 				06E917E127A0809200DEA189 /* Game Center */,
 				06E917DC279F6A7400DEA189 /* TapToMakeAnApp.entitlements */,
 				06809D6527892C2D00D3A03F /* AppDelegate.swift */,
@@ -268,8 +267,6 @@
 				06809D6F27892C2D00D3A03F /* Main.storyboard */,
 				06809D7227892C2F00D3A03F /* Assets.xcassets */,
 				06809D7427892C2F00D3A03F /* LaunchScreen.storyboard */,
-				06809D87278CB90400D3A03F /* Pixel.ttf */,
-				06E917EA27A1D74C00DEA189 /* munro.ttf */,
 			);
 			path = TapToMakeAnApp;
 			sourceTree = "<group>";
@@ -305,7 +302,6 @@
 			children = (
 				06E917CC279B5AC800DEA189 /* worker.json */,
 				06E917CE279B5B1D00DEA189 /* upgrades.json */,
-				06E917D0279B5B4500DEA189 /* workerType.json */,
 			);
 			path = json;
 			sourceTree = "<group>";
@@ -316,6 +312,15 @@
 				06E917E227A080A900DEA189 /* ManegerGamerCenter.swift */,
 			);
 			path = "Game Center";
+			sourceTree = "<group>";
+		};
+		06F9DBEA27B1892A0035188C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				06E917EA27A1D74C00DEA189 /* munro.ttf */,
+				06809D87278CB90400D3A03F /* Pixel.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		06FB660827ADC76100CE12F1 /* TapToMakeAnAppStiker */ = {
@@ -389,6 +394,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 06809D5927892C2D00D3A03F;
 			productRefGroup = 06809D6327892C2D00D3A03F /* Products */;
@@ -410,8 +416,8 @@
 				06809D7327892C2F00D3A03F /* Assets.xcassets in Resources */,
 				06809D7627892C2F00D3A03F /* LaunchScreen.storyboard in Resources */,
 				06809D8A278CBC5200D3A03F /* Pixel.ttf in Resources */,
+				06F9DBF427B189F80035188C /* Localizable.strings in Resources */,
 				06E917CF279B5B1D00DEA189 /* upgrades.json in Resources */,
-				06E917D1279B5B4500DEA189 /* workerType.json in Resources */,
 				06E917EB27A1D74D00DEA189 /* munro.ttf in Resources */,
 				06E917CD279B5AC800DEA189 /* worker.json in Resources */,
 			);
@@ -432,7 +438,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06012DAC278E6CD200964E0E /* PhrasesCode.swift in Sources */,
 				06809D81278CAF8500D3A03F /* DeskNode.swift in Sources */,
 				065B7C1D2790F090007E258B /* TerminalServer.swift in Sources */,
 				06E917BD279A14B300DEA189 /* Upgrade.swift in Sources */,
@@ -446,7 +451,6 @@
 				065B7C212791E337007E258B /* SellAppNode.swift in Sources */,
 				062F8627278E0634008785FF /* timerDeadLine.swift in Sources */,
 				06E917E527A08E3300DEA189 /* RankButtonNode.swift in Sources */,
-				0686D84D27972F85007C3533 /* WorkerType.swift in Sources */,
 				0686D84B2796120C007C3533 /* InfoButton.swift in Sources */,
 				062F8620278D13D4008785FF /* CodeNode.swift in Sources */,
 				06809D93278CD29100D3A03F /* ButtonTabBarNode.swift in Sources */,
@@ -492,6 +496,7 @@
 			children = (
 				06809D7027892C2D00D3A03F /* Base */,
 				06E917E0279F778E00DEA189 /* en */,
+				06F9DBF727B18A200035188C /* pt-BR */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -500,8 +505,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				06809D7527892C2F00D3A03F /* Base */,
+				06F9DBF827B18A200035188C /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		06F9DBF627B189F80035188C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				06F9DBF527B189F80035188C /* en */,
+				06F9DBF927B18A200035188C /* pt-BR */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -511,6 +526,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -572,6 +588,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -630,7 +647,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TapToMakeAnApp/TapToMakeAnApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = NHY67K6358;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TapToMakeAnApp/Info.plist;
@@ -664,7 +681,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TapToMakeAnApp/TapToMakeAnApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = NHY67K6358;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TapToMakeAnApp/Info.plist;
@@ -696,7 +713,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = NHY67K6358;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TapToMakeAnAppStiker/Info.plist;
@@ -716,7 +733,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = NHY67K6358;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TapToMakeAnAppStiker/Info.plist;

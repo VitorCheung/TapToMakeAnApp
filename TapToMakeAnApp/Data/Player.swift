@@ -86,6 +86,12 @@ class Player: Codable{
                 if bonus2(workerType: EnumWorkweType2.Sinblings.rawValue){
                     clickPower += (power+3*apps.count)*(level)
                 }
+                if bonus2(workerType: EnumWorkweType2.Otaku.rawValue){
+                    clickPower += (workers.count+team.filter({ $0 == nil }).count)*(level)*2
+                }
+                if bonus2(workerType: EnumWorkweType2.Psychologist.rawValue){
+                    clickPower += 10*(workers.filter({ $0.workerType[0] == EnumWorkweType3.Host.rawValue }).count+team.filter({ $0?.workerType[0] == EnumWorkweType3.Host.rawValue }).count)*(level)
+                }
                 if bonus2(workerType: EnumWorkweType2.Best.rawValue){
                     clickPower += (power)*3*(level)
                 }else
@@ -93,10 +99,6 @@ class Player: Codable{
                     clickPower += power*(level)
                 }
             }
-        }
-        
-        if bonus2(workerType: EnumWorkweType2.Otaku.rawValue){
-            clickPower += workers.count+team.filter({ $0 == nil }).count
         }
         
         if bonus3(workerType: EnumWorkweType3.Coder.rawValue){
@@ -117,10 +119,10 @@ class Player: Codable{
         guard let upPhone = findUpgradeByName(name: "Phone") else { return 0 }
         guard let upTablet = findUpgradeByName(name: "Tablet") else { return 0 }
         
-        let ep = upPC.level + upCoffe.level*(workers.count+team.filter({ $0 == nil }).count) + 5*upWifi.level*apps.count + 25*upPhone.level*countRaraty(rarety: 4) + 50*upTablet.level*countRaraty(rarety: 5)
+        let ep = 10*upPC.level + upCoffe.level*(workers.count+team.filter({ $0 == nil }).count) + 5*upWifi.level*apps.count + 25*upPhone.level*countRaraty(rarety: 4) + 50*upTablet.level*countRaraty(rarety: 5)
         
         if bonus3(workerType: EnumWorkweType3.Host.rawValue){
-            return ep*2
+            return ep*8
         }
         
         return ep
@@ -197,7 +199,7 @@ class Player: Codable{
             let data = try encoder.encode(self)
 
             // Write/Set Data
-            UserDefaults.standard.set(data, forKey: "dataPlayer7")
+            UserDefaults.standard.set(data, forKey: "dataPlayer1")
 
         } catch {
             print("Unable to Encode Array of Notes (\(error))")
@@ -206,7 +208,7 @@ class Player: Codable{
     
     static func getPlayerUserDefaults()->Player{
         // Read/Get Data
-        if let data = UserDefaults.standard.data(forKey: "dataPlayer7") {
+        if let data = UserDefaults.standard.data(forKey: "dataPlayer1") {
             do {
                 // Create JSON Decoder
                 let decoder = JSONDecoder()

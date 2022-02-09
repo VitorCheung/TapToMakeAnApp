@@ -57,22 +57,22 @@ class GameSceneServe: SKScene {
                 switch touchedNode.name{
                 case "rank":
                     vc.showGameLeaderBoard()
-                case "office":
+                case "officeIcon":
                     if player.didTutorial[5]{
                     player.setPlayerUserDefaults()
                     self.view?.presentScene( GameSceneOffice(vc: vc)  )
                     }
-                case "team":
+                case "teamIcon":
                     if player.didTutorial[5]{
                     player.setPlayerUserDefaults()
                     self.view?.presentScene( GameSceneTeam(vc: vc)  )
                     }
-                case "docs":
+                case "docIcon":
                     if player.didTutorial[4]{
                     player.setPlayerUserDefaults()
                     self.view?.presentScene( GameSceneDocs(vc: vc)  )
                     }
-                case "shop":
+                case "Money":
                     if player.didTutorial[5]{
                     player.setPlayerUserDefaults()
                     self.view?.presentScene( GameSceneShop(vc: vc)  )
@@ -88,7 +88,7 @@ class GameSceneServe: SKScene {
                     }
                     terminalNode.position.y = yPositon
                         if !player.didTutorial[4]{
-                            let tutorial = tutorialNode(text: "Nice!!\nUse this money to\ncontract a worker!\nGo to Docs tab")
+                            let tutorial = tutorialNode(text:  NSLocalizedString("Tutorial4", comment: ""))
                             addChild(tutorial)
                         }
                     player.setPlayerUserDefaults()
@@ -120,7 +120,7 @@ class GameSceneServe: SKScene {
     
     //MARK: Update
     override func update(_ currentTime: TimeInterval) {
-        deadLineLabel.text = "Dead line: \(timerDeadLine.shared.deadLine) days"
+        deadLineLabel.text = "Deadline: \(timerDeadLine.shared.deadLine) "+NSLocalizedString("days", comment: "")
         moneyLabel.text = "$\(Int64.numRedable(num: player.money))"
         
     }
@@ -143,7 +143,7 @@ class GameSceneServe: SKScene {
         removeAllChildren()
 
         if !player.didTutorial[3]{
-            let tutorial = tutorialNode(text: "Here you can see how\nmuch money yours apps\nare making and how\nmany apps you can\nstore!\nYou can sell apps here\ntoo! Try to sell one")
+            let tutorial = tutorialNode(text: NSLocalizedString("Tutorial3", comment: ""))
             addChild(tutorial)
         }
         //MARK: Labels
@@ -152,7 +152,6 @@ class GameSceneServe: SKScene {
         moneyLabel.zPosition = 10
         moneyLabel.fontName = "munro"
         moneyLabel.fontSize = 35
-        moneyLabel.text = "$\(player.money)"
         moneyLabel.horizontalAlignmentMode = .left
         moneyLabel.position = CGPoint(x:10, y: self.size.height-30)
         self.addChild(moneyLabel)
@@ -161,7 +160,6 @@ class GameSceneServe: SKScene {
         deadLineLabel.zPosition = 10
         deadLineLabel.fontName = "munro"
         deadLineLabel.fontSize = 30
-        deadLineLabel.text = "Dead line: 10 days"
         deadLineLabel.horizontalAlignmentMode = .left
         deadLineLabel.position = CGPoint(x:10, y: self.size.height-55)
         self.addChild(deadLineLabel)
@@ -184,7 +182,7 @@ class GameSceneServe: SKScene {
         painelLabel.fontName = "munro"
         painelLabel.fontSize = 30
         painelLabel.numberOfLines = 0
-        painelLabel.text = "Apps: \(player.apps.count)/\(player.serverSpace)\nEarning: \(Int64.numRedable(num: player.totalEarning()))$/Day"
+        painelLabel.text = "Apps: \(player.apps.count)/\(player.serverSpace)\n"+NSLocalizedString("Earning", comment: "")+": \(Int64.numRedable(num: player.totalEarning()))$/"+NSLocalizedString("days", comment: "")
         painelLabel.horizontalAlignmentMode = .center
         painelLabel.position = CGPoint(x:0, y: -30)
         boarderPainel.addChild(painelLabel)

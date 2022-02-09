@@ -1,0 +1,121 @@
+/* 
+  Localizable.strings
+  TapToMakeAnApp
+
+  Created by Vitor Cheung on 07/02/22.
+  
+*/
+
+"SKSpriteNode.TerminalShop.Label.LabelInfoUpgrades" = "You need more %@\n times to unlock\nthis upgrade";
+
+//MARK: Enum codes
+"Phrases.Code0" = "TAP TO CODE";
+"Phrases.Code1" = "DECLARING VARIABELS";
+"Phrases.Code2" = "CREATING FUNCTIONS";
+"Phrases.Code3" = "MAKING THE LOOP";
+"Phrases.Code4" = "TESTING THE APP";
+
+
+"SKSpriteNode.ScreenNode.ButtonOffice.Label" = "office";
+"SKSpriteNode.ScreenNode.ButtonDocs.Label" = "Docs";
+"SKSpriteNode.ScreenNode.ButtonServer.Label" = "server";
+"SKSpriteNode.ScreenNode.ButtonTeam.Label" = "team";
+"SKSpriteNode.ScreenNode.ButtonUpgrades.Label" = "Upgrades";
+
+"TerminalDocs.Label.docs" = "Contract";
+"TerminalDocs.Label.hire" = "HIRE";
+
+"points" = "POINTS";
+"Earning" = "EANING";
+"Sell" = "SELL";
+"storeApp" = "STORE APP";
+"days" = "Days";
+"buy" = "BUY";
+"Power" = "Power";
+"Rarity" = "Rarity";
+"YourPower" = "Your power was: ";
+
+//MARK: workertypes
+
+"coder" = "coder";
+"coder.description" = "If your team have 3\ncoders, your power will\nbe double";
+
+"designer" = "designer";
+"designer.description" = "If your team have 3\ndesigners, they gain\n+10 power";
+
+"host" = "host";
+"host.description" = "If your team have 3\nHost, your points/sec\nwill be 8 times bigger";
+
+"cat lovers" = "cat lovers";
+"cat lovers.description" = "If your team have 2 cat\nlovers, the value of your\napps will be quadruple";
+
+"siblings" = "siblings";
+"siblings.description" = "If your team have 2\nsiblings, they gain 3\npower for each app store";
+
+"musicians" = "musicians";
+"musicians.description" = "If your team have 2\nmusicians, your deadline\nwill incrise 10";
+
+"otaku" = "otaku";
+"otaku.description" = "If your team have 2\notaku, your power will\nincrise 2 for each worker\nthat you have";
+
+"psychologist" = "psychologist";
+"psychologist.description" = "If your team have 2\npsychologist, they gain\n10 power for each host\nthat you have";
+
+"best" = "best";
+"best.description" = "If you have 2 best on\nyour team, they will\ntriple their level";
+
+"we all are debs" = "we all are debs";
+"we all are debs.description" = "If you have debs on your\nteam, she will make\nall your tem designer";
+
+"cactus" = "cactus";
+"cactus.description" = "If you have Karina\non your team, she will\nincrise the level of your\nteam equal to her level";
+
+"pro player" = "pro player";
+"pro player.description" = "If you have Triz on your\nteam, she will double the\neffect of the coder bonus";
+
+//MARK: upgrade
+
+"Air Conditioner" = "Air Conditioner";
+"Air Conditioner.description" = "+1 day to your\ndeadLine";
+
+"Server" = "Server";
+"Server.description" = "+1 app to store";
+
+"Upgrade PC" = "Upgrade PC";
+"Upgrade PC.description" = "+10 point/sec";
+
+"Coffe" = "Coffe";
+"Coffe.description" = "+1 point/sec for every\nworker that you have";
+
+"Wifi" = "Wifi";
+"Wifi.description" = "+5 points/sec for\neach app store";
+
+"Drawing tablets" = "Drawing tablets";
+"Drawing tablets.description" = "+8 power for\nevery desinger";
+
+"new keyboard" = "new keyboard";
+"new keyboard.description" = "+10 power for\nevery coder";
+
+"microfone" = "microfone";
+"microfone.description" = "+20 power for\nevery host";
+
+"Phone" = "Phone";
+"Phone.description" = "+25 points/sec for\nevery 4 star worker";
+
+"Tablet" = "Tablet";
+"Tablet.description" = "+50 points/sec for\nevery 5 star worker";
+
+//MARK:Tutorial
+"Tutorial0" = "Hello, you must be the\nnew CEO!\nGreat, my name is japa\nI am here to help you\nget started!\nFirst thing, tap as much\nas you can on the\nscreem to gain points!";
+"Tutorial1" = "Excellent!!\nYou have developed your\nfirst app! Now tap on\nSTORE APP to store the \napp!";
+"Tutorial2" = "Nice!!\nNow go to the servers\nto see how your app\nis doing.";
+"Tutorial3" = "Here you can see how\nmuch money yours apps\nare making and how\nmany apps you can\nstore!\nYou can sell apps here\ntoo! Try to sell one";
+"Tutorial4" = "Nice!!\nUse this money to\ncontract a worker!\nGo to Docs tab";
+"Tutorial5" = "Here you can contract\nnew workers, click on\ncontrart to hire\na new worker!";
+"Tutorial6" = "Nice!!\nYou have a new\nworker! Now click on\nteam to add this\nworker to your team!";
+"Tutorial7" = "Here you can see your\nworkers that you have!\nBefore you add this\nworker to your team\nclick on info button\nto now more about\nyour worker";
+"Tutorial8" = "Here you can see the\npower of your worker:\nthis is how much extra\npoints you will  gain\nfor your click! Below\nthis, you can see the\ntype of your worker: if\nyour team has enough\nworkers of the same \ntype, it will receive\na bonus!";
+"Tutorial9" = "Now click on the\nworker to add him to\nyour team!";
+"Tutorial10" = "Nice, now you have a\nteam!\nYou have some extra,\nlet's buys some\nupgrades!\ntap on shop to buy\nupgrades.";
+"Tutorial11" = "This is the shop\nyou can buy upgrades\nhere!\ntry to buy one!";
+"Tutorial12" = "Okaay!\nYou are all set!\nNow you can\nTAP TO MAKE AN APP!";

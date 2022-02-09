@@ -64,22 +64,22 @@ class GameSceneDocs: SKScene {
         switch touchedNode.name{
         case "rank":
             vc.showGameLeaderBoard()
-        case "office":
+        case "officeIcon":
             if player.didTutorial[7]{
             player.setPlayerUserDefaults()
             self.view?.presentScene( GameSceneOffice(vc: vc)  )
             }
-        case "team":
+        case "teamIcon":
             if player.didTutorial[6]{
                 player.setPlayerUserDefaults()
                 self.view?.presentScene( GameSceneTeam(vc: vc)  )
             }
-        case "shop":
+        case "Money":
             if player.didTutorial[7]{
             player.setPlayerUserDefaults()
             self.view?.presentScene( GameSceneShop(vc: vc)  )
             }
-        case "server":
+        case "serverIcon":
             if player.didTutorial[7]{
             player.setPlayerUserDefaults()
             self.view?.presentScene( GameSceneServe(vc: vc)  )
@@ -147,7 +147,7 @@ class GameSceneDocs: SKScene {
     
     //MARK: Update
     override func update(_ currentTime: TimeInterval) {
-        deadLineLabel.text = "Dead line: \(timerDeadLine.shared.deadLine) days"
+        deadLineLabel.text = "Deadline: \(timerDeadLine.shared.deadLine) "+NSLocalizedString("days", comment: "")
         moneyLabel.text = "$\(Int64.numRedable(num:player.money))"
         if activeAnimationBuy{
             animationBuy(worker: workerWon)
@@ -164,7 +164,7 @@ class GameSceneDocs: SKScene {
         self.removeAllChildren()
         
         if !player.didTutorial[5]{
-            let tutorial = tutorialNode(text: "Here you can contract\nnew workers, click on\ncontrart to hire\na new worker!")
+            let tutorial = tutorialNode(text:  NSLocalizedString("Tutorial5", comment: ""))
             addChild(tutorial)
         }
         
@@ -172,7 +172,6 @@ class GameSceneDocs: SKScene {
         moneyLabel.zPosition = 10
         moneyLabel.fontName = "munro"
         moneyLabel.fontSize = 35
-        moneyLabel.text = "$\(player.money)"
         moneyLabel.horizontalAlignmentMode = .left
         moneyLabel.position = CGPoint(x:10, y: self.size.height-30)
         self.addChild(moneyLabel)
@@ -181,7 +180,6 @@ class GameSceneDocs: SKScene {
         deadLineLabel.zPosition = 10
         deadLineLabel.fontName = "munro"
         deadLineLabel.fontSize = 30
-        deadLineLabel.text = "Dead line: 10 days"
         deadLineLabel.horizontalAlignmentMode = .left
         deadLineLabel.position = CGPoint(x:10, y: self.size.height-55)
         self.addChild(deadLineLabel)
@@ -266,7 +264,7 @@ class GameSceneDocs: SKScene {
             else{
                 winAnimation()
                 if !player.didTutorial[6]{
-                    let tutorial = tutorialNode(text: "Nice!!\nYou have a new\nworker! Now click on\nteam to add this\nworker to your team!")
+                    let tutorial = tutorialNode(text:  NSLocalizedString("Tutorial6", comment: ""))
                     addChild(tutorial)
                 }
                 isFirstAnimationDone = false

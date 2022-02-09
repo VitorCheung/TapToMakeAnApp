@@ -52,7 +52,7 @@ public class TerminalTeam: SKSpriteNode{
         rarityLabel.fontName = "munro"
         rarityLabel.zPosition = 1
         rarityLabel.fontSize = 27
-        rarityLabel.text = "RARITY: "
+        rarityLabel.text = NSLocalizedString("Rarity", comment: "")+": "
         rarityLabel.horizontalAlignmentMode = .left
         rarityLabel.position = CGPoint(x: self.size.width/2-75, y: self.size.height-60)
         self.addChild(rarityLabel)
@@ -66,7 +66,7 @@ public class TerminalTeam: SKSpriteNode{
         powerLabel.fontName = "munro"
         powerLabel.zPosition = 1
         powerLabel.fontSize = 27
-        powerLabel.text = "POWER: \(w.power*w.level)/click"
+        powerLabel.text = NSLocalizedString("Power", comment: "")+": \(w.power*w.level)/click"
         powerLabel.horizontalAlignmentMode = .left
         powerLabel.position = CGPoint(x: self.size.width/2-75, y: self.size.height-90)
         self.addChild(powerLabel)
@@ -85,7 +85,7 @@ public class TerminalTeam: SKSpriteNode{
             type1Label.fontName = "munro"
             type1Label.zPosition = 1
             type1Label.fontSize = 23
-            type1Label.text = w.workerType[0]
+            type1Label.text = NSLocalizedString("\(w.workerType[0] ?? "")", comment: "")
             type1Label.horizontalAlignmentMode = .left
             type1Label.position = CGPoint(x: self.size.width/2-75, y: self.size.height-140)
             self.addChild(type1Label)
@@ -96,7 +96,7 @@ public class TerminalTeam: SKSpriteNode{
             type1DescriptionLabel.zPosition = 1
             type1DescriptionLabel.fontSize = 23
             type1DescriptionLabel.numberOfLines = 0
-            type1DescriptionLabel.text = WorkerType.getDescription(name: w.workerType[0] ?? "")
+            type1DescriptionLabel.text = NSLocalizedString("\(w.workerType[0] ?? "").description", comment: "") 
             type1DescriptionLabel.horizontalAlignmentMode = .left
             type1DescriptionLabel.position = CGPoint(x: self.size.width/2-75, y: self.size.height-230)
             self.addChild(type1DescriptionLabel)
@@ -109,7 +109,7 @@ public class TerminalTeam: SKSpriteNode{
             type2Label.zPosition = 1
             type2Label.numberOfLines = 0
             type2Label.fontSize = 23
-            type2Label.text = w.workerType[1]
+            type2Label.text = NSLocalizedString("\(w.workerType[1] ?? "")", comment: "")
             type2Label.horizontalAlignmentMode = .left
             type2Label.position = CGPoint(x: self.size.width/2-75, y: self.size.height-280)
             self.addChild(type2Label)
@@ -127,7 +127,7 @@ public class TerminalTeam: SKSpriteNode{
             type2DescriptionLabel.zPosition = 1
             type2DescriptionLabel.numberOfLines = 0
             type2DescriptionLabel.fontSize = 23
-            type2DescriptionLabel.text = WorkerType.getDescription(name: w.workerType[1] ?? "")
+            type2DescriptionLabel.text = NSLocalizedString("\(w.workerType[1] ?? "").description", comment: "")
             type2DescriptionLabel.horizontalAlignmentMode = .left
             guard let numbersOfWords = type2DescriptionLabel.text?.count else { return }
             let numberOfLines: Double = Double(numbersOfWords)/19
